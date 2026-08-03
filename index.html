@@ -1,162 +1,237 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Uptop Mobile Wireframe</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-
-  <div class="app-container">
-    <header class="header">
-      <div class="brand-logo">Uptop</div>
-      <div class="search-container">
-        <input type="text" class="search-input" placeholder="Search...">
-        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Uptop Mobile Wireframe</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <div class="top-contact-bar">
+        <a class="contact-item contact-whatsapp" href="https://wa.me/0115369156">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span>WhatsApp Us</span>
+        </a>
+        <a class="contact-item contact-call" href="tel:0115369156">
+          <i class="fa-solid fa-phone"></i>
+          <span>Call Now</span>
+        </a>
       </div>
-      <button class="menu-btn" aria-label="Open menu">
-        <i class="fa-solid fa-bars"></i>
-      </button>
-    </header>
 
-    <nav class="pills-nav">
-      <button class="pill-item active">Laptops</button>
-      <button class="pill-item">Accessories</button>
-      <button class="pill-item">Services</button>
-      <button class="pill-item">Desktops</button>
-    </nav>
-
-    <section class="carousel-container" id="carousel">
-      <button class="carousel-arrow prev" id="prevBtn" aria-label="Previous Slide">
-        <i class="fa-solid fa-chevron-left"></i>
-      </button>
-
-      <div class="carousel-track" id="carouselTrack">
-        <div class="carousel-slide">
-          <h2 class="carousel-title">Featured Product</h2>
-          <p class="carousel-subtitle">Short promotional details here</p>
-          <button class="btn-primary">Buy Now</button>
+      <header class="header">
+        <div class="brand-logo">UPTOP</div>
+        <div class="search-container">
+          <input type="text" class="search-input" placeholder="Search laptops..." />
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
         </div>
-        <div class="carousel-slide">
-          <h2 class="carousel-title">Pro Accessories</h2>
-          <p class="carousel-subtitle">Up to 30% off tech gear</p>
-          <button class="btn-primary">Explore Deals</button>
+        <a class="cart-btn" href="#">
+          <i class="fa-solid fa-shopping-cart"></i>
+          <span class="cart-count">2</span>
+        </a>
+      </header>
+
+      <nav class="pills-nav">
+        <button class="pill-item active">Laptops</button>
+        <button class="pill-item">Accessories</button>
+        <button class="pill-item">Services</button>
+        <button class="pill-item">Desktops</button>
+      </nav>
+
+      <section class="carousel-container" id="carousel">
+        <button
+          class="carousel-arrow prev"
+          id="prevBtn"
+          aria-label="Previous Slide"
+        >
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <div class="carousel-track" id="carouselTrack">
+          <div class="carousel-slide">
+            <h2 class="carousel-title">Featured Product</h2>
+            <p class="carousel-subtitle">Short promotional details here</p>
+            <button class="btn-primary">Buy Now</button>
+          </div>
+          <div class="carousel-slide">
+            <h2 class="carousel-title">Pro Accessories</h2>
+            <p class="carousel-subtitle">Up to 30% off tech gear</p>
+            <button class="btn-primary">Explore Deals</button>
+          </div>
+          <div class="carousel-slide">
+            <h2 class="carousel-title">New Arrivals</h2>
+            <p class="carousel-subtitle">Discover high-performance laptops</p>
+            <button class="btn-primary">Shop Collection</button>
+          </div>
         </div>
-        <div class="carousel-slide">
-          <h2 class="carousel-title">New Arrivals</h2>
-          <p class="carousel-subtitle">Discover high-performance laptops</p>
-          <button class="btn-primary">Shop Collection</button>
+
+        <button
+          class="carousel-arrow next"
+          id="nextBtn"
+          aria-label="Next Slide"
+        >
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <div class="carousel-dots" id="carouselDots">
+          <span class="dot active" data-slide="0"></span>
+          <span class="dot" data-slide="1"></span>
+          <span class="dot" data-slide="2"></span>
         </div>
-      </div>
+      </section>
 
-      <button class="carousel-arrow next" id="nextBtn" aria-label="Next Slide">
-        <i class="fa-solid fa-chevron-right"></i>
-      </button>
+      <section class="categories-section">
+        <div class="section-header">
+          <h3 class="section-title">Shop by Category</h3>
+          <a href="#" class="view-all">View All</a>
+        </div>
 
-      <div class="carousel-dots" id="carouselDots">
-        <span class="dot active" data-slide="0"></span>
-        <span class="dot" data-slide="1"></span>
-        <span class="dot" data-slide="2"></span>
-      </div>
-    </section>
-
-    <section class="categories-section">
-      <div class="section-header">
-        <h3 class="section-title">Shop by Category</h3>
-        <a href="#" class="view-all">View All</a>
-      </div>
-
-      <div class="categories-grid">
-        <a href="#" class="category-card">
-          <div class="icon-wrapper"><i class="fa-solid fa-laptop"></i></div>
-          <span class="category-label">Laptops</span>
-        </a>
-        <a href="#" class="category-card">
-          <div class="icon-wrapper"><i class="fa-solid fa-gamepad"></i></div>
-          <span class="category-label">Gaming</span>
-        </a>
-        <a href="#" class="category-card">
-          <div class="icon-wrapper"><i class="fa-solid fa-plug"></i></div>
-          <span class="category-label">Chargers</span>
-        </a>
-        <a href="#" class="category-card">
-          <div class="icon-wrapper"><i class="fa-solid fa-compact-disc"></i></div>
-          <span class="category-label">Software</span>
-        </a>
-      </div>
-    </section>
-
-    <section class="featured-section">
-      <div class="section-header">
-        <h3 class="section-title">Featured List</h3>
-      </div>
-      <div class="featured-grid">
-        <article class="product-card">
-          <div class="card-media">
-            <img src="https://via.placeholder.com/420x300.png?text=Laptop+1" alt="Laptop 1">
-          </div>
-          <div class="card-body">
-            <h4 class="product-name">UltraBook Pro 14</h4>
-            <div class="product-price">$1,199</div>
-            <p class="product-details">Lightweight, 16GB RAM, 512GB SSD, 11th Gen CPU.</p>
-            <div class="product-meta">
-              <div class="rating">★★★★☆ <span class="rating-count">(234)</span></div>
-              <a class="btn-primary buy-btn" href="https://wa.me/?text=I%27m%20interested%20in%20UltraBook%20Pro%2014" target="_blank">Order via WhatsApp</a>
+        <div class="categories-grid">
+          <a href="#" class="category-card">
+            <div class="icon-wrapper"><i class="fa-solid fa-laptop"></i></div>
+            <span class="category-label">Laptops</span>
+          </a>
+          <a href="#" class="category-card">
+            <div class="icon-wrapper"><i class="fa-solid fa-gamepad"></i></div>
+            <span class="category-label">Gaming</span>
+          </a>
+          <a href="#" class="category-card">
+            <div class="icon-wrapper"><i class="fa-solid fa-plug"></i></div>
+            <span class="category-label">Chargers</span>
+          </a>
+          <a href="#" class="category-card">
+            <div class="icon-wrapper">
+              <i class="fa-solid fa-compact-disc"></i>
             </div>
-          </div>
-        </article>
+            <span class="category-label">Software</span>
+          </a>
+        </div>
+      </section>
 
-        <article class="product-card">
-          <div class="card-media">
-            <img src="https://via.placeholder.com/420x300.png?text=Accessories" alt="Accessories">
-          </div>
-          <div class="card-body">
-            <h4 class="product-name">Gaming Headset X3</h4>
-            <div class="product-price">$89</div>
-            <p class="product-details">Surround sound, noise-cancelling mic, RGB lighting.</p>
-            <div class="product-meta">
-              <div class="rating">★★★★☆ <span class="rating-count">(98)</span></div>
-              <a class="btn-primary buy-btn" href="https://wa.me/?text=I%27m%20interested%20in%20Gaming%20Headset%20X3" target="_blank">Order via WhatsApp</a>
+      <section class="featured-section">
+        <div class="section-header">
+          <h3 class="section-title">Featured List</h3>
+        </div>
+        <div class="featured-grid">
+          <article class="product-card">
+            <div class="card-media">
+              <img
+                src="https://via.placeholder.com/420x300.png?text=Laptop+1"
+                alt="Laptop 1"
+              />
             </div>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <div class="card-media">
-            <img src="https://via.placeholder.com/420x300.png?text=Charger" alt="Charger">
-          </div>
-          <div class="card-body">
-            <h4 class="product-name">FastCharge 65W</h4>
-            <div class="product-price">$29</div>
-            <p class="product-details">USB-C PD fast charger compatible with laptops and phones.</p>
-            <div class="product-meta">
-              <div class="rating">★★★☆☆ <span class="rating-count">(45)</span></div>
-              <a class="btn-primary buy-btn" href="https://wa.me/?text=I%27m%20interested%20in%20FastCharge%2065W" target="_blank">Order via WhatsApp</a>
+            <div class="card-body">
+              <h4 class="product-name">UltraBook Pro 14</h4>
+              <div class="product-price">$1,199</div>
+              <p class="product-details">
+                Lightweight, 16GB RAM, 512GB SSD, 11th Gen CPU.
+              </p>
+              <div class="product-meta">
+                <div class="rating">
+                  ★★★★☆ <span class="rating-count">(234)</span>
+                </div>
+                <a
+                  class="btn-primary buy-btn"
+                  href="https://wa.me/?text=I%27m%20interested%20in%20UltraBook%20Pro%2014"
+                  target="_blank"
+                  >Order via WhatsApp</a
+                >
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
 
-        <article class="product-card">
-          <div class="card-media">
-            <img src="https://via.placeholder.com/420x300.png?text=Software" alt="Software">
-          </div>
-          <div class="card-body">
-            <h4 class="product-name">Pro Suite License</h4>
-            <div class="product-price">$49</div>
-            <p class="product-details">Full productivity suite with 1-year updates and support.</p>
-            <div class="product-meta">
-              <div class="rating">★★★★★ <span class="rating-count">(512)</span></div>
-              <a class="btn-primary buy-btn" href="https://wa.me/?text=I%27m%20interested%20in%20Pro%20Suite%20License" target="_blank">Order via WhatsApp</a>
+          <article class="product-card">
+            <div class="card-media">
+              <img
+                src="https://via.placeholder.com/420x300.png?text=Accessories"
+                alt="Accessories"
+              />
             </div>
-          </div>
-        </article>
-      </div>
-    </section>
-  </div>
+            <div class="card-body">
+              <h4 class="product-name">Gaming Headset X3</h4>
+              <div class="product-price">$89</div>
+              <p class="product-details">
+                Surround sound, noise-cancelling mic, RGB lighting.
+              </p>
+              <div class="product-meta">
+                <div class="rating">
+                  ★★★★☆ <span class="rating-count">(98)</span>
+                </div>
+                <a
+                  class="btn-primary buy-btn"
+                  href="https://wa.me/?text=I%27m%20interested%20in%20Gaming%20Headset%20X3"
+                  target="_blank"
+                  >Order via WhatsApp</a
+                >
+              </div>
+            </div>
+          </article>
 
-  <script src="jss/java.js"></script>
-</body>
+          <article class="product-card">
+            <div class="card-media">
+              <img
+                src="https://via.placeholder.com/420x300.png?text=Charger"
+                alt="Charger"
+              />
+            </div>
+            <div class="card-body">
+              <h4 class="product-name">FastCharge 65W</h4>
+              <div class="product-price">$29</div>
+              <p class="product-details">
+                USB-C PD fast charger compatible with laptops and phones.
+              </p>
+              <div class="product-meta">
+                <div class="rating">
+                  ★★★☆☆ <span class="rating-count">(45)</span>
+                </div>
+                <a
+                  class="btn-primary buy-btn"
+                  href="https://wa.me/?text=I%27m%20interested%20in%20FastCharge%2065W"
+                  target="_blank"
+                  >Order via WhatsApp</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="card-media">
+              <img
+                src="https://via.placeholder.com/420x300.png?text=Software"
+                alt="Software"
+              />
+            </div>
+            <div class="card-body">
+              <h4 class="product-name">Pro Suite License</h4>
+              <div class="product-price">$49</div>
+              <p class="product-details">
+                Full productivity suite with 1-year updates and support.
+              </p>
+              <div class="product-meta">
+                <div class="rating">
+                  ★★★★★ <span class="rating-count">(512)</span>
+                </div>
+                <a
+                  class="btn-primary buy-btn"
+                  href="https://wa.me/?text=I%27m%20interested%20in%20Pro%20Suite%20License"
+                  target="_blank"
+                  >Order via WhatsApp</a
+                >
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <script src="jss/java.js"></script>
+  </body>
 </html>
