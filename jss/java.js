@@ -294,12 +294,98 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Filter Toggle Action
+  const brandFilter = document.getElementById('brandFilter');
+  const sortFilter = document.getElementById('sortFilter');
+  const timeFilter = document.getElementById('timeFilter');
+  const productsGridList = Array.from(document.querySelectorAll('.products-grid'));
+
+  const inferBrand = (title) => {
+    const map = [
+      { pattern: /apple/i, value: 'Apple' },
+      { pattern: /dell/i, value: 'Dell' },
+      { pattern: /lenovo/i, value: 'Lenovo' },
+      { pattern: /hp/i, value: 'HP' },
+      { pattern: /asus/i, value: 'Asus' },
+      { pattern: /samsung/i, value: 'Samsung' },
+      { pattern: /google/i, value: 'Google' },
+      { pattern: /acer/i, value: 'Acer' },
+      { pattern: /msi/i, value: 'MSI' },
+      { pattern: /microsoft|surface/i, value: 'Microsoft' },
+      { pattern: /razer/i, value: 'Razer' },
+      { pattern: /lg/i, value: 'LG' }
+    ];
+    const match = map.find((item) => item.pattern.test(title));
+    return match ? match.value : 'Other';
+  };
+
+  const parsePrice = (card) => {
+    const priceText = card.querySelector('.product-price')?.innerText || '';
+    return parseFloat(priceText.replace(/[^0-9.]/g, '')) || 0;
+  };
+
+  const cards = productsGridList.length
+    ? productsGridList.flatMap((grid) =>
+        Array.from(grid.querySelectorAll('.product-card')).map((card, index) => ({
+          element: card,
+          title: card.querySelector('.product-title')?.innerText.trim() || '',
+          brand: inferBrand(card.querySelector('.product-title')?.innerText || ''),
+          price: parsePrice(card),
+          originalIndex: index,
+          grid,
+        }))
+      )
+    : [];
+
+  const applyFilters = () => {
+    if (!productsGridList.length || !brandFilter || !sortFilter || !timeFilter) return;
+
+    const selectedBrand = brandFilter.value;
+    const selectedSort = sortFilter.value;
+    const selectedTime = timeFilter.value;
+
+    cards.forEach((card) => {
+      const isBrandMatch = selectedBrand === 'all' || card.brand === selectedBrand;
+      card.element.style.display = isBrandMatch ? '' : 'none';
+    });
+
+    const sortedCards = [...cards].filter((card) => card.element.style.display !== 'none');
+
+    sortedCards.sort((a, b) => {
+      if (selectedSort === 'price-low-high') {
+        const priceDiff = a.price - b.price;
+        if (priceDiff !== 0) return priceDiff;
+      }
+      if (selectedSort === 'price-high-low') {
+        const priceDiff = b.price - a.price;
+        if (priceDiff !== 0) return priceDiff;
+      }
+
+      if (selectedTime === 'new-to-old') {
+        return b.originalIndex - a.originalIndex;
+      }
+      if (selectedTime === 'old-to-new') {
+        return a.originalIndex - b.originalIndex;
+      }
+      return a.originalIndex - b.originalIndex;
+    });
+
+    productsGridList.forEach((grid) => {
+      const gridCards = sortedCards.filter((card) => card.grid === grid);
+      gridCards.forEach((card) => grid.appendChild(card.element));
+    });
+  };
+
   if (filterToggleBtn) {
     filterToggleBtn.addEventListener('click', () => {
-      alert('Filter sidebar toggle feature initialized.');
+      if (brandFilter) brandFilter.focus();
     });
   }
+
+  [brandFilter, sortFilter, timeFilter].forEach((select) => {
+    if (select) select.addEventListener('change', applyFilters);
+  });
+
+  applyFilters();
 
   // Dynamic Event handling for product cards
   const detailButtons = document.querySelectorAll('.btn-details');

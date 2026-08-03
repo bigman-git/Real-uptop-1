@@ -8,6 +8,10 @@
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 body {
     background-color: #f4f6f8;
     color: #1a202c;
@@ -16,13 +20,14 @@ body {
     align-items: flex-start;
     min-height: 100vh;
     padding: 20px 10px;
+    overflow-x: hidden;
 }
 
 /* Container to constrain mobile mockup while allowing responsive expansion */
 .app-container {
-    width: 100%;
+    width: min(100%, 480px);
     max-width: 480px;
-    /* Default desktop view fits standard mobile UI layout */
+    margin: 0 auto;
     background-color: #ffffff;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
@@ -174,9 +179,9 @@ body {
 .search-container {
     position: relative;
     /* make search box match image: fixed-ish width, pill shape centered */
-    flex: 0 0 320px;
-    max-width: 66%;
-    margin: 0 auto;
+    flex: 1 1 100%;
+    max-width: 100%;
+    min-width: 0;
 }
 
 .search-input {
@@ -719,12 +724,23 @@ body {
          }
     
          .brand-logo {
+             display: flex;
+             align-items: center;
+             gap: 0.75rem;
              font-size: 1.5rem;
              font-weight: 800;
              letter-spacing: -0.5px;
              color: #0f172a;
          }
-    
+
+         .logo-mark {
+             width: 32px;
+             height: 32px;
+             border-radius: 10px;
+             background-color: #0f172a;
+             flex-shrink: 0;
+         }
+
          .header-actions {
              display: flex;
              align-items: center;
@@ -744,12 +760,68 @@ body {
          .icon-btn:active {
              transform: scale(0.9);
          }
-    
+
+         .btn-home {
+             display: inline-flex;
+             align-items: center;
+             justify-content: center;
+             padding: 8px 12px;
+             border-radius: 999px;
+             border: 1px solid #cbd5e1;
+             background-color: #ffffff;
+             color: #0f172a;
+             font-size: 0.8125rem;
+             font-weight: 700;
+             text-decoration: none;
+             transition: background-color 0.2s ease, color 0.2s ease;
+         }
+
+         .btn-home:hover {
+             background-color: #0f172a;
+             color: #ffffff;
+         }
+
+         .product-specs {
+             width: 100%;
+             margin: 8px 0 10px;
+             font-size: 0.7rem;
+             color: #475569;
+             line-height: 1.4;
+             text-align: left;
+         }
+
+         .product-specs span {
+             display: block;
+         }
+
          /* ==========================================================================
        3. Title & Filter Options
        ========================================================================== */
          .catalog-header {
              margin-bottom: 18px;
+         }
+
+         .catalogue-section {
+             margin-top: 26px;
+         }
+
+         .catalog-title-wrap {
+             display: flex;
+             flex-direction: column;
+             gap: 6px;
+             margin-bottom: 14px;
+         }
+
+         .catalog-title {
+             font-size: 1.1rem;
+             font-weight: 700;
+             color: #0f172a;
+         }
+
+         .catalog-description {
+             font-size: 0.82rem;
+             color: #475569;
+             line-height: 1.55;
          }
     
          .page-title {
@@ -762,8 +834,13 @@ body {
              display: flex;
              flex-direction: column;
              gap: 10px;
+             width: 100%;
          }
-    
+
+         .filter-controls > * {
+             min-width: 0;
+         }
+
          .btn-filter {
              display: inline-flex;
              align-items: center;
@@ -778,23 +855,25 @@ body {
              cursor: pointer;
              transition: background 0.2s ease;
          }
-    
+
          .btn-filter:hover {
              background-color: #f8fafc;
          }
-    
+
          .dropdown-group {
              display: flex;
              gap: 6px;
              overflow-x: auto;
              scrollbar-width: none;
              padding-bottom: 2px;
+             min-width: 0;
+             flex-wrap: wrap;
          }
-    
+
          .dropdown-group::-webkit-scrollbar {
              display: none;
          }
-    
+
          .select-dropdown {
              appearance: none;
              background-color: #f1f5f9;
@@ -807,17 +886,36 @@ body {
              cursor: pointer;
              outline: none;
              white-space: nowrap;
+             min-width: 130px;
+             flex: 1 1 140px;
          }
-    
+
+         @media (max-width: 720px) {
+             .dropdown-group {
+                 flex-direction: column;
+                 align-items: stretch;
+             }
+
+             .select-dropdown {
+                 width: 100%;
+             }
+         }
+
+         @media (max-width: 560px) {
+             .products-grid {
+                 grid-template-columns: 1fr;
+             }
+         }
+
          /* ==========================================================================
        4. Products Grid (Mobile 2-Column Side-By-Side Layout)
        ========================================================================== */
          .products-grid {
              display: grid;
-             /* Exactly 2 cards per row on mobile */
-             grid-template-columns: repeat(2, 1fr);
+             grid-template-columns: repeat(2, minmax(0, 1fr));
              gap: 10px;
              margin-bottom: 24px;
+             width: 100%;
          }
     
          .product-card {
@@ -838,6 +936,7 @@ body {
              align-items: center;
              justify-content: center;
              margin-bottom: 8px;
+             min-width: 0;
          }
     
          .card-img-wrapper img {
@@ -855,6 +954,7 @@ body {
              overflow: hidden;
              text-overflow: ellipsis;
              width: 100%;
+             min-width: 0;
          }
     
          .product-price {
@@ -915,44 +1015,37 @@ body {
              }
     
              .products-grid {
-                 grid-template-columns: repeat(3, 1fr);
+                 grid-template-columns: repeat(3, minmax(0, 1fr));
                  /* Expands to 3 items per row */
                  gap: 16px;
              }
-    
+
              .card-img-wrapper {
                  height: 130px;
              }
-    
+
              .product-title {
                  font-size: 0.9375rem;
              }
-    
+
              .product-price {
                  font-size: 0.9375rem;
              }
-    
+
              .btn-details {
                  padding: 8px 0;
                  font-size: 0.8125rem;
              }
-    
+
              .filter-controls {
                  flex-direction: row;
                  align-items: center;
                  justify-content: space-between;
-             }
-         }
-    
-         /* Desktop Screens (min-width: 1024px) */
-         @media (min-width: 1024px) {
-             .app-container {
-                 max-width: 1050px;
-                 padding: 32px;
+                 gap: 12px;
              }
     
              .products-grid {
-                 grid-template-columns: repeat(4, 1fr);
+                 grid-template-columns: repeat(4, minmax(0, 1fr));
                  /* Expands to 4 items per row */
                  gap: 20px;
              }
