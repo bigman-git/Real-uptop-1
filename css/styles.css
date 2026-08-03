@@ -261,6 +261,49 @@ body {
     text-align: center;
 }
 
+@media (max-width: 420px) {
+    .categories-grid {
+        gap: 14px;
+        padding: 8px 0;
+    }
+
+    .category-card {
+        width: 70px;
+        gap: 6px;
+    }
+
+    .icon-wrapper {
+        width: 52px;
+        height: 52px;
+        font-size: 1.05rem;
+    }
+
+    .category-label {
+        font-size: 0.68rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .categories-grid {
+        gap: 10px;
+    }
+
+    .category-card {
+        width: 64px;
+        gap: 5px;
+    }
+
+    .icon-wrapper {
+        width: 48px;
+        height: 48px;
+        font-size: 1rem;
+    }
+
+    .category-label {
+        font-size: 0.65rem;
+    }
+}
+
 /* ==========================================================================
    3. Pills Navigation / Filter Tabs
    ========================================================================== */
@@ -382,4 +425,291 @@ body {
 
 .carousel-dots { position: absolute; left: 50%; transform: translateX(-50%); bottom: 12px; display: flex; gap: 8px; }
 .dot { width: 8px; height: 8px; background: #94a3b8; border-radius: 50%; display: inline-block; }
-.dot.active { width: 14px; background: #2563eb; border-radius: 6px; }
+.dot.active { width: 14px; background: #2563eb; border-radius:
+     6px; }
+         /* ==========================================================================
+       1. Base & Global Styles  this is for the laptops page
+       ========================================================================== */
+         * {
+             box-sizing: border-box;
+             margin: 0;
+             padding: 0;
+             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+         }
+    
+         body {
+             background-color: #f1f5f9;
+             color: #0f172a;
+             display: flex;
+             justify-content: center;
+             align-items: flex-start;
+             min-height: 100vh;
+             padding: 12px 6px;
+         }
+    
+         /* Outer layout wrapper */
+         .app-container {
+             width: 100%;
+             max-width: 480px;
+             /* Base container size for typical mobile view */
+             background-color: #ffffff;
+             border-radius: 28px;
+             box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+             padding: 18px 14px;
+             overflow: hidden;
+             transition: max-width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+         }
+    
+         /* ==========================================================================
+       2. Header & Action Navigation
+       ========================================================================== */
+         .header {
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
+             margin-bottom: 16px;
+         }
+    
+         .brand-logo {
+             font-size: 1.5rem;
+             font-weight: 800;
+             letter-spacing: -0.5px;
+             color: #0f172a;
+         }
+    
+         .header-actions {
+             display: flex;
+             align-items: center;
+             gap: 12px;
+         }
+    
+         .icon-btn {
+             background: none;
+             border: none;
+             font-size: 1.125rem;
+             color: #1e293b;
+             cursor: pointer;
+             padding: 4px;
+             transition: transform 0.15s ease;
+         }
+    
+         .icon-btn:active {
+             transform: scale(0.9);
+         }
+    
+         /* ==========================================================================
+       3. Title & Filter Options
+       ========================================================================== */
+         .catalog-header {
+             margin-bottom: 18px;
+         }
+    
+         .page-title {
+             font-size: 1.625rem;
+             font-weight: 800;
+             margin-bottom: 12px;
+         }
+    
+         .filter-controls {
+             display: flex;
+             flex-direction: column;
+             gap: 10px;
+         }
+    
+         .btn-filter {
+             display: inline-flex;
+             align-items: center;
+             gap: 6px;
+             align-self: flex-start;
+             padding: 6px 14px;
+             border: 1px solid #0f172a;
+             border-radius: 8px;
+             background-color: transparent;
+             font-size: 0.8125rem;
+             font-weight: 600;
+             cursor: pointer;
+             transition: background 0.2s ease;
+         }
+    
+         .btn-filter:hover {
+             background-color: #f8fafc;
+         }
+    
+         .dropdown-group {
+             display: flex;
+             gap: 6px;
+             overflow-x: auto;
+             scrollbar-width: none;
+             padding-bottom: 2px;
+         }
+    
+         .dropdown-group::-webkit-scrollbar {
+             display: none;
+         }
+    
+         .select-dropdown {
+             appearance: none;
+             background-color: #f1f5f9;
+             border: none;
+             border-radius: 12px;
+             padding: 6px 12px;
+             font-size: 0.75rem;
+             font-weight: 500;
+             color: #334155;
+             cursor: pointer;
+             outline: none;
+             white-space: nowrap;
+         }
+    
+         /* ==========================================================================
+       4. Products Grid (Mobile 2-Column Side-By-Side Layout)
+       ========================================================================== */
+         .products-grid {
+             display: grid;
+             /* Exactly 2 cards per row on mobile */
+             grid-template-columns: repeat(2, 1fr);
+             gap: 10px;
+             margin-bottom: 24px;
+         }
+    
+         .product-card {
+             background-color: #f8fafc;
+             border-radius: 16px;
+             padding: 10px;
+             display: flex;
+             flex-direction: column;
+             align-items: center;
+             text-align: center;
+             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+         }
+    
+         .card-img-wrapper {
+             width: 100%;
+             height: 95px;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             margin-bottom: 8px;
+         }
+    
+         .card-img-wrapper img {
+             max-width: 100%;
+             max-height: 100%;
+             object-fit: contain;
+         }
+    
+         .product-title {
+             font-size: 0.8125rem;
+             font-weight: 600;
+             color: #1e293b;
+             margin-bottom: 2px;
+             white-space: nowrap;
+             overflow: hidden;
+             text-overflow: ellipsis;
+             width: 100%;
+         }
+    
+         .product-price {
+             font-size: 0.8125rem;
+             font-weight: 700;
+             color: #0f172a;
+             margin-bottom: 8px;
+         }
+    
+         .btn-details {
+             width: 100%;
+             padding: 6px 0;
+             background-color: #ffffff;
+             border: 1px solid #1e293b;
+             border-radius: 6px;
+             font-size: 0.7125rem;
+             font-weight: 600;
+             color: #0f172a;
+             cursor: pointer;
+             transition: all 0.2s ease;
+         }
+    
+         .btn-details:hover {
+             background-color: #0f172a;
+             color: #ffffff;
+         }
+    
+         /* ==========================================================================
+       5. Scroll Top Control
+       ========================================================================== */
+         .scroll-top-wrapper {
+             display: flex;
+             flex-direction: column;
+             align-items: center;
+             gap: 4px;
+             padding-top: 8px;
+             font-size: 0.75rem;
+             color: #64748b;
+         }
+    
+         .scroll-top-btn {
+             background: none;
+             border: none;
+             font-size: 0.875rem;
+             color: #0f172a;
+             cursor: pointer;
+         }
+    
+         /* ==========================================================================
+       6. Media Queries for Responsiveness Across Larger Devices
+       ========================================================================== */
+    
+         /* Tablet Screens (min-width: 640px) */
+         @media (min-width: 640px) {
+             .app-container {
+                 max-width: 720px;
+                 padding: 24px;
+             }
+    
+             .products-grid {
+                 grid-template-columns: repeat(3, 1fr);
+                 /* Expands to 3 items per row */
+                 gap: 16px;
+             }
+    
+             .card-img-wrapper {
+                 height: 130px;
+             }
+    
+             .product-title {
+                 font-size: 0.9375rem;
+             }
+    
+             .product-price {
+                 font-size: 0.9375rem;
+             }
+    
+             .btn-details {
+                 padding: 8px 0;
+                 font-size: 0.8125rem;
+             }
+    
+             .filter-controls {
+                 flex-direction: row;
+                 align-items: center;
+                 justify-content: space-between;
+             }
+         }
+    
+         /* Desktop Screens (min-width: 1024px) */
+         @media (min-width: 1024px) {
+             .app-container {
+                 max-width: 1050px;
+                 padding: 32px;
+             }
+    
+             .products-grid {
+                 grid-template-columns: repeat(4, 1fr);
+                 /* Expands to 4 items per row */
+                 gap: 20px;
+             }
+    
+             .card-img-wrapper {
+                 height: 150px;
+             }
+         }

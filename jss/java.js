@@ -78,3 +78,38 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize Autoplay on page load
   startAutoSlide();
 });
+// ==========================================================================
+// Catalog Page Controls & Dynamic Interactions
+// ==========================================================================
+
+document.addEventListener('DOMContentLoaded', () => {
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
+  const filterToggleBtn = document.getElementById('filterToggleBtn');
+
+  // Smooth scroll back to top of page
+  if (scrollTopBtn) {
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+
+  // Filter Toggle Action
+  if (filterToggleBtn) {
+    filterToggleBtn.addEventListener('click', () => {
+      alert('Filter sidebar toggle feature initialized.');
+    });
+  }
+
+  // Dynamic Event handling for product cards
+  const detailButtons = document.querySelectorAll('.btn-details');
+  detailButtons.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      const card = e.target.closest('.product-card');
+      const title = card.querySelector('.product-title').innerText;
+      console.log(`Navigating to detail page for: ${title}`);
+    });
+  });
+});
