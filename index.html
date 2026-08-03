@@ -1,153 +1,117 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Uptop Mobile Wireframe</title>
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body>
-    <div class="phone-screen">
-      <!-- Header -->
-      <header>
-        <div class="logo">Uptop</div>
-        <div class="search-box">
-          <input type="text" placeholder="Search..." />
-          <span>🔍</span>
-        </div>
-        <div class="hamburger-menu">☰</div>
-      </header>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uptop Mobile Wireframe</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
 
-      <!-- Navigation / Filter Bar -->
-      <div class="category-bar">
-        <div class="tag">Laptops</div>
-        <div class="tag">Accessories</div>
-        <div class="tag">Services</div>
-        <div class="tag">Desktops</div>
+  <div class="app-container">
+    <header class="header">
+      <div class="brand-logo">Uptop</div>
+      <div class="search-container">
+        <input type="text" class="search-input" placeholder="Search...">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+      </div>
+      <button class="menu-btn" aria-label="Open menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </header>
+
+    <nav class="pills-nav">
+      <button class="pill-item active">Laptops</button>
+      <button class="pill-item">Accessories</button>
+      <button class="pill-item">Services</button>
+      <button class="pill-item">Desktops</button>
+    </nav>
+
+    <section class="carousel-container" id="carousel">
+      <button class="carousel-arrow prev" id="prevBtn" aria-label="Previous Slide">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+
+      <div class="carousel-track" id="carouselTrack">
+        <div class="carousel-slide">
+          <h2 class="carousel-title">Featured Product</h2>
+          <p class="carousel-subtitle">Short promotional details here</p>
+          <button class="btn-primary">Buy Now</button>
+        </div>
+        <div class="carousel-slide">
+          <h2 class="carousel-title">Pro Accessories</h2>
+          <p class="carousel-subtitle">Up to 30% off tech gear</p>
+          <button class="btn-primary">Explore Deals</button>
+        </div>
+        <div class="carousel-slide">
+          <h2 class="carousel-title">New Arrivals</h2>
+          <p class="carousel-subtitle">Discover high-performance laptops</p>
+          <button class="btn-primary">Shop Collection</button>
+        </div>
       </div>
 
-      <!-- Featured Banner Carousel -->
-      <section class="hero-carousel" aria-label="Featured products">
-        <button class="carousel-arrow arrow-left" aria-label="Previous slide">‹</button>
+      <button class="carousel-arrow next" id="nextBtn" aria-label="Next Slide">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
 
-        <div class="carousel-viewport">
-          <div class="carousel-track">
-            <article class="slide" data-whatsapp="I%27m%20interested%20in%20the%20Featured%20Product">
-              <div class="slide-text">
-                <div>
-                  <h3>Featured Product</h3>
-                </div>
+      <div class="carousel-dots" id="carouselDots">
+        <span class="dot active" data-slide="0"></span>
+        <span class="dot" data-slide="1"></span>
+        <span class="dot" data-slide="2"></span>
+      </div>
+    </section>
 
-                  <script src="jss/java.js"></script>
-                </body>
-                </div>
-                <a class="cta-btn" href="https://wa.me/?text=I%27m%20interested%20in%20the%20Featured%20Product" target="_blank" rel="noopener">Order via WhatsApp</a>
-              </div>
-              <div class="slide-image">
-                <img src="https://via.placeholder.com/360x240.png?text=Featured+Product" alt="Featured product image">
-              </div>
-            </article>
-
-            <article class="slide" data-whatsapp="I%27m%20interested%20in%20New%20Gaming%20Laptops">
-              <div class="slide-text">
-                <div>
-                  <h3>New Gaming Laptops</h3>
-                  <p>Up to 20% off high-performance gear</p>
-                </div>
-                <a class="cta-btn" href="https://wa.me/?text=I%27m%20interested%20in%20New%20Gaming%20Laptops" target="_blank" rel="noopener">Order via WhatsApp</a>
-              </div>
-              <div class="slide-image">
-                <img src="https://via.placeholder.com/360x240.png?text=Gaming+Laptops" alt="Gaming laptops">
-              </div>
-            </article>
-
-            <article class="slide" data-whatsapp="I%27m%20interested%20in%20Repair%20Services">
-              <div class="slide-text">
-                <div>
-                  <h3>Repair Services</h3>
-                  <p>Fast turnaround on all diagnostics</p>
-                </div>
-                <a class="cta-btn" href="https://wa.me/?text=I%27m%20interested%20in%20Repair%20Services" target="_blank" rel="noopener">Order via WhatsApp</a>
-              </div>
-              <div class="slide-image">
-                <img src="https://via.placeholder.com/360x240.png?text=Repair+Services" alt="Repair services">
-              </div>
-            </article>
-          </div>
-        </div>
-
-        <button class="carousel-arrow arrow-right" aria-label="Next slide">›</button>
-
-        <div class="carousel-dots" role="tablist" aria-label="Slide indicators">
-          <button class="dot" aria-label="Slide 1" aria-selected="true"></button>
-          <button class="dot" aria-label="Slide 2" aria-selected="false"></button>
-          <button class="dot" aria-label="Slide 3" aria-selected="false"></button>
-        </div>
-      </section>
-
-      <!-- Shop by Category -->
+    <section class="categories-section">
       <div class="section-header">
-        <h4>Shop by Category</h4>
+        <h3 class="section-title">Shop by Category</h3>
         <a href="#" class="view-all">View All</a>
       </div>
 
-      <div class="category-grid">
-        <div class="cat-item">
-          <div class="cat-icon">💻</div>
-          <span>Laptops</span>
-        </div>
-        <div class="cat-item">
-          <div class="cat-icon">🎮</div>
-          <span>Gaming</span>
-        </div>
-        <div class="cat-item">
-          <div class="cat-icon">🔌</div>
-          <span>Chargers</span>
-        </div>
-        <div class="cat-item">
-          <div class="cat-icon">💿</div>
-          <span>Software</span>
-        </div>
+      <div class="categories-grid">
+        <a href="#" class="category-card">
+          <div class="icon-wrapper"><i class="fa-solid fa-laptop"></i></div>
+          <span class="category-label">Laptops</span>
+        </a>
+        <a href="#" class="category-card">
+          <div class="icon-wrapper"><i class="fa-solid fa-gamepad"></i></div>
+          <span class="category-label">Gaming</span>
+        </a>
+        <a href="#" class="category-card">
+          <div class="icon-wrapper"><i class="fa-solid fa-plug"></i></div>
+          <span class="category-label">Chargers</span>
+        </a>
+        <a href="#" class="category-card">
+          <div class="icon-wrapper"><i class="fa-solid fa-compact-disc"></i></div>
+          <span class="category-label">Software</span>
+        </a>
       </div>
+    </section>
 
-      <!-- Featured List -->
-      <div class="section-header" style="margin-top: 10px; margin-bottom: 12px">
-        <h4>Featured List</h4>
+    <section class="featured-section">
+      <div class="section-header">
+        <h3 class="section-title">Featured List</h3>
       </div>
-
       <div class="featured-list">
-        <div class="list-card">
-          <div class="card-thumb"></div>
-          <div class="card-info">
-            <div class="line title"></div>
-            <div class="line sub"></div>
+        <div class="product-card-skeleton">
+          <div class="skeleton-img"></div>
+          <div class="skeleton-text-group">
+            <div class="skeleton-line"></div>
+            <div class="skeleton-line short"></div>
           </div>
         </div>
-
-        <div class="list-card">
-          <div class="card-thumb"></div>
-          <div class="card-info">
-            <div class="line title"></div>
-            <div class="line sub"></div>
-          </div>
-        </div>
-
-        <div class="list-card">
-          <div class="card-thumb"></div>
-          <div class="card-info">
-            <div class="line title"></div>
-            <div class="line sub"></div>
+        <div class="product-card-skeleton">
+          <div class="skeleton-img"></div>
+          <div class="skeleton-text-group">
+            <div class="skeleton-line"></div>
+            <div class="skeleton-line short"></div>
           </div>
         </div>
       </div>
+    </section>
+  </div>
 
-      <!-- Customer Reviews -->
-      <section class="reviews-section">
-        <h4>Customer Reviews</h4>
-        <div class="review-card">
-          "Great quality products and fast service!"
-        </div>
-      </section>
-    </div>
-  </body>
+  <script src="jss/java.js"></script>
+</body>
 </html>
