@@ -98,6 +98,11 @@ document.addEventListener('DOMContentLoaded', () => {
   let reviewAutoInterval = null;
   let reviewCardWidth = 0;
   let reviewGap = 0;
+  let isDragging = false;
+  let touchStartX = 0;
+  let dragDelta = 0;
+  const swipeThreshold = 50; // px to trigger next/prev
+  let baseLeft = 0;
 
   function calculateReviewMetrics() {
     const card = reviewCards[0];
@@ -129,6 +134,48 @@ document.addEventListener('DOMContentLoaded', () => {
     const left = target.offsetLeft;
     reviewTrack.style.transform = `translateX(-${Math.round(left)}px)`;
   }
+
+  // --- Swipe / Drag support for touch and mouse ---
+  function onTouchStart(e) {
+    stopReviewAuto();
+    isDragging = true;
+    dragDelta = 0;
+    touchStartX = e.touches ? e.touches[0].clientX : e.clientX;
+    const target = reviewCards[currentReviewIndex];
+    baseLeft = target ? target.offsetLeft : 0;
+    reviewTrack.style.transition = 'none';
+  }
+
+  function onTouchMove(e) {
+    if (!isDragging) return;
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    dragDelta = touchStartX - clientX; // positive when dragging left
+    // limit drag so we don't create excessive whitespace
+    const maxDrag = reviewTrack.scrollWidth;
+    let newLeft = baseLeft + Math.max(-maxDrag, Math.min(maxDrag, dragDelta));
+    reviewTrack.style.transform = `translateX(-${Math.round(newLeft)}px)`;
+  }
+
+  function onTouchEnd() {
+    if (!isDragging) return;
+    isDragging = false;
+    reviewTrack.style.transition = '';
+    if (Math.abs(dragDelta) > swipeThreshold) {
+      if (dragDelta > 0) {
+        updateReviewCarousel(currentReviewIndex + 1);
+      } else {
+        updateReviewCarousel(currentReviewIndex - 1);
+      }
+    } else {
+      // snap back
+      applyTransform();
+    }
+    startReviewAuto();
+  }
+
+  // Mouse support (desktop drag)
+  function onMouseDown(e) { onTouchStart(e); window.addEventListener('mousemove', onTouchMove); window.addEventListener('mouseup', onMouseUp); }
+  function onMouseUp(e) { onTouchEnd(); window.removeEventListener('mousemove', onTouchMove); window.removeEventListener('mouseup', onMouseUp); }
 
   function updateReviewDots(index) {
     reviewDots.forEach((dot, idx) => dot.classList.toggle('active', idx === index));
@@ -188,8 +235,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   reviewTrack.addEventListener('mouseenter', stopReviewAuto);
   reviewTrack.addEventListener('mouseleave', startReviewAuto);
-  reviewTrack.addEventListener('touchstart', stopReviewAuto, { passive: true });
-  reviewTrack.addEventListener('touchend', startReviewAuto);
+  // touch handlers for swipe
+  reviewTrack.addEventListener('touchstart', onTouchStart, { passive: true });
+  reviewTrack.addEventListener('touchmove', onTouchMove, { passive: true });
+  reviewTrack.addEventListener('touchend', onTouchEnd);
+  // mouse drag support
+  reviewTrack.addEventListener('mousedown', onMouseDown);
 
   function initReviews() {
     calculateReviewMetrics();

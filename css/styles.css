@@ -567,11 +567,45 @@ body {
 }
 
 .review-prev {
-    left: -12px;
+        left: -12px;
 }
 
 .review-next {
-    right: -12px;
+        right: -12px;
+}
+
+/* Responsive arrow sizing & placement */
+@media (max-width: 680px) {
+    .review-arrow {
+        width: 40px;
+        height: 40px;
+        box-shadow: 0 8px 18px rgba(15,23,42,0.08);
+    }
+
+    .review-prev { left: 8px; }
+    .review-next { right: 8px; }
+}
+
+@media (max-width: 420px) {
+    .review-arrow {
+        width: 36px;
+        height: 36px;
+        font-size: 0.85rem;
+    }
+
+    .review-prev { left: 6px; }
+    .review-next { right: 6px; }
+}
+
+@media (min-width: 920px) {
+    .review-arrow {
+        width: 56px;
+        height: 56px;
+        box-shadow: 0 20px 40px rgba(15,23,42,0.12);
+    }
+
+    .review-prev { left: 18px; }
+    .review-next { right: 18px; }
 }
 
 .review-dots {
