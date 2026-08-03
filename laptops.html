@@ -1,190 +1,241 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Uptop - Laptops Catalog</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Uptop - Laptops Catalog</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <header class="header">
+        <div class="brand-logo">Uptop</div>
+        <div class="header-actions">
+          <button class="icon-btn" aria-label="Search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+          <button class="icon-btn" aria-label="Cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+          </button>
+          <button class="icon-btn" aria-label="Menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </header>
 
-  <div class="app-container">
-    <header class="header">
-      <div class="brand-logo">Uptop</div>
-      <div class="header-actions">
-        <button class="icon-btn" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
-        <button class="icon-btn" aria-label="Cart"><i class="fa-solid fa-cart-shopping"></i></button>
-        <button class="icon-btn" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
-      </div>
-    </header>
+      <section class="catalog-header">
+        <h1 class="page-title">Laptops</h1>
+        <div class="filter-controls">
+          <button class="btn-filter" id="filterToggleBtn">
+            <i class="fa-solid fa-sliders"></i> Filter
+          </button>
+          <div class="dropdown-group">
+            <select class="select-dropdown">
+              <option>Brand: All (4)</option>
+              <option>Apple</option>
+              <option>Dell</option>
+              <option>Lenovo</option>
+            </select>
+            <select class="select-dropdown">
+              <option>Sort by: Featured</option>
+              <option>Price: Low to High</option>
+              <option>Price: High to Low</option>
+              <option>Newest</option>
+            </select>
+            <select class="select-dropdown">
+              <option>New to old</option>
+              <option>Old to new</option>
+            </select>
+          </div>
+        </div>
+      </section>
 
-    <section class="catalog-header">
-      <h1 class="page-title">Laptops</h1>
-      <div class="filter-controls">
-        <button class="btn-filter" id="filterToggleBtn">
-          <i class="fa-solid fa-sliders"></i> Filter
+      <main class="products-grid">
+        <div class="product-card">
+          <div class="card-img-wrapper">
+            <img
+              src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500&q=80"
+              alt="MacBook Air M2"
+            />
+          </div>
+          <h3 class="product-title">MacBook Air M2</h3>
+          <p class="product-price">$1299</p>
+          <button class="btn-details">View Details</button>
+        </div>
+
+        <div class="product-card">
+          <div class="card-img-wrapper">
+            <img
+              src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=500&q=80"
+              alt="Dell XPS 13"
+            />
+          </div>
+          <h3 class="product-title">Dell XPS 13</h3>
+          <p class="product-price">$999</p>
+          <button class="btn-details">View Details</button>
+        </div>
+
+        <div class="product-card">
+          <div class="card-img-wrapper">
+            <img
+              src="https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=500&q=80"
+              alt="MacBook Pro 14"
+            />
+          </div>
+          <h3 class="product-title">MacBook Pro 14</h3>
+          <p class="product-price">$1999</p>
+          <button class="btn-details">View Details</button>
+        </div>
+
+        <div class="product-card">
+          <div class="card-img-wrapper">
+            <img
+              src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=500&q=80"
+              alt="ThinkPad X1"
+            />
+          </div>
+          <h3 class="product-title">ThinkPad X1</h3>
+          <p class="product-price">$999</p>
+          <button class="btn-details">View Details</button>
+        </div>
+
+        <div class="product-card">
+          <div class="card-img-wrapper">
+            <img
+              src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=500&q=80"
+              alt="ASUS ROG Zephyrus"
+            />
+          </div>
+          <h3 class="product-title">ASUS ROG G14</h3>
+          <p class="product-price">$1499</p>
+          <button class="btn-details">View Details</button>
+        </div>
+
+        <div class="product-card">
+          <div class="card-img-wrapper">
+            <img
+              src="https://images.unsplash.com/photo-1544731612-de7f96afe55f?w=500&q=80"
+              alt="HP Spectre x360"
+            />
+          </div>
+          <h3 class="product-title">HP Spectre x360</h3>
+          <p class="product-price">$1199</p>
+          <button class="btn-details">View Details</button>
+        </div>
+
+        <div class="product-card">
+          <div class="card-img-wrapper">
+            <img
+              src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=500&q=80"
+              alt="Lenovo Legion 5"
+            />
+          </div>
+          <h3 class="product-title">Lenovo Legion 5</h3>
+          <p class="product-price">$1299</p>
+          <button class="btn-details">View Details</button>
+        </div>
+
+        <div class="product-card">
+          <div class="card-img-wrapper">
+            <img
+              src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500&q=80"
+              alt="MacBook Air M1"
+            />
+          </div>
+          <h3 class="product-title">MacBook Air M1</h3>
+          <p class="product-price">$899</p>
+          <button class="btn-details">View Details</button>
+        </div>
+
+        <div class="product-card">
+          <div class="card-img-wrapper">
+            <img
+              src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=500&q=80"
+              alt="Dell Inspiron 15"
+            />
+          </div>
+          <h3 class="product-title">Dell Inspiron 15</h3>
+          <p class="product-price">$649</p>
+          <button class="btn-details">View Details</button>
+        </div>
+
+        <div class="product-card">
+          <div class="card-img-wrapper">
+            <img
+              src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=500&q=80"
+              alt="Acer Swift 3"
+            />
+          </div>
+          <h3 class="product-title">Acer Swift 3</h3>
+          <p class="product-price">$599</p>
+          <button class="btn-details">View Details</button>
+        </div>
+
+        <div class="product-card">
+          <div class="card-img-wrapper">
+            <img
+              src="https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=500&q=80"
+              alt="Microsoft Surface Pro"
+            />
+          </div>
+          <h3 class="product-title">Surface Pro 9</h3>
+          <p class="product-price">$1099</p>
+          <button class="btn-details">View Details</button>
+        </div>
+
+        <div class="product-card">
+          <div class="card-img-wrapper">
+            <img
+              src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=500&q=80"
+              alt="Razer Blade 15"
+            />
+          </div>
+          <h3 class="product-title">Razer Blade 15</h3>
+          <p class="product-price">$2399</p>
+          <button class="btn-details">View Details</button>
+        </div>
+
+        <div class="product-card">
+          <div class="card-img-wrapper">
+            <img
+              src="https://images.unsplash.com/photo-1544731612-de7f96afe55f?w=500&q=80"
+              alt="Samsung Galaxy Book"
+            />
+          </div>
+          <h3 class="product-title">Galaxy Book3</h3>
+          <p class="product-price">$849</p>
+          <button class="btn-details">View Details</button>
+        </div>
+
+        <div class="product-card">
+          <div class="card-img-wrapper">
+            <img
+              src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=500&q=80"
+              alt="LG Gram 16"
+            />
+          </div>
+          <h3 class="product-title">LG Gram 16</h3>
+          <p class="product-price">$1199</p>
+          <button class="btn-details">View Details</button>
+        </div>
+      </main>
+
+      <div class="scroll-top-wrapper">
+        <button class="scroll-top-btn" id="scrollTopBtn">
+          <i class="fa-solid fa-chevron-up"></i>
         </button>
-        <div class="dropdown-group">
-          <select class="select-dropdown">
-            <option>Brand: All (4)</option>
-            <option>Apple</option>
-            <option>Dell</option>
-            <option>Lenovo</option>
-          </select>
-          <select class="select-dropdown">
-            <option>Sort by: Featured</option>
-            <option>Price: Low to High</option>
-            <option>Price: High to Low</option>
-            <option>Newest</option>
-          </select>
-          <select class="select-dropdown">
-            <option>New to old</option>
-            <option>Old to new</option>
-          </select>
-        </div>
+        <span>Scroll up</span>
       </div>
-    </section>
-
-    <main class="products-grid">
-      
-      <div class="product-card">
-        <div class="card-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500&q=80" alt="MacBook Air M2">
-        </div>
-        <h3 class="product-title">MacBook Air M2</h3>
-        <p class="product-price">$1299</p>
-        <button class="btn-details">View Details</button>
-      </div>
-
-      <div class="product-card">
-        <div class="card-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=500&q=80" alt="Dell XPS 13">
-        </div>
-        <h3 class="product-title">Dell XPS 13</h3>
-        <p class="product-price">$999</p>
-        <button class="btn-details">View Details</button>
-      </div>
-
-      <div class="product-card">
-        <div class="card-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=500&q=80" alt="MacBook Pro 14">
-        </div>
-        <h3 class="product-title">MacBook Pro 14</h3>
-        <p class="product-price">$1999</p>
-        <button class="btn-details">View Details</button>
-      </div>
-
-      <div class="product-card">
-        <div class="card-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=500&q=80" alt="ThinkPad X1">
-        </div>
-        <h3 class="product-title">ThinkPad X1</h3>
-        <p class="product-price">$999</p>
-        <button class="btn-details">View Details</button>
-      </div>
-
-      <div class="product-card">
-        <div class="card-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=500&q=80" alt="ASUS ROG Zephyrus">
-        </div>
-        <h3 class="product-title">ASUS ROG G14</h3>
-        <p class="product-price">$1499</p>
-        <button class="btn-details">View Details</button>
-      </div>
-
-      <div class="product-card">
-        <div class="card-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1544731612-de7f96afe55f?w=500&q=80" alt="HP Spectre x360">
-        </div>
-        <h3 class="product-title">HP Spectre x360</h3>
-        <p class="product-price">$1199</p>
-        <button class="btn-details">View Details</button>
-      </div>
-
-      <div class="product-card">
-        <div class="card-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=500&q=80" alt="Lenovo Legion 5">
-        </div>
-        <h3 class="product-title">Lenovo Legion 5</h3>
-        <p class="product-price">$1299</p>
-        <button class="btn-details">View Details</button>
-      </div>
-
-      <div class="product-card">
-        <div class="card-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500&q=80" alt="MacBook Air M1">
-        </div>
-        <h3 class="product-title">MacBook Air M1</h3>
-        <p class="product-price">$899</p>
-        <button class="btn-details">View Details</button>
-      </div>
-
-      <div class="product-card">
-        <div class="card-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=500&q=80" alt="Dell Inspiron 15">
-        </div>
-        <h3 class="product-title">Dell Inspiron 15</h3>
-        <p class="product-price">$649</p>
-        <button class="btn-details">View Details</button>
-      </div>
-
-      <div class="product-card">
-        <div class="card-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=500&q=80" alt="Acer Swift 3">
-        </div>
-        <h3 class="product-title">Acer Swift 3</h3>
-        <p class="product-price">$599</p>
-        <button class="btn-details">View Details</button>
-      </div>
-
-      <div class="product-card">
-        <div class="card-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=500&q=80" alt="Microsoft Surface Pro">
-        </div>
-        <h3 class="product-title">Surface Pro 9</h3>
-        <p class="product-price">$1099</p>
-        <button class="btn-details">View Details</button>
-      </div>
-
-      <div class="product-card">
-        <div class="card-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=500&q=80" alt="Razer Blade 15">
-        </div>
-        <h3 class="product-title">Razer Blade 15</h3>
-        <p class="product-price">$2399</p>
-        <button class="btn-details">View Details</button>
-      </div>
-
-      <div class="product-card">
-        <div class="card-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1544731612-de7f96afe55f?w=500&q=80" alt="Samsung Galaxy Book">
-        </div>
-        <h3 class="product-title">Galaxy Book3</h3>
-        <p class="product-price">$849</p>
-        <button class="btn-details">View Details</button>
-      </div>
-
-      <div class="product-card">
-        <div class="card-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=500&q=80" alt="LG Gram 16">
-        </div>
-        <h3 class="product-title">LG Gram 16</h3>
-        <p class="product-price">$1199</p>
-        <button class="btn-details">View Details</button>
-      </div>
-
-    </main>
-
-    <div class="scroll-top-wrapper">
-      <button class="scroll-top-btn" id="scrollTopBtn">
-        <i class="fa-solid fa-chevron-up"></i>
-      </button>
-      <span>Scroll up</span>
     </div>
-  </div>
 
-  <script src="jss/java.js"></script>
-</body>
+    <script src="jss/java.js"></script>
+  </body>
 </html>

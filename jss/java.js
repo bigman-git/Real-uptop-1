@@ -66,6 +66,8 @@ document.addEventListener('DOMContentLoaded', () => {
     dot.addEventListener('click', (e) => {
       const slideIndex = parseInt(e.target.dataset.slide, 10);
       updateCarousel(slideIndex);
+      stopAutoSlide();
+      startAutoSlide();
     });
   });
 
@@ -78,6 +80,151 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize Autoplay on page load
   startAutoSlide();
 });
+
+// ==========================================================================
+// Review Carousel Controls (pixel-perfect shift + responsive re-measure)
+// ==========================================================================
+
+document.addEventListener('DOMContentLoaded', () => {
+  const reviewTrack = document.querySelector('.review-carousel-track');
+  const reviewCards = document.querySelectorAll('.review-card');
+  const reviewPrevBtn = document.querySelector('.review-prev');
+  const reviewNextBtn = document.querySelector('.review-next');
+  let reviewDots = document.querySelectorAll('.review-dot');
+
+  if (!reviewTrack || !reviewCards.length || !reviewPrevBtn || !reviewNextBtn) return;
+
+  let currentReviewIndex = 0;
+  let reviewAutoInterval = null;
+  let reviewCardWidth = 0;
+  let reviewGap = 0;
+
+  function calculateReviewMetrics() {
+    const card = reviewCards[0];
+    if (!card) return;
+    // Force reflow and read accurate sizes
+    reviewCardWidth = card.offsetWidth;
+    const style = getComputedStyle(reviewTrack);
+    reviewGap = parseFloat(style.gap || style.columnGap) || 0;
+  }
+
+  function debounce(fn, wait = 120) {
+    let t;
+    return (...args) => {
+      clearTimeout(t);
+      t = setTimeout(() => fn(...args), wait);
+    };
+  }
+
+  const handleResize = debounce(() => {
+    calculateReviewMetrics();
+    // reposition after recalculation
+    applyTransform();
+  }, 140);
+
+  function applyTransform() {
+    const target = reviewCards[currentReviewIndex];
+    if (!target) return;
+    // offsetLeft is relative to the track element, which makes this robust
+    const left = target.offsetLeft;
+    reviewTrack.style.transform = `translateX(-${Math.round(left)}px)`;
+  }
+
+  function updateReviewDots(index) {
+    reviewDots.forEach((dot, idx) => dot.classList.toggle('active', idx === index));
+  }
+
+  function setActiveCard(index) {
+    reviewCards.forEach((card, idx) => card.classList.toggle('active', idx === index));
+  }
+
+  function updateReviewCarousel(index) {
+    if (index < 0) {
+      currentReviewIndex = reviewCards.length - 1;
+    } else if (index >= reviewCards.length) {
+      currentReviewIndex = 0;
+    } else {
+      currentReviewIndex = index;
+    }
+
+    applyTransform();
+    setActiveCard(currentReviewIndex);
+    updateReviewDots(currentReviewIndex);
+  }
+
+  function startReviewAuto() {
+    stopReviewAuto();
+    reviewAutoInterval = setInterval(() => {
+      updateReviewCarousel(currentReviewIndex + 1);
+    }, 4500);
+  }
+
+  function stopReviewAuto() {
+    if (reviewAutoInterval) {
+      clearInterval(reviewAutoInterval);
+      reviewAutoInterval = null;
+    }
+  }
+
+  reviewPrevBtn.addEventListener('click', () => {
+    updateReviewCarousel(currentReviewIndex - 1);
+    stopReviewAuto();
+    startReviewAuto();
+  });
+
+  reviewNextBtn.addEventListener('click', () => {
+    updateReviewCarousel(currentReviewIndex + 1);
+    stopReviewAuto();
+    startReviewAuto();
+  });
+
+  reviewDots.forEach((dot, idx) => {
+    dot.addEventListener('click', () => {
+      updateReviewCarousel(idx);
+      stopReviewAuto();
+      startReviewAuto();
+    });
+  });
+
+  reviewTrack.addEventListener('mouseenter', stopReviewAuto);
+  reviewTrack.addEventListener('mouseleave', startReviewAuto);
+  reviewTrack.addEventListener('touchstart', stopReviewAuto, { passive: true });
+  reviewTrack.addEventListener('touchend', startReviewAuto);
+
+  function initReviews() {
+    calculateReviewMetrics();
+    updateReviewCarousel(0);
+    startReviewAuto();
+    window.addEventListener('resize', handleResize);
+
+    // If dots count doesn't match cards, rebuild dots to match the number of cards
+    const dotsContainer = document.querySelector('.review-dots');
+    if (dotsContainer && reviewDots.length !== reviewCards.length) {
+      dotsContainer.innerHTML = '';
+      reviewCards.forEach((_, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'review-dot' + (idx === 0 ? ' active' : '');
+        btn.setAttribute('aria-label', `Review ${idx + 1}`);
+        btn.addEventListener('click', () => {
+          updateReviewCarousel(idx);
+          stopReviewAuto();
+          startReviewAuto();
+        });
+        dotsContainer.appendChild(btn);
+      });
+      // refresh the live NodeList reference
+      reviewDots = document.querySelectorAll('.review-dot');
+    }
+  }
+
+  // Ensure fonts/layout are ready before measuring
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(initReviews).catch(initReviews);
+  } else {
+    window.addEventListener('load', initReviews);
+  }
+});
+
 // ==========================================================================
 // Catalog Page Controls & Dynamic Interactions
 // ==========================================================================

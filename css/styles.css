@@ -425,8 +425,222 @@ body {
 
 .carousel-dots { position: absolute; left: 50%; transform: translateX(-50%); bottom: 12px; display: flex; gap: 8px; }
 .dot { width: 8px; height: 8px; background: #94a3b8; border-radius: 50%; display: inline-block; }
-.dot.active { width: 14px; background: #2563eb; border-radius:
-     6px; }
+.dot.active { width: 14px; background: #2563eb; border-radius: 6px; }
+
+.review-carousel-section {
+    background: #ffffff;
+    padding: 32px 18px;
+    border-radius: 24px;
+    box-shadow: 0 24px 70px rgba(15, 23, 42, 0.08);
+    margin-bottom: 24px;
+}
+
+.review-carousel-header {
+    margin-bottom: 22px;
+}
+
+.review-section-label {
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.75rem;
+    margin-bottom: 6px;
+}
+
+.review-section-title {
+    font-size: 1.55rem;
+    line-height: 1.2;
+    color: #111827;
+    margin: 0;
+}
+
+.review-carousel-shell {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.review-carousel-track {
+    display: flex;
+    width: 100%;
+    scroll-snap-type: x mandatory;
+    gap: 18px;
+    transition: transform 0.45s ease;
+    will-change: transform;
+    align-items: stretch;
+}
+
+.review-card {
+    /* Make card sizing stable so JS can measure exact widths */
+    min-width: 100%;
+    flex: 0 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    background: #f8fafc;
+    border-radius: 22px;
+    padding: 28px;
+    box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.05);
+    opacity: 0.65;
+    transform: scale(0.98);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    scroll-snap-align: center;
+}
+
+.review-card.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.review-stars {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 16px;
+    color: #fbbf24;
+    font-size: 1.1rem;
+}
+
+.review-quote {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: #0f172a;
+    margin-bottom: 22px;
+    max-width: 680px;
+}
+
+.review-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.reviewer-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.reviewer-name {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #111827;
+}
+
+.review-product {
+    font-size: 0.92rem;
+    color: #475569;
+}
+
+.review-thumb {
+    width: 96px;
+    height: 68px;
+    object-fit: cover;
+    border-radius: 16px;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.review-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 1px solid rgba(15, 23, 42, 0.14);
+    background: #ffffff;
+    color: #111827;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 14px 28px rgba(15, 23, 42, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.review-arrow:hover {
+    transform: translateY(-50%) scale(1.05);
+    background: #f8fafc;
+}
+
+.review-prev {
+    left: -12px;
+}
+
+.review-next {
+    right: -12px;
+}
+
+.review-dots {
+    margin-top: 18px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.review-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid rgba(15, 23, 42, 0.16);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.review-dot.active {
+    width: 14px;
+    height: 14px;
+    background: #2563eb;
+    border-color: transparent;
+}
+
+@media (max-width: 920px) {
+    .review-section-title {
+        font-size: 1.35rem;
+    }
+
+    .review-card {
+        padding: 24px;
+    }
+
+    .review-thumb {
+        width: 82px;
+        height: 62px;
+    }
+}
+
+@media (max-width: 680px) {
+    .review-carousel-section {
+        padding: 24px 14px;
+    }
+
+    .review-carousel-shell {
+        flex-direction: column;
+    }
+
+    .review-arrow {
+        position: relative;
+        top: auto;
+        transform: none;
+        margin: 12px 0 0;
+    }
+
+    .review-prev,
+    .review-next {
+        left: auto;
+        right: auto;
+    }
+
+    .review-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
          /* ==========================================================================
        1. Base & Global Styles  this is for the laptops page
        ========================================================================== */
