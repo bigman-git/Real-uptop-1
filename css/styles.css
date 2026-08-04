@@ -97,6 +97,112 @@ body {
     .app-container { max-width: 1200px; }
 }
 
+@media (max-width: 768px) {
+    body {
+        padding: 12px 8px;
+    }
+
+    .app-container {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 16px;
+        padding: 12px;
+    }
+
+    .top-contact-bar {
+        flex-direction: column;
+    }
+
+    .top-contact-bar .contact-item {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .header {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .search-container {
+        order: 3;
+        flex-basis: 100%;
+    }
+
+    .categories-grid {
+        gap: 12px;
+    }
+
+    .category-card {
+        width: 72px;
+    }
+
+    .featured-grid {
+        padding: 8px 0 20px;
+    }
+}
+
+@media (max-width: 560px) {
+    body {
+        padding: 8px;
+    }
+
+    .app-container {
+        padding: 10px;
+        border-radius: 14px;
+    }
+
+    .header {
+        margin-bottom: 12px;
+    }
+
+    .brand-logo {
+        font-size: 1.1rem;
+    }
+
+    .search-input {
+        height: 38px;
+        font-size: 0.9rem;
+    }
+
+    .categories-grid {
+        gap: 10px;
+    }
+
+    .category-card {
+        width: 62px;
+        font-size: 0.8rem;
+    }
+
+    .icon-wrapper {
+        width: 54px;
+        height: 54px;
+    }
+
+    .product-card {
+        border-radius: 10px;
+    }
+
+    .buy-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 420px) {
+    .top-contact-bar .contact-item {
+        font-size: 0.85rem;
+        padding: 8px;
+    }
+
+    .product-name {
+        font-size: 0.95rem;
+    }
+
+    .product-price {
+        font-size: 0.9rem;
+    }
+}
+
 .top-contact-bar {
     display: flex;
     align-items: center;
@@ -638,6 +744,20 @@ body.accessories-page footer {
 
   body.accessories-page .product-price {
     font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 640px) {
+  body.accessories-page .filter-controls {
+    flex-direction: column;
+  }
+
+  body.accessories-page .dropdown-select {
+    width: 100%;
+  }
+
+  body.accessories-page .search-box {
+    max-width: none;
   }
 }
 
