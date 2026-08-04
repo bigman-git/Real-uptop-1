@@ -277,6 +277,131 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ==========================================================================
+// Accessories Page Controls & Dynamic Interactions
+// ==========================================================================
+
+document.addEventListener('DOMContentLoaded', () => {
+  const accessoriesPage = document.body.classList.contains('accessories-page');
+  if (!accessoriesPage) return;
+
+  // Target WhatsApp Business Phone Number
+  const WHATSAPP_PHONE = '254115369156';
+
+  // DOM Elements
+  const scrollUpBtn = document.getElementById('scrollUpBtn');
+  const typeFilter = document.getElementById('typeFilter');
+  const sortSelect = document.getElementById('sortSelect');
+  const searchInput = document.getElementById('searchInput');
+  const productGrid = document.getElementById('productGrid');
+  const chips = document.querySelectorAll('.chip');
+  const cards = productGrid ? productGrid.querySelectorAll('.product-card') : [];
+
+  if (!productGrid || !cards.length) return;
+
+  /**
+   * 1. Initialize Dynamic WhatsApp Direct Links for All Products
+   */
+  cards.forEach((card) => {
+    const title = card.dataset.title || '';
+    const category = (card.dataset.category || '').toUpperCase();
+    const price = card.querySelector('.product-price')?.textContent || '';
+    const specs = card.dataset.specs || '';
+    const prodId = card.dataset.id || '';
+    const btn = card.querySelector('.whatsapp-btn');
+
+    if (!btn) return;
+
+    const pageUrl = window.location.origin + window.location.pathname;
+    const message =
+      `*NEW ORDER - UPTOP COMPUTERS*\n\n` +
+      `*Item:* ${title}\n` +
+      `*Category:* ${category}\n` +
+      `*Price:* ${price}\n` +
+      `*Product ID:* ${prodId}\n` +
+      `*Specifications:* ${specs}\n\n` +
+      `*Product Link:* ${pageUrl}#${prodId}`;
+
+    const encodedMsg = encodeURIComponent(message);
+    btn.href = `https://wa.me/${WHATSAPP_PHONE}?text=${encodedMsg}`;
+  });
+
+  /**
+   * 2. Live Search & Category Filter
+   */
+  function filterProducts() {
+    const selectedType = typeFilter?.value || 'all';
+    const searchQuery = searchInput?.value.toLowerCase().trim() || '';
+
+    cards.forEach((card) => {
+      const category = card.dataset.category || '';
+      const title = (card.dataset.title || '').toLowerCase();
+      const specs = (card.dataset.specs || '').toLowerCase();
+
+      const matchesType = selectedType === 'all' || category === selectedType;
+      const matchesSearch = title.includes(searchQuery) || specs.includes(searchQuery);
+
+      card.style.display = matchesType && matchesSearch ? 'flex' : 'none';
+    });
+  }
+
+  typeFilter?.addEventListener('change', filterProducts);
+  searchInput?.addEventListener('input', filterProducts);
+
+  /**
+   * 3. Sync Category Chips with Dropdown Selection
+   */
+  chips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      chips.forEach((c) => c.classList.remove('active'));
+      chip.classList.add('active');
+      if (typeFilter) {
+        typeFilter.value = chip.dataset.filter || 'all';
+      }
+      filterProducts();
+    });
+  });
+
+  /**
+   * 4. Price Sorting Logic
+   */
+  sortSelect?.addEventListener('change', (e) => {
+    const val = e.target.value;
+    const cardArray = Array.from(cards);
+
+    cardArray.sort((a, b) => {
+      const priceA = parseInt(a.dataset.price || '0', 10);
+      const priceB = parseInt(b.dataset.price || '0', 10);
+
+      if (val === 'low-high') return priceA - priceB;
+      if (val === 'high-low') return priceB - priceA;
+      return 0;
+    });
+
+    cardArray.forEach((card) => productGrid.appendChild(card));
+  });
+
+  /**
+   * 5. Smooth Scroll-To-Top Button Controller
+   */
+  if (scrollUpBtn) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        scrollUpBtn.classList.add('visible');
+      } else {
+        scrollUpBtn.classList.remove('visible');
+      }
+    });
+
+    scrollUpBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+});
+
+// ==========================================================================
 // Catalog Page Controls & Dynamic Interactions
 // ==========================================================================
 
@@ -508,6 +633,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
 /**
  * Laptop Accessories & Replacement Hub - Client-Side Logic
  */
