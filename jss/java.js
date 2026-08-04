@@ -410,6 +410,190 @@ document.addEventListener('DOMContentLoaded', () => {
 
   applyFilters();
 
+  const tableSearch = document.getElementById('tableSearch');
+  const tableFilterToggle = document.getElementById('tableFilterToggle');
+  const tableFilterMenu = document.getElementById('tableFilterMenu');
+  const filterChips = Array.from(document.querySelectorAll('.filter-menu-chip'));
+  const activeFiltersContainer = document.getElementById('activeFilters');
+  const selectAllRows = document.getElementById('selectAllRows');
+  const rowCheckboxes = Array.from(document.querySelectorAll('.row-checkbox'));
+  const exportDataBtn = document.getElementById('exportDataBtn');
+  const tableRows = Array.from(document.querySelectorAll('.data-table tbody tr'));
+
+  const tableState = {
+    query: '',
+    status: new Set(),
+    timeframe: null,
+    amount: null,
+  };
+
+  const parseRowDate = (row) => {
+    const dateValue = row.dataset.date;
+    return dateValue ? new Date(dateValue) : null;
+  };
+
+  const getDaysAgo = (days) => {
+    const now = new Date();
+    const compare = new Date(now);
+    compare.setDate(now.getDate() - Number(days));
+    return compare;
+  };
+
+  const renderActivePills = () => {
+    if (!activeFiltersContainer) return;
+    activeFiltersContainer.innerHTML = '';
+    const pills = [];
+
+    if (tableState.query) {
+      pills.push({ key: 'query', label: `Search: ${tableState.query}` });
+    }
+
+    tableState.status.forEach((status) => {
+      pills.push({ key: `status:${status}`, label: status, group: 'status' });
+    });
+
+    if (tableState.timeframe) {
+      const labelMap = { '7': 'Last 7 days', '30': 'Last 30 days', '365': 'This year' };
+      pills.push({ key: `timeframe:${tableState.timeframe}`, label: labelMap[tableState.timeframe] || tableState.timeframe, group: 'timeframe' });
+    }
+
+    if (tableState.amount) {
+      const labelMap = { high: 'Above $1000', low: 'Under $1000' };
+      pills.push({ key: `amount:${tableState.amount}`, label: labelMap[tableState.amount] || tableState.amount, group: 'amount' });
+    }
+
+    if (!pills.length) {
+      activeFiltersContainer.innerHTML = '<div class="active-filter-pill">No active filters</div>';
+      return;
+    }
+
+    pills.forEach((pill) => {
+      const pillEl = document.createElement('div');
+      pillEl.className = 'active-filter-pill';
+      pillEl.innerHTML = `${pill.label} <button type="button" aria-label="Remove filter ${pill.label}" data-remove="${pill.key}">×</button>`;
+      activeFiltersContainer.appendChild(pillEl);
+    });
+  };
+
+  const updateTableFilters = () => {
+    const searchTerm = tableState.query.trim().toLowerCase();
+    const compareDate = tableState.timeframe ? getDaysAgo(tableState.timeframe) : null;
+
+    tableRows.forEach((row) => {
+      const orderId = row.dataset.order?.toLowerCase() || '';
+      const customer = row.dataset.customer?.toLowerCase() || '';
+      const status = row.dataset.status || '';
+      const amount = Number(row.dataset.amount || '0');
+      const rowDate = parseRowDate(row);
+
+      const matchesQuery = !searchTerm || orderId.includes(searchTerm) || customer.includes(searchTerm);
+      const matchesStatus = !tableState.status.size || tableState.status.has(status);
+      const matchesAmount = !tableState.amount || (tableState.amount === 'high' ? amount >= 1000 : amount < 1000);
+      const matchesTimeframe = !compareDate || (rowDate && rowDate >= compareDate);
+
+      row.style.display = matchesQuery && matchesStatus && matchesAmount && matchesTimeframe ? '' : 'none';
+    });
+  };
+
+  const syncFilterChips = () => {
+    filterChips.forEach((chip) => {
+      const group = chip.dataset.group;
+      const value = chip.dataset.value;
+      const active = group === 'status'
+        ? tableState.status.has(value)
+        : tableState[group] === value;
+      chip.classList.toggle('active', active);
+    });
+  };
+
+  const setFilterValue = (group, value) => {
+    if (group === 'status') {
+      if (tableState.status.has(value)) {
+        tableState.status.delete(value);
+      } else {
+        tableState.status.add(value);
+      }
+    } else {
+      tableState[group] = tableState[group] === value ? null : value;
+    }
+
+    renderActivePills();
+    syncFilterChips();
+    updateTableFilters();
+  };
+
+  if (tableSearch) {
+    tableSearch.addEventListener('input', (event) => {
+      tableState.query = event.target.value;
+      renderActivePills();
+      updateTableFilters();
+    });
+  }
+
+  if (tableFilterToggle && tableFilterMenu) {
+    tableFilterToggle.addEventListener('click', () => {
+      const isOpen = tableFilterMenu.classList.toggle('open');
+      tableFilterMenu.setAttribute('aria-hidden', String(!isOpen));
+      tableFilterToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!tableFilterMenu.contains(event.target) && event.target !== tableFilterToggle) {
+        tableFilterMenu.classList.remove('open');
+        tableFilterMenu.setAttribute('aria-hidden', 'true');
+        tableFilterToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  filterChips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      setFilterValue(chip.dataset.group, chip.dataset.value);
+    });
+  });
+
+  if (activeFiltersContainer) {
+    activeFiltersContainer.addEventListener('click', (event) => {
+      const target = event.target.closest('button[data-remove]');
+      if (!target) return;
+      const key = target.dataset.remove;
+      if (!key) return;
+
+      const [group, value] = key.split(':');
+      if (group === 'query') {
+        tableState.query = '';
+        if (tableSearch) tableSearch.value = '';
+      } else if (group === 'status') {
+        tableState.status.delete(value);
+      } else {
+        tableState[group] = null;
+      }
+
+      renderActivePills();
+      syncFilterChips();
+      updateTableFilters();
+    });
+  }
+
+  if (selectAllRows) {
+    selectAllRows.addEventListener('change', (event) => {
+      const checked = event.target.checked;
+      rowCheckboxes.forEach((checkbox) => {
+        checkbox.checked = checked;
+      });
+    });
+  }
+
+  if (exportDataBtn) {
+    exportDataBtn.addEventListener('click', () => {
+      const visibleRows = tableRows.filter((row) => row.style.display !== 'none');
+      console.log(`Exporting ${visibleRows.length} orders`);
+    });
+  }
+
+  renderActivePills();
+  syncFilterChips();
+
   // Dynamic Event handling for product cards
   const detailButtons = document.querySelectorAll('.btn-details');
   detailButtons.forEach((btn) => {
