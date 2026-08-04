@@ -874,6 +874,10 @@ body {
              display: none;
          }
 
+         .filter-controls.open .dropdown-group {
+             display: flex;
+         }
+
          .select-dropdown {
              appearance: none;
              background-color: #f1f5f9;
@@ -891,13 +895,54 @@ body {
          }
 
          @media (max-width: 720px) {
+             .catalog-header {
+                 display: flex;
+                 flex-direction: column;
+                 gap: 12px;
+             }
+
+             .filter-controls {
+                 width: 100%;
+             }
+
+             .filter-controls.open .dropdown-group {
+                 display: flex;
+             }
+
              .dropdown-group {
+                 display: none;
                  flex-direction: column;
                  align-items: stretch;
+                 gap: 10px;
+                 padding: 0;
              }
 
              .select-dropdown {
                  width: 100%;
+             }
+
+             .btn-filter {
+                 width: 100%;
+                 justify-content: center;
+             }
+
+             .header {
+                 flex-wrap: wrap;
+                 gap: 10px;
+             }
+
+             .brand-logo {
+                 flex: 1 1 100%;
+             }
+
+             .header-actions {
+                 justify-content: flex-end;
+                 width: 100%;
+                 flex-wrap: wrap;
+             }
+
+             .products-grid {
+                 gap: 12px;
              }
          }
 

@@ -375,11 +375,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
+  const filterPanel = document.querySelector('.filter-controls');
+  const closeFilterPanel = () => {
+    if (filterPanel) {
+      filterPanel.classList.remove('open');
+      filterPanel.setAttribute('aria-expanded', 'false');
+      filterToggleBtn?.setAttribute('aria-expanded', 'false');
+    }
+  };
+
   if (filterToggleBtn) {
-    filterToggleBtn.addEventListener('click', () => {
-      if (brandFilter) brandFilter.focus();
+    filterToggleBtn.addEventListener('click', (event) => {
+      if (!filterPanel) return;
+      const isOpen = filterPanel.classList.toggle('open');
+      filterPanel.setAttribute('aria-expanded', String(isOpen));
+      filterToggleBtn.setAttribute('aria-expanded', String(isOpen));
+      if (isOpen) {
+        event.stopPropagation();
+        brandFilter?.focus();
+      }
     });
   }
+
+  document.addEventListener('click', (event) => {
+    if (!filterPanel || !filterToggleBtn) return;
+    if (!filterPanel.contains(event.target) && event.target !== filterToggleBtn) {
+      closeFilterPanel();
+    }
+  });
 
   [brandFilter, sortFilter, timeFilter].forEach((select) => {
     if (select) select.addEventListener('change', applyFilters);
