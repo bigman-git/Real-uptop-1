@@ -450,12 +450,61 @@ document.addEventListener('DOMContentLoaded', () => {
   applyFilters();
 
   // Dynamic Event handling for product cards
+  const slugify = (value) =>
+    String(value)
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/(^-|-$)/g, '');
+
+  const getProductData = (card) => {
+    const title = card.querySelector('.product-title')?.innerText.trim() || 'Laptop';
+    const priceText = card.querySelector('.product-price')?.innerText.trim() || 'Price available on request';
+    const specs = Array.from(card.querySelectorAll('.product-specs span'))
+      .map((span) => span.innerText.trim())
+      .filter(Boolean)
+      .join(' | ');
+
+    return { title, priceText, specs };
+  };
+
+  productsGridList.forEach((grid) => {
+    Array.from(grid.querySelectorAll('.product-card')).forEach((card, index) => {
+      const { title, priceText, specs } = getProductData(card);
+      const slug = slugify(title) || `product-${index + 1}`;
+      const cardId = `${slug}-${index + 1}`;
+      card.id = cardId;
+      card.dataset.productTitle = title;
+      card.dataset.productPrice = priceText;
+      card.dataset.productSpecs = specs;
+      card.dataset.productUrl = `${window.location.href.split('#')[0]}#${cardId}`;
+    });
+  });
+
   const detailButtons = document.querySelectorAll('.btn-details');
   detailButtons.forEach((btn) => {
+    btn.innerHTML = '<i class="fa-brands fa-whatsapp"></i><span>Order Now</span>';
+    btn.setAttribute('type', 'button');
+
     btn.addEventListener('click', (e) => {
-      const card = e.target.closest('.product-card');
-      const title = card.querySelector('.product-title').innerText;
-      console.log(`Navigating to detail page for: ${title}`);
+      const card = e.currentTarget.closest('.product-card');
+      const title = card?.dataset.productTitle || card?.querySelector('.product-title')?.innerText.trim() || 'Laptop';
+      const priceText = card?.dataset.productPrice || card?.querySelector('.product-price')?.innerText.trim() || 'Price available on request';
+      const specs = card?.dataset.productSpecs || Array.from(card?.querySelectorAll('.product-specs span') || [])
+        .map((span) => span.innerText.trim())
+        .filter(Boolean)
+        .join(' | ');
+      const productUrl = card?.dataset.productUrl || window.location.href;
+      const message = [
+        'Hello! I would like to order this laptop from Uptop.',
+        `Product: ${title}`,
+        `Price: ${priceText}`,
+        `Specifications: ${specs}`,
+        `Product link: ${productUrl}`
+      ].join('\n');
+
+      const whatsappUrl = `https://wa.me/+253115369156?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
     });
   });
 });
