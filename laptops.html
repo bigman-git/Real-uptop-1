@@ -41,31 +41,67 @@
           <button class="btn-filter" id="filterToggleBtn" aria-expanded="false">
             <i class="fa-solid fa-sliders"></i> Filter
           </button>
-          <div class="dropdown-group">
-            <select class="select-dropdown" id="brandFilter">
-              <option value="all">Brand: All</option>
-              <option value="Apple">Apple</option>
-              <option value="Dell">Dell</option>
-              <option value="Lenovo">Lenovo</option>
-              <option value="HP">HP</option>
-              <option value="Asus">Asus</option>
-              <option value="Samsung">Samsung</option>
-              <option value="Acer">Acer</option>
-              <option value="MSI">MSI</option>
-              <option value="Razer">Razer</option>
-              <option value="Microsoft">Microsoft</option>
-              <option value="Google">Google</option>
-              <option value="LG">LG</option>
-            </select>
-            <select class="select-dropdown" id="sortFilter">
-              <option value="featured">Sort by: Featured</option>
-              <option value="price-low-high">Price: Low to High</option>
-              <option value="price-high-low">Price: High to Low</option>
-            </select>
-            <select class="select-dropdown" id="timeFilter">
-              <option value="new-to-old">New to old</option>
-              <option value="old-to-new">Old to new</option>
-            </select>
+
+          <div class="filter-overlay" id="filterOverlay" aria-hidden="true">
+            <div class="filter-overlay-card">
+              <div class="filter-overlay-header">
+                <span>Refine search</span>
+                <button class="filter-close-btn" id="filterCloseBtn" aria-label="Close filters">×</button>
+              </div>
+
+              <div class="filter-option">
+                <button class="filter-option-toggle" type="button" data-target="brandPanel">
+                  <span>Brand</span>
+                  <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="filter-option-panel" id="brandPanel">
+                  <select class="select-dropdown" id="brandFilter">
+                    <option value="all">All brands</option>
+                    <option value="Apple">Apple</option>
+                    <option value="Dell">Dell</option>
+                    <option value="Lenovo">Lenovo</option>
+                    <option value="HP">HP</option>
+                    <option value="Asus">Asus</option>
+                    <option value="Samsung">Samsung</option>
+                    <option value="Acer">Acer</option>
+                    <option value="MSI">MSI</option>
+                    <option value="Razer">Razer</option>
+                    <option value="Microsoft">Microsoft</option>
+                    <option value="Google">Google</option>
+                    <option value="LG">LG</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="filter-option">
+                <button class="filter-option-toggle" type="button" data-target="sortPanel">
+                  <span>Sort by</span>
+                  <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="filter-option-panel" id="sortPanel">
+                  <select class="select-dropdown" id="sortFilter">
+                    <option value="featured">Featured</option>
+                    <option value="price-low-high">Price: Low to High</option>
+                    <option value="price-high-low">Price: High to Low</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="filter-option">
+                <button class="filter-option-toggle" type="button" data-target="timePanel">
+                  <span>Condition / Date</span>
+                  <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="filter-option-panel" id="timePanel">
+                  <select class="select-dropdown" id="timeFilter">
+                    <option value="new-to-old">New to old</option>
+                    <option value="old-to-new">Old to new</option>
+                  </select>
+                </div>
+              </div>
+
+              <button class="btn-filter apply-filters" id="applyFiltersBtn">Apply Filters</button>
+            </div>
           </div>
         </div>
       </section>

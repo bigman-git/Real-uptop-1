@@ -376,32 +376,71 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const filterPanel = document.querySelector('.filter-controls');
+  const filterOverlay = document.getElementById('filterOverlay');
+  const filterCloseBtn = document.getElementById('filterCloseBtn');
+  const applyFiltersBtn = document.getElementById('applyFiltersBtn');
+  const overlayToggles = Array.from(document.querySelectorAll('.filter-option-toggle'));
+
   const closeFilterPanel = () => {
-    if (filterPanel) {
-      filterPanel.classList.remove('open');
-      filterPanel.setAttribute('aria-expanded', 'false');
-      filterToggleBtn?.setAttribute('aria-expanded', 'false');
-    }
+    if (!filterOverlay || !filterPanel || !filterToggleBtn) return;
+    filterOverlay.classList.remove('open');
+    filterOverlay.setAttribute('aria-hidden', 'true');
+    filterPanel.setAttribute('aria-expanded', 'false');
+    filterToggleBtn.setAttribute('aria-expanded', 'false');
+    overlayToggles.forEach((toggle) => toggle.classList.remove('open'));
+    document.body.classList.remove('filter-open');
+  };
+
+  const openFilterPanel = () => {
+    if (!filterOverlay || !filterPanel || !filterToggleBtn) return;
+    filterOverlay.classList.add('open');
+    filterOverlay.setAttribute('aria-hidden', 'false');
+    filterPanel.setAttribute('aria-expanded', 'true');
+    filterToggleBtn.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('filter-open');
   };
 
   if (filterToggleBtn) {
     filterToggleBtn.addEventListener('click', (event) => {
-      if (!filterPanel) return;
-      const isOpen = filterPanel.classList.toggle('open');
-      filterPanel.setAttribute('aria-expanded', String(isOpen));
-      filterToggleBtn.setAttribute('aria-expanded', String(isOpen));
+      event.stopPropagation();
+      if (!filterOverlay) return;
+      const isOpen = filterOverlay.classList.toggle('open');
       if (isOpen) {
-        event.stopPropagation();
-        brandFilter?.focus();
+        openFilterPanel();
+      } else {
+        closeFilterPanel();
       }
     });
   }
 
-  document.addEventListener('click', (event) => {
-    if (!filterPanel || !filterToggleBtn) return;
-    if (!filterPanel.contains(event.target) && event.target !== filterToggleBtn) {
+  if (filterCloseBtn) {
+    filterCloseBtn.addEventListener('click', closeFilterPanel);
+  }
+
+  if (applyFiltersBtn) {
+    applyFiltersBtn.addEventListener('click', () => {
+      applyFilters();
       closeFilterPanel();
-    }
+    });
+  }
+
+  if (filterOverlay) {
+    filterOverlay.addEventListener('click', (event) => {
+      if (event.target === filterOverlay) {
+        closeFilterPanel();
+      }
+    });
+  }
+
+  overlayToggles.forEach((toggle) => {
+    const targetId = toggle.dataset.target;
+    const panel = document.getElementById(targetId);
+    if (!panel) return;
+
+    toggle.addEventListener('click', () => {
+      const isOpen = panel.classList.toggle('open');
+      toggle.classList.toggle('open', isOpen);
+    });
   });
 
   [brandFilter, sortFilter, timeFilter].forEach((select) => {
