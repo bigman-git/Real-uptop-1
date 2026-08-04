@@ -503,8 +503,134 @@ document.addEventListener('DOMContentLoaded', () => {
         `Product link: ${productUrl}`
       ].join('\n');
 
-      const whatsappUrl = `https://wa.me/+253115369156?text=${encodeURIComponent(message)}`;
+      const whatsappUrl = `https://wa.me/+254115369156?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    });
+  });
+});
+/**
+ * Laptop Accessories & Replacement Hub - Client-Side Logic
+ */
+
+document.addEventListener('DOMContentLoaded', () => {
+  // --- DOM Elements ---
+  const filterOverlay = document.getElementById('filterOverlay');
+  const filterDrawer = document.getElementById('filterDrawer');
+  const searchInput = document.querySelector('.search-box input');
+  const productCards = document.querySelectorAll('.product-card');
+  const filterCheckboxes = document.querySelectorAll('.filter-group input[type="checkbox"]');
+  const addToCartButtons = document.querySelectorAll('.add-cart-btn');
+
+  // Track active cart count
+  let cartCount = 0;
+
+  // ==========================================================================
+  // 1. Filter Drawer Controls
+  // ==========================================================================
+
+  /**
+   * Toggles the visibility of the slide-out filter drawer
+   */
+  window.toggleFilterDrawer = function () {
+    if (!filterDrawer || !filterOverlay) return;
+
+    const isActive = filterDrawer.classList.contains('active');
+
+    if (isActive) {
+      filterDrawer.classList.remove('active');
+      filterOverlay.style.display = 'none';
+      document.body.style.overflow = ''; // Restore background scrolling
+    } else {
+      filterDrawer.classList.add('active');
+      filterOverlay.style.display = 'block';
+      document.body.style.overflow = 'hidden'; // Prevent background scrolling when open
+    }
+  };
+
+  // Close filter drawer when pressing the Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && filterDrawer && filterDrawer.classList.contains('active')) {
+      window.toggleFilterDrawer();
+    }
+  });
+
+  // ==========================================================================
+  // 2. Real-Time Search & Filtering Logic
+  // ==========================================================================
+
+  /**
+   * Filters the visible product cards based on search query and selected filter options
+   */
+  function filterProducts() {
+    const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+
+    // Collect checked filter categories
+    const selectedCategories = Array.from(filterCheckboxes)
+      .filter((cb) => cb.checked)
+      .map((cb) => cb.parentElement.textContent.toLowerCase().trim());
+
+    productCards.forEach((card) => {
+      const title = card.querySelector('.product-title')?.textContent.toLowerCase() || '';
+      const specs = card.querySelector('.product-specs')?.textContent.toLowerCase() || '';
+      const badge = card.querySelector('.badge')?.textContent.toLowerCase() || '';
+
+      // Match search input against title, specs, or badge text
+      const matchesSearch = !query || title.includes(query) || specs.includes(query) || badge.includes(query);
+
+      // Match checked filter options
+      const matchesCategory =
+        selectedCategories.length === 0 ||
+        selectedCategories.some(
+          (category) => title.includes(category) || specs.includes(category) || badge.includes(category)
+        );
+
+      // Display card if both conditions are met
+      if (matchesSearch && matchesCategory) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  // Bind real-time search input event
+  if (searchInput) {
+    searchInput.addEventListener('input', filterProducts);
+  }
+
+  // Bind category checkbox events
+  filterCheckboxes.forEach((checkbox) => {
+    checkbox.addEventListener('change', filterProducts);
+  });
+
+  // ==========================================================================
+  // 3. Shopping Cart Interactions
+  // ==========================================================================
+
+  /**
+   * Handles adding products to the cart with visual feedback
+   */
+  addToCartButtons.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      const card = e.target.closest('.product-card');
+      const title = card.querySelector('.product-title')?.textContent || 'Item';
+      const price = card.querySelector('.price')?.textContent || '';
+
+      cartCount++;
+
+      // Temporary visual button feedback
+      const originalText = btn.textContent;
+      btn.textContent = 'Added ✓';
+      btn.style.backgroundColor = 'var(--success, #10b981)';
+      btn.disabled = true;
+
+      setTimeout(() => {
+        btn.textContent = originalText;
+        btn.style.backgroundColor = '';
+        btn.disabled = false;
+      }, 1500);
+
+      console.log(`Cart Updated (+1): ${title} - ${price}. Total items: ${cartCount}`);
     });
   });
 });

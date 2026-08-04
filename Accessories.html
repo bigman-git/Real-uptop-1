@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accessories</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <header class="header">
+        <div class="brand-logo">
+          <div class="logo-mark" aria-hidden="true"></div>
+          <span>Uptop</span>
+        </div>
+        <div class="header-actions">
+          <a class="btn-home" href="index.html">Home</a>
+          <a class="btn-home" href="laptops.html">Laptops</a>
+          <a class="btn-home" href="Accessories.html">Accessories</a>
+        </div>
+      </header>
+
+      <div class="top-contact-bar">
+        <a
+          class="contact-item contact-whatsapp"
+          href="https://wa.me/+254115369156?text=Hello%20Uptop%2C%20I%20would%20like%20to%20order%20a%20product."
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-brands fa-whatsapp"></i>
+          <span>WhatsApp Us</span>
+        </a>
+        <a class="contact-item contact-call" href="tel:+254115369156">
+          <i class="fa-solid fa-phone"></i>
+          <span>Call Now</span>
+        </a>
+      </div>
+
+      <div class="container">
+      <!-- Hero Header -->
+      <section class="hero">
+        <h1>Laptop Accessories & Replacement Hub</h1>
+        <p>
+          Genuine OEM parts, chargers, displays, structural casings, and
+          ergonomic gear.
+        </p>
+      </section>
+
+      <!-- Toolbar Header -->
+      <div class="toolbar">
+        <div class="search-box">
+          <input
+            type="text"
+            placeholder="Search by model, wattage, screen size, or part number..."
+          />
+        </div>
+        <button class="filter-btn" onclick="toggleFilterDrawer()">
+          ⚙️ Filter Specifications
+        </button>
+      </div>
+
+      <!-- Product Grid: 25 Laptop Accessories -->
+      <div class="product-grid">
+        <!-- Item 1 -->
+        <div class="product-card">
+          <div>
+            <div class="product-image-container">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcTJLNDmRcWdPMYj_wDvdPQ8qIXfu62jLfLhconf1jofg36J9VW6-QfoC6sAwPgnzpj3atjjns51_61otAo"
+                alt="15.6 Inch FHD LCD Screen Panel"
+              />
+            </div>
+            <span class="badge badge-oem">OEM Replacement</span>
+            <h3 class="product-title">15.6" Full HD IPS Display Panel</h3>
+            <p class="product-specs">
+              30-Pin eDP Connector • 1920x1080 • Non-Touch Matte Panel
+            </p>
+          </div>
+          <div class="card-footer">
+            <span class="price">$64.99</span>
+            <button class="add-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="product-card">
+          <div>
+            <div class="product-image-container">
+              <img
+                src="https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcQ1BypkFqkw8fF1_gvKGX08zY_EEpguzV0ROz1wAQlJ3Cy7gT6wd9azuefUoqB4FpOcs18DCG1snIAU9cA"
+                alt="65W USB-C GaN Laptop Charger Adapter"
+              />
+            </div>
+            <span class="badge badge-universal">Universal Fit</span>
+            <h3 class="product-title">65W GaN USB-C Fast Charger</h3>
+            <p class="product-specs">
+              Power Delivery 3.0 • Multi-Voltage Auto Sensing
+            </p>
+          </div>
+          <div class="card-footer">
+            <span class="price">$39.99</span>
+            <button class="add-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="product-card">
+          <div>
+            <div class="product-image-container">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcSJC_EzNTaqkA4edFQHfYvR0S2m3u1U1BQXn663A4BFqs4sspvTKFzNhvzwSSROBtTR3jxbNS87fFdkvc0"
+                alt="Laptop DC Power Jack Charging Port Cable Harness"
+              />
+            </div>
+            <span class="badge badge-oem">OEM Replacement</span>
+            <h3 class="product-title">Internal DC Jack Charging Port</h3>
+            <p class="product-specs">
+              In-line Harness Cable • 4.5mm Barrel Pin Harness
+            </p>
+          </div>
+          <div class="card-footer">
+            <span class="price">$11.99</span>
+            <button class="add-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="product-card">
+          <div>
+            <div class="product-image-container">
+              <img
+                src="https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcQLLXpa2_G9iAc_JOyJqmUkbwIVJN7_SoL708tnWY1Pv4aSQgy5aCiBnY7sW3a_Cs3ZTMOonFdYsEM_k30"
+                alt="Adjustable Aluminum Ergonomic Laptop Stand"
+              />
+            </div>
+            <span class="badge badge-universal">Universal Fit</span>
+            <h3 class="product-title">Adjustable Aluminum Laptop Stand</h3>
+            <p class="product-specs">
+              Ergonomic Riser • Fits 11" to 17.3" Laptops
+            </p>
+          </div>
+          <div class="card-footer">
+            <span class="price">$29.99</span>
+            <button class="add-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="product-card">
+          <div>
+            <div class="product-image-container">
+              <img
+                src="https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcT1iyAPhJrwnfwgDwinHvorzO_Rx3LGaWyigqgsTXRUKVquHzj6nEGChajkarHmGsRD3aCpnnvTpsMVPLM"
+                alt="RGB Gaming Laptop Cooling Pad Dual Fans"
+              />
+            </div>
+            <span class="badge badge-pro">Performance</span>
+            <h3 class="product-title">Dual-Fan Laptop Cooling Pad</h3>
+            <p class="product-specs">
+              RGB Lighting • USB Powered • Adjustable Fan Speeds
+            </p>
+          </div>
+          <div class="card-footer">
+            <span class="price">$34.99</span>
+            <button class="add-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="product-card">
+          <div>
+            <div class="product-image-container">
+              <img
+                src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=600&q=80"
+                alt="Backlit Keyboard Replacement"
+              />
+            </div>
+            <span class="badge badge-oem">OEM Replacement</span>
+            <h3 class="product-title">Internal Backlit Laptop Keyboard</h3>
+            <p class="product-specs">
+              US Layout • White LED Backlight Ribbon Cable Included
+            </p>
+          </div>
+          <div class="card-footer">
+            <span class="price">$27.50</span>
+            <button class="add-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Item 7 -->
+        <div class="product-card">
+          <div>
+            <div class="product-image-container">
+              <img
+                src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80"
+                alt="Internal Lithium Ion Battery Pack"
+              />
+            </div>
+            <span class="badge badge-oem">OEM Grade</span>
+            <h3 class="product-title">54Wh Internal Li-ion Battery</h3>
+            <p class="product-specs">
+              11.4V • 4-Cell Grade A Cells • Long Lifetime
+            </p>
+          </div>
+          <div class="card-footer">
+            <span class="price">$49.99</span>
+            <button class="add-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Item 8 -->
+        <div class="product-card">
+          <div>
+            <div class="product-image-container">
+              <img
+                src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=600&q=80"
+                alt="Thunderbolt 4 Docking Station Multiport"
+              />
+            </div>
+            <span class="badge badge-pro">Pro Docking</span>
+            <h3 class="product-title">12-in-1 USB-C Thunderbolt Dock</h3>
+            <p class="product-specs">
+              Dual HDMI 4K • 100W PD Pass-through • Gigabit Ethernet
+            </p>
+          </div>
+          <div class="card-footer">
+            <span class="price">$119.99</span>
+            <button class="add-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Item 9 -->
+        <div class="product-card">
+          <div>
+            <div class="product-image-container">
+              <img
+                src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&w=600&q=80"
+                alt="Laptop Shell Outer Casing Screen Top Lid"
+              />
+            </div>
+            <span class="badge badge-oem">OEM Replacement</span>
+            <h3 class="product-title">Laptop Top Lid LCD Rear Cover (Shell)</h3>
+            <p class="product-specs">
+              Aluminum Casing • Back Cover Casing Segment
+            </p>
+          </div>
+          <div class="card-footer">
+            <span class="price">$38.00</span>
+            <button class="add-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Item 10 -->
+        <div class="product-card">
+          <div>
+            <div class="product-image-container">
+              <img
+                src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?auto=format&fit=crop&w=600&q=80"
+                alt="Precision Metal Hinge Set Left and Right"
+              />
+            </div>
+            <span class="badge badge-oem">OEM Replacement</span>
+            <h3 class="product-title">Left & Right Screen Hinge Assembly</h3>
+            <p class="product-specs">
+              Stainless Steel • Pre-tensioned Display Hinge Pair
+            </p>
+          </div>
+          <div class="card-footer">
+            <span class="price">$14.99</span>
+            <button class="add-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Item 11 -->
+        <div class="product-card">
+          <div>
+            <div class="product-image-container">
+              <img
+                src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=600&q=80"
+                alt="Internal Thermal Fan Heatsink Assembly"
+              />
+            </div>
+            <span class="badge badge-oem">OEM Replacement</span>
+            <h3 class="product-title">CPU/GPU Cooling Fan & Copper Heatsink</h3>
+            <p class="product-specs">
+              4-Pin PWM Connector • Ultra-Quiet Hydraulic Bearing
+            </p>
+          </div>
+          <div class="card-footer">
+            <span class="price">$22.50</span>
+            <button class="add-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Item 12 -->
+        <div class="product-card">
+          <div>
+            <div class="product-image-container">
+              <img
+                src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=600&q=80"
+                alt="Shockproof Padded Laptop Sleeve Case"
+              />
+            </div>
+            <span class="badge badge-universal">Universal Fit</span>
+            <h3 class="product-title">
+              Shockproof Water-Resistant Laptop Sleeve
+            </h3>
+            <p class="product-specs">
+              Fits 13.3" - 14" Laptops • Plush Internal Fleece Lining
+            </p>
+          </div>
+          <div class="card-footer">
+            <span class="price">$21.99</span>
+            <button class="add-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Item 13 -->
+        <div class="product-card">
+          <div>
+            <div class="product-image-container">
+              <img
+                src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=600&q=80"
+                alt="Hard Shell Protective Case Cover"
+              />
+            </div>
+            <span class="badge badge-universal">Model Specific</span>
+            <h3 class="product-title">Hard-Shell Snap-on Protective Case</h3>
+            <p class="product-specs">
+              Polycarbonate Construction • Vented Bottom Heat Release
+            </p>
+          </div>
+          <div class="card-footer">
+            <span class="price">$19.99</span>
+            <button class="add-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Item 14 -->
+        <div class="product-card">
+          <div>
+            <div class="product-image-container">
+              <img
+                src="https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&fit=crop&w=600&q=80"
+                alt="Privacy Magnetic Screen Protector Filter"
+              />
+            </div>
+            <span class="badge badge-universal">Protection</span>
+            <h3 class="product-title">Magnetic Privacy Screen Filter</h3>
+            <p class="product-specs">
+              Anti-Glare • 60-Degree Limited Viewing Angle
+            </p>
+          </div>
+          <div class="card-footer">
+            <span class="price">$28.99</span>
+            <button class="add-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Item 15 -->
+        <div class="product-card">
+          <div>
+            <div class="product-image-container">
+              <img
+                src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80"
+                alt="Precision Trackpad Touchpad Replacement Module"
+              />
+            </div>
+            <span class="badge badge-oem">OEM Replacement</span>
+            <h3 class="product-title">Precision Touchpad / Trackpad Module</h3>
+            <p class="product-specs">
+              Glass Surface • Multi-Touch Ribbon Cable Included
+            </p>
+          </div>
+          <div class="card-footer">
+            <span class="price">$24.00</span>
+            <button class="add-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Item 16 -->
+        <div class="product-card">
+          <div>
+            <div class="product-image-container">
+              <img
+                src="https://images.unsplash.com/photo-1563298723-dcfebaa392e3?auto=format&fit=crop&w=600&q=80"
+                alt="Internal Stereo Speaker Assembly Unit"
+              />
+            </div>
+            <span class="badge badge-oem">OEM Replacement</span>
+            <h3 class="product-title">Internal Stereo Speaker Pair</h3>
+            <p class="product-specs">
+              4-Ohm • Left & Right Channels with Connection Harness
+            </p>
+          </div>
+          <div class="card-footer">
+            <span class="price">$16.50</span>
+            <button class="add-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Item 17 -->
+        <div class="product-card">
+          <div>
+            <div class="product-image-container">
+              <img
+                src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80"
+                alt="High Speed Wi-Fi 6E M.2 Network Card Module"
+              />
+            </div>
+            <span class="badge badge-pro">Performance</span>
+            <h3 class="product-title">Wi-Fi 6E M.2 WLAN/Bluetooth 5.3 Card</h3>
+            <p class="product-specs">
+              M.2 2230 Form Factor • Up to 2.4Gbps Speed
+            </p>
+          </div>
+          <div class="card-footer">
+            <span class="price">$32.00</span>
+            <button class="add-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Item 18 -->
+        <div class="product-card">
+          <div>
+            <div class="product-image-container">
+              <img
+                src="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=600&q=80"
+                alt="Multiport USB-C Hub Adapter"
+              />
+            </div>
+            <span class="badge badge-universal">Universal Fit</span>
+            <h3 class="product-title">7-in-1 Aluminum USB-C Hub Adapter</h3>
+            <p class="product-specs">
+              4K HDMI • 3x USB 3.0 • SD/TF Card Reader
+            </p>
+          </div>
+          <div class="card-footer">
+            <span class="price">$34.50</span>
+            <button class="add-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Item 19 -->
+        <div class="product-card">
+          <div>
+            <div class="product-image-container">
+              <img
+                src="https://images.unsplash.com/photo-1625842268584-8f3296236761?auto=format&fit=crop&w=600&q=80"
+                alt="Silicone Keyboard Skin Cover Protector"
+              />
+            </div>
+            <span class="badge badge-universal">Protection</span>
+            <h3 class="product-title">
+              Ultra-Thin Silicone Keyboard Protector
+            </h3>
+            <p class="product-specs">
+              Dust & Waterproof • Washable Transparent Shield
+            </p>
+          </div>
+          <div class="card-footer">
+            <span class="price">$8.99</span>
+            <button class="add-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Item 20 -->
+        <div class="product-card">
+          <div>
+            <div class="product-image-container">
+              <img
+                src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80"
+                alt="Laptop Cable Lock Security Wire"
+              />
+            </div>
+            <span class="badge badge-universal">Security</span>
+            <h3 class="product-title">
+              Kensington Slot Combination Cable Lock
+            </h3>
+            <p class="product-specs">
+              6ft Galvanized Steel Cable • 4-Digit Resettable Code
+            </p>
+          </div>
+          <div class="card-footer">
+            <span class="price">$18.99</span>
+            <button class="add-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Item 21 -->
+        <div class="product-card">
+          <div>
+            <div class="product-image-container">
+              <img
+                src="https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80"
+                alt="Webcam HD Video Board Replacement"
+              />
+            </div>
+            <span class="badge badge-oem">OEM Replacement</span>
+            <h3 class="product-title">Internal Web Camera & Dual Mic Module</h3>
+            <p class="product-specs">
+              1080p FHD Video Board • Noise Canceling Microphones
+            </p>
+          </div>
+          <div class="card-footer">
+            <span class="price">$21.00</span>
+            <button class="add-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Item 22 -->
+        <div class="product-card">
+          <div>
+            <div class="product-image-container">
+              <img
+                src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80"
+                alt="Rubber Feet Strips Bottom Case Grip"
+              />
+            </div>
+            <span class="badge badge-oem">Maintenance</span>
+            <h3 class="product-title">
+              Anti-Slip Rubber Feet Strips (Set of 4)
+            </h3>
+            <p class="product-specs">
+              Self-Adhesive 3M Backing • Non-Slip Bottom Feet
+            </p>
+          </div>
+          <div class="card-footer">
+            <span class="price">$7.49</span>
+            <button class="add-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Item 23 -->
+        <div class="product-card">
+          <div>
+            <div class="product-image-container">
+              <img
+                src="https://images.unsplash.com/photo-1616440342232-0efe3d6e8823?auto=format&fit=crop&w=600&q=80"
+                alt="Vertical Metal Laptop Stand Holder"
+              />
+            </div>
+            <span class="badge badge-universal">Universal Fit</span>
+            <h3 class="product-title">Vertical Metal Desktop Laptop Holder</h3>
+            <p class="product-specs">
+              Space-Saving Adjustable Dock • Anodized Aluminum
+            </p>
+          </div>
+          <div class="card-footer">
+            <span class="price">$24.99</span>
+            <button class="add-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Item 24 -->
+        <div class="product-card">
+          <div>
+            <div class="product-image-container">
+              <img
+                src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=600&q=80"
+                alt="Thermal Paste Grease Syringe Compound"
+              />
+            </div>
+            <span class="badge badge-pro">Maintenance</span>
+            <h3 class="product-title">
+              High-Performance Thermal Compound Paste
+            </h3>
+            <p class="product-specs">
+              4g Syringe • 12.5 W/mK Thermal Conductivity
+            </p>
+          </div>
+          <div class="card-footer">
+            <span class="price">$11.50</span>
+            <button class="add-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Item 25 -->
+        <div class="product-card">
+          <div>
+            <div class="product-image-container">
+              <img
+                src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80"
+                alt="Precision Toolkit for Electronics Opening Repair"
+              />
+            </div>
+            <span class="badge badge-pro">Tools</span>
+            <h3 class="product-title">64-in-1 Precision Repair Tool Set</h3>
+            <p class="product-specs">
+              Magnetic Bits • ESD-Safe Tweezers & Spudgers
+            </p>
+          </div>
+          <div class="card-footer">
+            <span class="price">$29.99</span>
+            <button class="add-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter Slide-Out Drawer -->
+    <div
+      class="filter-overlay"
+      id="filterOverlay"
+      onclick="toggleFilterDrawer()"
+    ></div>
+    <aside class="filter-drawer" id="filterDrawer">
+      <div class="filter-header">
+        <h3>Specification Filters</h3>
+        <button class="close-btn" onclick="toggleFilterDrawer()">
+          &times;
+        </button>
+      </div>
+
+      <div class="filter-group">
+        <h4>Category</h4>
+        <label><input type="checkbox" /> Display Panel & Screens</label>
+        <label><input type="checkbox" /> Chargers & Power Adapters</label>
+        <label><input type="checkbox" /> DC Jacks & Charging Ports</label>
+        <label><input type="checkbox" /> Stands & Cooling Pads</label>
+        <label><input type="checkbox" /> Keyboards & Trackpads</label>
+        <label><input type="checkbox" /> Internal Batteries</label>
+        <label><input type="checkbox" /> Docks & USB Hubs</label>
+      </div>
+
+      <div class="filter-group">
+        <h4>Screen Connector Pins</h4>
+        <label><input type="checkbox" /> 30-Pin eDP</label>
+        <label><input type="checkbox" /> 40-Pin FHD/Touch</label>
+      </div>
+
+      <div class="filter-group">
+        <h4>Charger Output Wattage</h4>
+        <label><input type="checkbox" /> 45W</label>
+        <label><input type="checkbox" /> 65W GaN / Type-C</label>
+        <label><input type="checkbox" /> 90W - 130W+</label>
+      </div>
+    </aside>
+    <script src="jss/java.js"></script>
+    </div>
+  </body>
+</html>
