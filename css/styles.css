@@ -719,6 +719,297 @@ body.accessories-page .scroll-up-btn:hover {
   transform: scale(1.08);
 }
 
+body.services-page {
+  background: linear-gradient(135deg, #f8fbff 0%, #eef4ff 100%);
+  color: var(--text-dark);
+  min-height: 100vh;
+}
+
+body.services-page .site-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 16px 40px;
+}
+
+body.services-page .navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding: 14px 18px;
+  background: rgba(255,255,255,0.9);
+  border: 1px solid rgba(15,23,42,0.08);
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+}
+
+body.services-page .logo {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+body.services-page .nav-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+body.services-page .nav-links a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 999px;
+  transition: var(--transition);
+}
+
+body.services-page .nav-links a:hover,
+body.services-page .nav-links a.active {
+  color: var(--primary);
+  background: rgba(37, 99, 235, 0.1);
+}
+
+body.services-page .menu-toggle {
+  display: none;
+  border: none;
+  background: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+body.services-page .container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+body.services-page .hero-section,
+body.services-page .services-section,
+body.services-page .process-section {
+  background: #ffffff;
+  border: 1px solid rgba(15,23,42,0.06);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+}
+
+body.services-page .hero-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+}
+
+body.services-page .hero-title {
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+body.services-page .hero-subtitle,
+body.services-page .section-subtitle,
+body.services-page .card-desc,
+body.services-page .step p,
+body.services-page .card-features li {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+body.services-page .hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+body.services-page .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: var(--transition);
+}
+
+body.services-page .btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+body.services-page .btn-whatsapp {
+  background: var(--whatsapp-green);
+  color: #fff;
+}
+
+body.services-page .btn:hover {
+  transform: translateY(-1px);
+}
+
+body.services-page .grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+body.services-page .service-card {
+  background: #f8fbff;
+  border: 1px solid rgba(15,23,42,0.06);
+  border-radius: 16px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+body.services-page .card-icon {
+  font-size: 1.5rem;
+}
+
+body.services-page .card-title {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+body.services-page .card-features {
+  padding-left: 18px;
+  display: grid;
+  gap: 6px;
+}
+
+body.services-page .service-btn {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 12px;
+  border-radius: 10px;
+  background: #eaf2ff;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+body.services-page .process-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+body.services-page .step {
+  background: #f8fbff;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+body.services-page .step-num {
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+body.services-page .scroll-up-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 46px;
+  height: 46px;
+  border: none;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+}
+
+body.services-page .scroll-up-btn.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+body.services-page footer {
+  text-align: center;
+  padding: 24px 0 8px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 960px) {
+  body.services-page .grid,
+  body.services-page .process-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  body.services-page .site-wrapper {
+    padding: 12px 10px 24px;
+  }
+
+  body.services-page .navbar {
+    flex-wrap: wrap;
+    padding: 12px 14px;
+  }
+
+  body.services-page .nav-links {
+    width: 100%;
+    justify-content: center;
+  }
+
+  body.services-page .hero-section,
+  body.services-page .services-section,
+  body.services-page .process-section {
+    padding: 18px;
+  }
+
+  body.services-page .grid,
+  body.services-page .process-steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  body.services-page .navbar {
+    align-items: flex-start;
+  }
+
+  body.services-page .logo {
+    font-size: 1.05rem;
+  }
+
+  body.services-page .nav-links {
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
+  body.services-page .hero-cta-group {
+    flex-direction: column;
+  }
+
+  body.services-page .btn {
+    width: 100%;
+  }
+}
+
 body.accessories-page footer {
   background-color: #0f172a;
   color: #94a3b8;
@@ -2547,4 +2838,414 @@ body.accessories-page footer {
                          gap: 10px;
                      }
                  }
-                 
+                                 /* ==========================================================================
+                   1. VARIABLES & BASE STYLES
+                   ========================================================================== */
+                                 :root {
+                                     --bg-color: #f8fafc;
+                                     --card-bg: #ffffff;
+                                     --primary: #2563eb;
+                                     --primary-hover: #1d4ed8;
+                                     --whatsapp-green: #25d366;
+                                     --whatsapp-hover: #1da851;
+                                     --text-dark: #0f172a;
+                                     --text-muted: #64748b;
+                                     --border-color: #e2e8f0;
+                                     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+                                     --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+                                     --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.08);
+                                     --radius-lg: 16px;
+                                     --radius-md: 10px;
+                                     --radius-sm: 6px;
+                                     --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+                                 }
+                
+                                 *,
+                                 *::before,
+                                 *::after {
+                                     box-sizing: border-box;
+                                     margin: 0;
+                                     padding: 0;
+                                 }
+                
+                                 body {
+                                     background-color: var(--bg-color);
+                                     color: var(--text-dark);
+                                     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+                                     line-height: 1.5;
+                                     -webkit-font-smoothing: antialiased;
+                                 }
+                
+                                 /* ==========================================================================
+                   2. LAYOUT CONTAINER
+                   ========================================================================== */
+                                 .site-wrapper {
+                                     max-width: 1400px;
+                                     margin: 0 auto;
+                                     min-height: 100vh;
+                                     display: flex;
+                                     flex-direction: column;
+                                     background: var(--card-bg);
+                                     box-shadow: 0 0 30px rgba(0, 0, 0, 0.04);
+                                 }
+                
+                                 .container {
+                                     padding: 24px 16px;
+                                     flex: 1;
+                                 }
+                
+                                 /* ==========================================================================
+                   3. HEADER & NAVIGATION
+                   ========================================================================== */
+                                 .navbar {
+                                     display: flex;
+                                     align-items: center;
+                                     justify-content: space-between;
+                                     gap: 12px;
+                                     padding: 16px 24px;
+                                     background-color: var(--card-bg);
+                                     border-bottom: 1px solid var(--border-color);
+                                     position: sticky;
+                                     top: 0;
+                                     z-index: 100;
+                                 }
+                
+                                 .logo {
+                                     font-weight: 800;
+                                     font-size: clamp(1.2rem, 3vw, 1.5rem);
+                                     color: var(--primary);
+                                     text-decoration: none;
+                                     letter-spacing: -0.5px;
+                                 }
+                
+                                 .nav-links {
+                                     display: flex;
+                                     gap: 20px;
+                                 }
+                
+                                 .nav-links a {
+                                     text-decoration: none;
+                                     color: var(--text-muted);
+                                     font-weight: 500;
+                                     font-size: 0.95rem;
+                                     transition: var(--transition);
+                                 }
+                
+                                 .nav-links a:hover,
+                                 .nav-links a.active {
+                                     color: var(--primary);
+                                 }
+                
+                                 .menu-toggle {
+                                     display: none;
+                                     background: none;
+                                     border: none;
+                                     font-size: 1.4rem;
+                                     cursor: pointer;
+                                     color: var(--text-dark);
+                                 }
+                
+                                 /* ==========================================================================
+                   4. HERO SECTION
+                   ========================================================================== */
+                                 .hero-section {
+                                     text-align: center;
+                                     padding: 40px 16px;
+                                     background: linear-gradient(180deg, #eff6ff 0%, #ffffff 100%);
+                                     border-radius: var(--radius-lg);
+                                     margin-bottom: 40px;
+                                     border: 1px solid var(--border-color);
+                                 }
+                
+                                 .hero-badge {
+                                     display: inline-block;
+                                     background-color: #dbeafe;
+                                     color: var(--primary);
+                                     font-size: 0.8rem;
+                                     font-weight: 700;
+                                     padding: 4px 12px;
+                                     border-radius: 20px;
+                                     text-transform: uppercase;
+                                     margin-bottom: 12px;
+                                 }
+                
+                                 .hero-title {
+                                     font-size: clamp(1.75rem, 5vw, 2.75rem);
+                                     font-weight: 800;
+                                     line-height: 1.2;
+                                     color: var(--text-dark);
+                                     margin-bottom: 12px;
+                                 }
+                
+                                 .hero-subtitle {
+                                     font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+                                     color: var(--text-muted);
+                                     max-width: 680px;
+                                     margin: 0 auto 24px;
+                                 }
+                
+                                 .hero-cta-group {
+                                     display: flex;
+                                     justify-content: center;
+                                     gap: 12px;
+                                     flex-wrap: wrap;
+                                 }
+                
+                                 .btn {
+                                     padding: 10px 20px;
+                                     border-radius: var(--radius-md);
+                                     font-size: 0.9rem;
+                                     font-weight: 600;
+                                     text-decoration: none;
+                                     transition: var(--transition);
+                                 }
+                
+                                 .btn-primary {
+                                     background-color: var(--primary);
+                                     color: #fff;
+                                 }
+                
+                                 .btn-primary:hover {
+                                     background-color: var(--primary-hover);
+                                 }
+                
+                                 .btn-whatsapp {
+                                     background-color: var(--whatsapp-green);
+                                     color: #fff;
+                                 }
+                
+                                 .btn-whatsapp:hover {
+                                     background-color: var(--whatsapp-hover);
+                                 }
+                
+                                 /* ==========================================================================
+                   5. SERVICES GRID & CARDS
+                   ========================================================================== */
+                                 .services-section {
+                                     margin-bottom: 48px;
+                                 }
+                
+                                 .section-title {
+                                     text-align: center;
+                                     font-size: clamp(1.5rem, 4vw, 2rem);
+                                     font-weight: 700;
+                                     margin-bottom: 8px;
+                                 }
+                
+                                 .section-subtitle {
+                                     text-align: center;
+                                     color: var(--text-muted);
+                                     font-size: 0.95rem;
+                                     margin-bottom: 32px;
+                                 }
+                
+                                 .grid {
+                                     display: grid;
+                                     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                                     gap: 20px;
+                                 }
+                
+                                 .service-card {
+                                     background: var(--card-bg);
+                                     border: 1px solid var(--border-color);
+                                     border-radius: var(--radius-lg);
+                                     padding: 24px;
+                                     display: flex;
+                                     flex-direction: column;
+                                     box-shadow: var(--shadow-sm);
+                                     transition: var(--transition);
+                                 }
+                
+                                 .service-card:hover {
+                                     transform: translateY(-4px);
+                                     box-shadow: var(--shadow-lg);
+                                     border-color: #cbd5e1;
+                                 }
+                
+                                 .card-icon {
+                                     font-size: 2.2rem;
+                                     margin-bottom: 12px;
+                                 }
+                
+                                 .card-title {
+                                     font-size: 1.15rem;
+                                     font-weight: 700;
+                                     margin-bottom: 8px;
+                                     color: var(--text-dark);
+                                 }
+                
+                                 .card-desc {
+                                     font-size: 0.875rem;
+                                     color: var(--text-muted);
+                                     line-height: 1.5;
+                                     margin-bottom: 16px;
+                                 }
+                
+                                 .card-features {
+                                     list-style: none;
+                                     margin-bottom: 24px;
+                                     margin-top: auto;
+                                 }
+                
+                                 .card-features li {
+                                     font-size: 0.8rem;
+                                     color: var(--text-dark);
+                                     margin-bottom: 6px;
+                                     position: relative;
+                                     padding-left: 16px;
+                                 }
+                
+                                 .card-features li::before {
+                                     content: "✓";
+                                     position: absolute;
+                                     left: 0;
+                                     color: var(--whatsapp-green);
+                                     font-weight: bold;
+                                 }
+                
+                                 .service-btn {
+                                     display: block;
+                                     text-align: center;
+                                     background-color: var(--primary);
+                                     color: #ffffff;
+                                     text-decoration: none;
+                                     padding: 10px;
+                                     border-radius: var(--radius-md);
+                                     font-size: 0.85rem;
+                                     font-weight: 600;
+                                     transition: var(--transition);
+                                 }
+                
+                                 .service-btn:hover {
+                                     background-color: var(--primary-hover);
+                                 }
+                
+                                 /* ==========================================================================
+                   6. WORKFLOW PROCESS
+                   ========================================================================== */
+                                 .process-section {
+                                     background-color: #f1f5f9;
+                                     border-radius: var(--radius-lg);
+                                     padding: 32px 20px;
+                                     margin-bottom: 32px;
+                                 }
+                
+                                 .process-steps {
+                                     display: grid;
+                                     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                                     gap: 20px;
+                                     margin-top: 24px;
+                                 }
+                
+                                 .step {
+                                     text-align: center;
+                                     background: var(--card-bg);
+                                     padding: 20px;
+                                     border-radius: var(--radius-md);
+                                     border: 1px solid var(--border-color);
+                                 }
+                
+                                 .step-num {
+                                     width: 36px;
+                                     height: 36px;
+                                     background-color: var(--primary);
+                                     color: #fff;
+                                     border-radius: 50%;
+                                     display: flex;
+                                     align-items: center;
+                                     justify-content: center;
+                                     font-weight: 700;
+                                     margin: 0 auto 12px;
+                                 }
+                
+                                 .step h4 {
+                                     font-size: 1rem;
+                                     margin-bottom: 6px;
+                                 }
+                
+                                 .step p {
+                                     font-size: 0.825rem;
+                                     color: var(--text-muted);
+                                 }
+                
+                                 /* ==========================================================================
+                   7. SCROLL BUTTON & FOOTER
+                   ========================================================================== */
+                                 .scroll-up-btn {
+                                     position: fixed;
+                                     bottom: 24px;
+                                     right: 24px;
+                                     width: 44px;
+                                     height: 44px;
+                                     border-radius: 50%;
+                                     background: var(--primary);
+                                     color: #ffffff;
+                                     border: none;
+                                     font-size: 1.2rem;
+                                     font-weight: bold;
+                                     cursor: pointer;
+                                     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+                                     opacity: 0;
+                                     visibility: hidden;
+                                     transition: var(--transition);
+                                     z-index: 99;
+                                 }
+                
+                                 .scroll-up-btn.visible {
+                                     opacity: 1;
+                                     visibility: visible;
+                                 }
+                
+                                 footer {
+                                     background-color: #0f172a;
+                                     color: #94a3b8;
+                                     padding: 24px 16px;
+                                     font-size: 0.8rem;
+                                     text-align: center;
+                                     margin-top: auto;
+                                 }
+                
+                                 /* ==========================================================================
+                   8. MEDIA QUERIES
+                   ========================================================================== */
+                                 @media (max-width: 640px) {
+                                     .nav-links {
+                                         display: none;
+                                         /* Can be toggled with JavaScript if mobile menu drawer is implemented */
+                                     }
+                
+                                     .menu-toggle {
+                                         display: block;
+                                     }
+                
+                                     .container {
+                                         padding: 16px;
+                                     }
+                                 }@media (max-width: 640px) {
+                                    .nav-links {
+                                        display: none;
+                                        flex-direction: column;
+                                        position: absolute;
+                                        top: 100%;
+                                        left: 0;
+                                        right: 0;
+                                        background-color: var(--card-bg);
+                                        border-bottom: 1px solid var(--border-color);
+                                        padding: 16px;
+                                        gap: 12px;
+                                        box-shadow: var(--shadow-md);
+                                    }
+                                
+                                    /* Toggled via JS */
+                                    .nav-links.active {
+                                        display: flex;
+                                    }
+                                
+                                    .menu-toggle {
+                                        display: block;
+                                    }
+                                
+                                    .container {
+                                        padding: 16px;
+                                    }
+                                }
