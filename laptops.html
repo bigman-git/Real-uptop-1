@@ -16,43 +16,25 @@
   </head>
   <body>
     <div class="app-container">
-      <div class="top-contact-bar">
-        <a class="contact-item contact-whatsapp" href="https://wa.me/+254115369156">
-          <i class="fa-brands fa-whatsapp"></i>
-          <span>WhatsApp Us</span>
-        </a>
-        <a class="contact-item contact-call" href="tel:+254115369156">
-          <i class="fa-solid fa-phone"></i>
-          <span>Call Now</span>
-        </a>
-      </div>
       <header class="header">
         <div class="brand-logo">
+          <div class="logo-mark" aria-hidden="true"></div>
           <span>Uptop</span>
         </div>
-
-        <div class="header-controls">
-          <div class="search-container">
-            <input
-              id="searchInput"
-              type="text"
-              class="search-input"
-              placeholder="Search laptops, brands, specs..."
-              aria-label="Search laptops"
-            />
-            <i class="fa-solid fa-magnifying-glass search-icon"></i>
-            <div class="search-suggestions" id="searchSuggestions" role="listbox"></div>
-          </div>
-          <button class="menu-toggle" id="mobileMenuBtn" aria-controls="mainNav" aria-label="Open menu">
+        <div class="header-actions">
+          <a class="btn-home" href="index.html">Home</a>
+          <a class="btn-home" href="Accessories.html">Accessories</a>
+          <a class="btn-home" href="services.html">Services</a>
+          <button class="icon-btn" aria-label="Search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+          <button class="icon-btn" aria-label="Cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+          </button>
+          <button class="icon-btn" aria-label="Menu">
             <i class="fa-solid fa-bars"></i>
           </button>
         </div>
-
-        <nav id="mainNav" class="main-nav" aria-label="Primary navigation">
-          <a href="index.html">Home</a>
-          <a href="Accessories.html">Accessories</a>
-          <a href="services.html">Services</a>
-        </nav>
       </header>
 
       <section class="catalog-header">
@@ -784,7 +766,7 @@
       </section>
 
       <div class="scroll-top-wrapper">
-        <button class="scroll-up-btn" id="scrollUpBtn" aria-label="Scroll to top">
+        <button class="scroll-top-btn" id="scrollTopBtn">
           <i class="fa-solid fa-chevron-up"></i>
         </button>
         <span>Scroll up</span>
@@ -796,6 +778,9 @@
         <div class="footer-col brand-col">
           <h3 class="footer-logo">Uptop Computers</h3>
           <p class="footer-desc">Your trusted computer shop for quality laptops, accessories, custom PC builds, and professional tech support.</p>
+          <div class="payment-methods">
+            <span>Accepted: M-Pesa | Card | Cash</span>
+          </div>
         </div>
 
         <div class="footer-col">
@@ -821,9 +806,9 @@
         <div class="footer-col">
           <h4>Contact Us</h4>
           <ul class="contact-info">
-            <li><a href="https://www.google.com/maps/search/?api=1&query=Rosamatt+Building,+Tom+Mboya+Street,+Nairobi,+Kenya" target="_blank" rel="noopener">📍 Rosamatt Building, Tom Mboya Street, Nairobi</a></li>
-            <li><a href="tel:+254115369156">📞 +254 115 369 156</a></li>
-            <li><a href="https://wa.me/+254115369156" target="_blank" rel="noopener">💬 WhatsApp Support</a></li>
+            <li>📍 Nairobi, Kenya</li>
+            <li>📞 +254 115 369 156</li>
+            <li>💬 <a href="https://wa.me/254115369156" target="_blank" rel="noopener">WhatsApp Support</a></li>
             <li>⏰ Mon - Sat: 8:00 AM - 6:00 PM</li>
           </ul>
         </div>

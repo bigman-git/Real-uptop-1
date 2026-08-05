@@ -32,31 +32,23 @@
 
       <header class="header">
         <div class="brand-logo">UPTOP</div>
-
-        <div class="header-controls">
-          <div class="search-container">
-            <input
-              id="searchInput"
-              type="text"
-              class="search-input"
-              placeholder="Search laptops, accessories..."
-              aria-label="Site search"
-            />
-            <i class="fa-solid fa-magnifying-glass search-icon"></i>
-            <div class="search-suggestions" id="searchSuggestions" role="listbox"></div>
-          </div>
-          <button class="icon-btn menu-toggle" id="mobileMenuBtn" aria-controls="mainNav" aria-label="Open menu">
-            <i class="fa-solid fa-bars"></i>
-          </button>
+        <div class="search-container">
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Search laptops, accessories..."
+            aria-label="Site search"
+          />
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
         </div>
-
-        <nav id="mainNav" class="main-nav" aria-label="Primary navigation">
-          <a href="index.html" class="active">Home</a>
-          <a href="laptops.html">Laptops</a>
-          <a href="Accessories.html">Accessories</a>
-          <a href="services.html">Services</a>
-        </nav>
       </header>
+
+      <nav class="pills-nav">
+        <a class="pill-item" href="laptops.html">Laptops</a>
+        <a class="pill-item" href="Accessories.html">Accessories</a>
+        <a class="pill-item active" href="services.html">Services</a>
+        <a class="pill-item" href="index.html">Home</a>
+      </nav>
 
       <section class="carousel-container" id="carousel">
         <button
@@ -362,6 +354,9 @@
         <div class="footer-col brand-col">
           <h3 class="footer-logo">Uptop Computers</h3>
           <p class="footer-desc">Your trusted computer shop for quality laptops, accessories, custom PC builds, and professional tech support.</p>
+          <div class="payment-methods">
+            <span>Accepted: M-Pesa | Card | Cash</span>
+          </div>
         </div>
 
         <div class="footer-col">
@@ -387,9 +382,9 @@
         <div class="footer-col">
           <h4>Contact Us</h4>
           <ul class="contact-info">
-            <li><a href="https://www.google.com/maps/search/?api=1&query=Rosamatt+Building,+Tom+Mboya+Street,+Nairobi,+Kenya" target="_blank" rel="noopener">📍 Rosamatt Building, Tom Mboya Street, Nairobi</a></li>
-            <li><a href="tel:+254115369156">📞 +254 115 369 156</a></li>
-            <li><a href="https://wa.me/+254115369156" target="_blank" rel="noopener">💬 WhatsApp Support</a></li>
+            <li>📍 Nairobi, Kenya</li>
+            <li>📞 +254 115 369 156</li>
+            <li>💬 <a href="https://wa.me/254115369156" target="_blank" rel="noopener">WhatsApp Support</a></li>
             <li>⏰ Mon - Sat: 8:00 AM - 6:00 PM</li>
           </ul>
         </div>

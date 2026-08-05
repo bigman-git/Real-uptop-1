@@ -4,50 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our Services | Uptop Computers</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="services-page">
 
   <div class="site-wrapper">
 
-      <div class="top-contact-bar">
-        <a class="contact-item contact-whatsapp" href="https://wa.me/+254115369156">
-          <i class="fa-brands fa-whatsapp"></i>
-          <span>WhatsApp Us</span>
-        </a>
-        <a class="contact-item contact-call" href="tel:+254115369156">
-          <i class="fa-solid fa-phone"></i>
-          <span>Call Now</span>
-        </a>
-      </div>
-
     <!-- Header Navigation -->
     <header class="navbar">
       <a href="index.html" class="logo">Uptop Computers</a>
-      <div class="navbar-actions">
-        <div class="search-box">
-          <input
-            id="searchInput"
-            type="text"
-            placeholder="Search services, repair, software..."
-            aria-label="Search services"
-          />
-          <span class="search-icon">🔍</span>
-          <div class="search-suggestions" id="searchSuggestions" role="listbox"></div>
-        </div>
-        <button class="menu-toggle" id="mobileMenuBtn" aria-controls="nav-links" aria-label="Toggle navigation">
-          ☰
-        </button>
-      </div>
-      <nav id="nav-links" class="nav-links main-nav" aria-label="Primary navigation">
+      <nav class="nav-links">
         <a href="index.html">Home</a>
         <a href="laptops.html">Laptops</a>
         <a href="Accessories.html">Accessories</a>
-        <a href="services.html">Services</a>
-      </nav>
-    </header>
+
+    <!-- Main Content Container -->
+    <main class="container">
+
+      <!-- Hero Banner -->
       <section class="hero-section">
         <span class="hero-badge">Professional Tech Support</span>
         <h1 class="hero-title">Expert Computer Services & Repairs</h1>
@@ -132,6 +106,19 @@
             <a href="https://wa.me/254115369156?text=Hi%20Uptop%20Computers,%20I%20need%20a%20diagnostic%20check%20for%20my%20computer." class="service-btn" target="_blank" rel="noopener">Get Diagnosed</a>
           </article>
 
+          <!-- Service 6: Data Recovery & Backup -->
+          <article class="service-card">
+            <div class="card-icon">💾</div>
+            <h3 class="card-title">Data Recovery & Backup</h3>
+            <p class="card-desc">Accidentally formatted a drive or dealing with a corrupted hard disk? We help recover lost documents, projects, and media files.</p>
+            <ul class="card-features">
+              <li>Corrupted Storage Recovery</li>
+              <li>Automated Backup Configuration</li>
+              <li>External Hard Drive Recovery</li>
+            </ul>
+            <a href="https://wa.me/254115369156?text=Hi%20Uptop%20Computers,%20I%20need%20data%20recovery%20services." class="service-btn" target="_blank" rel="noopener">Recover Data</a>
+          </article>
+
         </div>
       </section>
 
@@ -170,6 +157,9 @@
     <div class="footer-col brand-col">
       <h3 class="footer-logo">Uptop Computers</h3>
       <p class="footer-desc">Your trusted computer shop for quality laptops, accessories, custom PC builds, and professional tech support.</p>
+      <div class="payment-methods">
+        <span>Accepted: M-Pesa | Card | Cash</span>
+      </div>
     </div>
 
     <!-- Column 2: Quick Links -->
@@ -198,10 +188,10 @@
     <div class="footer-col">
       <h4>Contact Us</h4>
       <ul class="contact-info">
-            <li><a href="https://www.google.com/maps/search/?api=1&query=Rosamatt+Building,+Tom+Mboya+Street,+Nairobi,+Kenya" target="_blank" rel="noopener">📍 Rosamatt Building, Tom Mboya Street, Nairobi</a></li>
-            <li><a href="tel:+254115369156">📞 +254 115 369 156</a></li>
-            <li><a href="https://wa.me/+254115369156" target="_blank" rel="noopener">💬 WhatsApp Support</a></li>
-            <li>⏰ Mon - Sat: 8:00 AM - 6:00 PM</li>
+        <li>📍 Nairobi, Kenya</li>
+        <li>📞 +254 115 369 156</li>
+        <li>💬 <a href="https://wa.me/254115369156" target="_blank" rel="noopener">WhatsApp Support</a></li>
+        <li>⏰ Mon - Sat: 8:00 AM - 6:00 PM</li>
       </ul>
     </div>
 
