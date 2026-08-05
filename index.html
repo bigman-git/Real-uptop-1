@@ -32,26 +32,31 @@
 
       <header class="header">
         <div class="brand-logo">UPTOP</div>
-        <div class="search-container">
-          <input
-            type="text"
-            class="search-input"
-            placeholder="Search laptops..."
-          />
-          <i class="fa-solid fa-magnifying-glass search-icon"></i>
-        </div>
-        <a class="cart-btn" href="#">
-          <i class="fa-solid fa-shopping-cart"></i>
-          <span class="cart-count">2</span>
-        </a>
-      </header>
 
-      <nav class="pills-nav">
-        <a class="pill-item" href="laptops.html">Laptops</a>
-        <a class="pill-item" href="Accessories.html">Accessories</a>
-        <a class="pill-item active" href="services.html">Services</a>
-        <a class="pill-item" href="index.html">Home</a>
-      </nav>
+        <div class="header-controls">
+          <div class="search-container">
+            <input
+              id="searchInput"
+              type="text"
+              class="search-input"
+              placeholder="Search laptops, accessories..."
+              aria-label="Site search"
+            />
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <div class="search-suggestions" id="searchSuggestions" role="listbox"></div>
+          </div>
+          <button class="icon-btn menu-toggle" id="mobileMenuBtn" aria-controls="mainNav" aria-label="Open menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+
+        <nav id="mainNav" class="main-nav" aria-label="Primary navigation">
+          <a href="index.html" class="active">Home</a>
+          <a href="laptops.html">Laptops</a>
+          <a href="Accessories.html">Accessories</a>
+          <a href="services.html">Services</a>
+        </nav>
+      </header>
 
       <section class="carousel-container" id="carousel">
         <button
@@ -98,23 +103,29 @@
       <section class="categories-section">
         <div class="section-header">
           <h3 class="section-title">Shop by Category</h3>
-          <a href="#" class="view-all">View All</a>
+          <button class="view-all" type="button" aria-expanded="false">View All</button>
+          <div class="view-all-overlay" id="viewAllOverlay" role="menu" aria-label="Category shortcuts">
+            <a href="laptops.html?category=business" role="menuitem">Business</a>
+            <a href="laptops.html?category=personal" role="menuitem">Personal</a>
+            <a href="laptops.html?category=gaming" role="menuitem">Gaming</a>
+            <a href="laptops.html?category=editing" role="menuitem">Editing</a>
+          </div>
         </div>
 
         <div class="categories-grid">
-          <a href="#" class="category-card">
+          <a href="laptops.html" class="category-card">
             <div class="icon-wrapper"><i class="fa-solid fa-laptop"></i></div>
             <span class="category-label">Laptops</span>
           </a>
-          <a href="#" class="category-card">
-            <div class="icon-wrapper"><i class="fa-solid fa-gamepad"></i></div>
-            <span class="category-label">Gaming</span>
+          <a href="laptops.html?category=desktop" class="category-card">
+            <div class="icon-wrapper"><i class="fa-solid fa-desktop"></i></div>
+            <span class="category-label">Desktops</span>
           </a>
-          <a href="#" class="category-card">
+          <a href="Accessories.html?category=chargers" class="category-card">
             <div class="icon-wrapper"><i class="fa-solid fa-plug"></i></div>
             <span class="category-label">Chargers</span>
           </a>
-          <a href="#" class="category-card">
+          <a href="services.html?category=software" class="category-card">
             <div class="icon-wrapper">
               <i class="fa-solid fa-compact-disc"></i>
             </div>
@@ -142,12 +153,9 @@
                 Lightweight, 16GB RAM, 512GB SSD, 11th Gen CPU.
               </p>
               <div class="product-meta">
-                <div class="rating">
-                  ★★★★☆ <span class="rating-count">(234)</span>
-                </div>
                 <a
                   class="btn-primary buy-btn"
-                  href="https://wa.me/+254115369156?text=I%27m%20interested%20in%20UltraBook%20Pro%2014"
+                  href="https://wa.me/254115369156?text=I%27m%20interested%20in%20UltraBook%20Pro%2014"
                   target="_blank"
                   >Order via WhatsApp</a
                 >
@@ -169,12 +177,9 @@
                 Surround sound, noise-cancelling mic, RGB lighting.
               </p>
               <div class="product-meta">
-                <div class="rating">
-                  ★★★★☆ <span class="rating-count">(98)</span>
-                </div>
                 <a
                   class="btn-primary buy-btn"
-                  href="https://wa.me/+254115369156?text=I%27m%20interested%20in%20Gaming%20Headset%20X3"
+                  href="https://wa.me/254115369156?text=I%27m%20interested%20in%20Gaming%20Headset%20X3"
                   target="_blank"
                   >Order via WhatsApp</a
                 >
@@ -196,12 +201,9 @@
                 USB-C PD fast charger compatible with laptops and phones.
               </p>
               <div class="product-meta">
-                <div class="rating">
-                  ★★★☆☆ <span class="rating-count">(45)</span>
-                </div>
                 <a
                   class="btn-primary buy-btn"
-                  href="https://wa.me/+254115369156?text=I%27m%20interested%20in%20FastCharge%2065W"
+                  href="https://wa.me/254115369156?text=I%27m%20interested%20in%20FastCharge%2065W"
                   target="_blank"
                   >Order via WhatsApp</a
                 >
@@ -223,12 +225,9 @@
                 Full productivity suite with 1-year updates and support.
               </p>
               <div class="product-meta">
-                <div class="rating">
-                  ★★★★★ <span class="rating-count">(512)</span>
-                </div>
                 <a
                   class="btn-primary buy-btn"
-                  href="https://wa.me/+254115369156?text=I%27m%20interested%20in%20Pro%20Suite%20License"
+                  href="https://wa.me/254115369156?text=I%27m%20interested%20in%20Pro%20Suite%20License"
                   target="_blank"
                   >Order via WhatsApp</a
                 >
@@ -357,6 +356,49 @@
         </div>
       </section>
     </div>
+
+    <footer class="site-footer">
+      <div class="footer-container">
+        <div class="footer-col brand-col">
+          <h3 class="footer-logo">Uptop Computers</h3>
+          <p class="footer-desc">Your trusted computer shop for quality laptops, accessories, custom PC builds, and professional tech support.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="laptops.html">Laptops</a></li>
+            <li><a href="Accessories.html">Accessories</a></li>
+            <li><a href="services.html">Services</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Customer Care</h4>
+          <ul>
+            <li><a href="#privacy">Privacy Policy</a></li>
+            <li><a href="#terms">Terms of Service</a></li>
+            <li><a href="#warranty">Warranty & Returns</a></li>
+            <li><a href="#faq">FAQs</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <ul class="contact-info">
+            <li><a href="https://www.google.com/maps/search/?api=1&query=Rosamatt+Building,+Tom+Mboya+Street,+Nairobi,+Kenya" target="_blank" rel="noopener">📍 Rosamatt Building, Tom Mboya Street, Nairobi</a></li>
+            <li><a href="tel:+254115369156">📞 +254 115 369 156</a></li>
+            <li><a href="https://wa.me/+254115369156" target="_blank" rel="noopener">💬 WhatsApp Support</a></li>
+            <li>⏰ Mon - Sat: 8:00 AM - 6:00 PM</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Uptop Computers. All rights reserved.</p>
+      </div>
+    </footer>
 
     <script src="jss/java.js"></script>
   </body>

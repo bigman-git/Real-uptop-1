@@ -1,428 +1,239 @@
-// ==========================================================================
-// Banner Carousel Script (Automatic & Manual Navigation)
-// ==========================================================================
+﻿/*
+  Unified site script for Uptop
+*/
 
-document.addEventListener('DOMContentLoaded', () => {
+const PHONE_NUMBER = '+254115369156';
+const PHONE_DIGITS = PHONE_NUMBER.replace(/[^0-9]/g, '');
+const WA_URL = `https://wa.me/${PHONE_DIGITS}`;
+const SEARCH_TERMS = [
+  'Laptops',
+  'Gaming laptops',
+  'Business laptops',
+  'MacBook',
+  'Accessories',
+  'Chargers',
+  'Keyboards',
+  'Mouse',
+  'Laptop bags',
+  'Headsets',
+  'Custom PC build',
+  'OS installation',
+  'Screen repair',
+  'Software setup',
+  'WhatsApp support'
+];
+
+function initHomeCarousel() {
   const track = document.getElementById('carouselTrack');
   const prevBtn = document.getElementById('prevBtn');
   const nextBtn = document.getElementById('nextBtn');
-  const dots = document.querySelectorAll('.dot');
-  const carouselContainer = document.getElementById('carousel');
+  const dots = Array.from(document.querySelectorAll('.dot'));
+  const container = document.getElementById('carousel');
+  if (!track || !prevBtn || !nextBtn || !dots.length || !container) return;
 
-  let currentIndex = 0;
-  const totalSlides = dots.length;
-  let autoSlideInterval;
+  let current = 0;
+  let interval = null;
 
-  // Function to update slide position and dots state
-  function updateCarousel(index) {
-    if (index < 0) {
-      currentIndex = totalSlides - 1;
-    } else if (index >= totalSlides) {
-      currentIndex = 0;
-    } else {
-      currentIndex = index;
+  const update = (index) => {
+    if (!dots.length) return;
+    current = index < 0 ? dots.length - 1 : index >= dots.length ? 0 : index;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    dots.forEach((dot, idx) => dot.classList.toggle('active', idx === current));
+  };
+
+  const stop = () => {
+    if (interval) {
+      window.clearInterval(interval);
+      interval = null;
     }
+  };
 
-    // Move the carousel track horizontally
-    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+  const start = () => {
+    stop();
+    interval = window.setInterval(() => update(current + 1), 4000);
+  };
 
-    // Update dot indicators
-    dots.forEach((dot, idx) => {
-      if (idx === currentIndex) {
-        dot.classList.add('active');
-      } else {
-        dot.classList.remove('active');
-      }
+  prevBtn.addEventListener('click', () => { update(current - 1); stop(); start(); });
+  nextBtn.addEventListener('click', () => { update(current + 1); stop(); start(); });
+  dots.forEach((dot, idx) => dot.addEventListener('click', () => { update(idx); stop(); start(); }));
+  container.addEventListener('mouseenter', stop);
+  container.addEventListener('mouseleave', start);
+  container.addEventListener('touchstart', stop, { passive: true });
+  container.addEventListener('touchend', start);
+  update(0);
+  start();
+}
+
+function initReviewCarousel() {
+  const track = document.querySelector('.review-carousel-track');
+  const cards = Array.from(document.querySelectorAll('.review-card'));
+  const prevBtn = document.querySelector('.review-prev');
+  const nextBtn = document.querySelector('.review-next');
+  const dotsContainer = document.querySelector('.review-dots');
+  if (!track || !cards.length || !prevBtn || !nextBtn || !dotsContainer) return;
+
+  let current = 0;
+  let interval = null;
+
+  const renderDots = () => {
+    dotsContainer.innerHTML = '';
+    cards.forEach((_, idx) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = `review-dot${idx === 0 ? ' active' : ''}`;
+      dot.setAttribute('aria-label', `Review ${idx + 1}`);
+      dot.addEventListener('click', () => { goTo(idx); stop(); start(); });
+      dotsContainer.appendChild(dot);
     });
-  }
+  };
 
-  // Start automatic slide transition (every 4 seconds)
-  function startAutoSlide() {
-    autoSlideInterval = setInterval(() => {
-      updateCarousel(currentIndex + 1);
-    }, 4000);
-  }
+  const updateDots = () => {
+    Array.from(document.querySelectorAll('.review-dot')).forEach((dot, idx) => dot.classList.toggle('active', idx === current));
+  };
 
-  // Stop automatic slide transition
-  function stopAutoSlide() {
-    clearInterval(autoSlideInterval);
-  }
+  const updateCards = () => {
+    cards.forEach((card, idx) => card.classList.toggle('active', idx === current));
+  };
 
-  // Event Listeners for Manual Controls
-  nextBtn.addEventListener('click', () => {
-    updateCarousel(currentIndex + 1);
-    stopAutoSlide();
-    startAutoSlide();
-  });
-
-  prevBtn.addEventListener('click', () => {
-    updateCarousel(currentIndex - 1);
-    stopAutoSlide();
-    startAutoSlide();
-  });
-
-  // Event Listeners for Dot Indicators
-  dots.forEach((dot) => {
-    dot.addEventListener('click', (e) => {
-      const slideIndex = parseInt(e.target.dataset.slide, 10);
-      updateCarousel(slideIndex);
-      stopAutoSlide();
-      startAutoSlide();
-    });
-  });
-
-  // Pause autoplay on mouse hover or touch for better user experience
-  carouselContainer.addEventListener('mouseenter', stopAutoSlide);
-  carouselContainer.addEventListener('mouseleave', startAutoSlide);
-  carouselContainer.addEventListener('touchstart', stopAutoSlide, { passive: true });
-  carouselContainer.addEventListener('touchend', startAutoSlide);
-
-  // Initialize Autoplay on page load
-  startAutoSlide();
-});
-
-// ==========================================================================
-// Review Carousel Controls (pixel-perfect shift + responsive re-measure)
-// ==========================================================================
-
-document.addEventListener('DOMContentLoaded', () => {
-  const reviewTrack = document.querySelector('.review-carousel-track');
-  const reviewCards = document.querySelectorAll('.review-card');
-  const reviewPrevBtn = document.querySelector('.review-prev');
-  const reviewNextBtn = document.querySelector('.review-next');
-  let reviewDots = document.querySelectorAll('.review-dot');
-
-  if (!reviewTrack || !reviewCards.length || !reviewPrevBtn || !reviewNextBtn) return;
-
-  let currentReviewIndex = 0;
-  let reviewAutoInterval = null;
-  let reviewCardWidth = 0;
-  let reviewGap = 0;
-  let isDragging = false;
-  let touchStartX = 0;
-  let dragDelta = 0;
-  const swipeThreshold = 50; // px to trigger next/prev
-  let baseLeft = 0;
-
-  function calculateReviewMetrics() {
-    const card = reviewCards[0];
-    if (!card) return;
-    // Force reflow and read accurate sizes
-    reviewCardWidth = card.offsetWidth;
-    const style = getComputedStyle(reviewTrack);
-    reviewGap = parseFloat(style.gap || style.columnGap) || 0;
-  }
-
-  function debounce(fn, wait = 120) {
-    let t;
-    return (...args) => {
-      clearTimeout(t);
-      t = setTimeout(() => fn(...args), wait);
-    };
-  }
-
-  const handleResize = debounce(() => {
-    calculateReviewMetrics();
-    // reposition after recalculation
-    applyTransform();
-  }, 140);
-
-  function applyTransform() {
-    const target = reviewCards[currentReviewIndex];
+  const applyTransform = () => {
+    const target = cards[current];
     if (!target) return;
-    // offsetLeft is relative to the track element, which makes this robust
-    const left = target.offsetLeft;
-    reviewTrack.style.transform = `translateX(-${Math.round(left)}px)`;
-  }
+    track.style.transform = `translateX(-${Math.round(target.offsetLeft)}px)`;
+  };
 
-  // --- Swipe / Drag support for touch and mouse ---
-  function onTouchStart(e) {
-    stopReviewAuto();
-    isDragging = true;
-    dragDelta = 0;
-    touchStartX = e.touches ? e.touches[0].clientX : e.clientX;
-    const target = reviewCards[currentReviewIndex];
-    baseLeft = target ? target.offsetLeft : 0;
-    reviewTrack.style.transition = 'none';
-  }
-
-  function onTouchMove(e) {
-    if (!isDragging) return;
-    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-    dragDelta = touchStartX - clientX; // positive when dragging left
-    // limit drag so we don't create excessive whitespace
-    const maxDrag = reviewTrack.scrollWidth;
-    let newLeft = baseLeft + Math.max(-maxDrag, Math.min(maxDrag, dragDelta));
-    reviewTrack.style.transform = `translateX(-${Math.round(newLeft)}px)`;
-  }
-
-  function onTouchEnd() {
-    if (!isDragging) return;
-    isDragging = false;
-    reviewTrack.style.transition = '';
-    if (Math.abs(dragDelta) > swipeThreshold) {
-      if (dragDelta > 0) {
-        updateReviewCarousel(currentReviewIndex + 1);
-      } else {
-        updateReviewCarousel(currentReviewIndex - 1);
-      }
-    } else {
-      // snap back
-      applyTransform();
-    }
-    startReviewAuto();
-  }
-
-  // Mouse support (desktop drag)
-  function onMouseDown(e) { onTouchStart(e); window.addEventListener('mousemove', onTouchMove); window.addEventListener('mouseup', onMouseUp); }
-  function onMouseUp(e) { onTouchEnd(); window.removeEventListener('mousemove', onTouchMove); window.removeEventListener('mouseup', onMouseUp); }
-
-  function updateReviewDots(index) {
-    reviewDots.forEach((dot, idx) => dot.classList.toggle('active', idx === index));
-  }
-
-  function setActiveCard(index) {
-    reviewCards.forEach((card, idx) => card.classList.toggle('active', idx === index));
-  }
-
-  function updateReviewCarousel(index) {
-    if (index < 0) {
-      currentReviewIndex = reviewCards.length - 1;
-    } else if (index >= reviewCards.length) {
-      currentReviewIndex = 0;
-    } else {
-      currentReviewIndex = index;
-    }
-
+  const goTo = (index) => {
+    current = index < 0 ? cards.length - 1 : index >= cards.length ? 0 : index;
+    updateCards();
+    updateDots();
     applyTransform();
-    setActiveCard(currentReviewIndex);
-    updateReviewDots(currentReviewIndex);
-  }
+  };
 
-  function startReviewAuto() {
-    stopReviewAuto();
-    reviewAutoInterval = setInterval(() => {
-      updateReviewCarousel(currentReviewIndex + 1);
-    }, 4500);
-  }
-
-  function stopReviewAuto() {
-    if (reviewAutoInterval) {
-      clearInterval(reviewAutoInterval);
-      reviewAutoInterval = null;
+  const stop = () => {
+    if (interval) {
+      window.clearInterval(interval);
+      interval = null;
     }
-  }
+  };
 
-  reviewPrevBtn.addEventListener('click', () => {
-    updateReviewCarousel(currentReviewIndex - 1);
-    stopReviewAuto();
-    startReviewAuto();
-  });
+  const start = () => {
+    stop();
+    interval = window.setInterval(() => goTo(current + 1), 4500);
+  };
 
-  reviewNextBtn.addEventListener('click', () => {
-    updateReviewCarousel(currentReviewIndex + 1);
-    stopReviewAuto();
-    startReviewAuto();
-  });
+  prevBtn.addEventListener('click', () => { goTo(current - 1); stop(); start(); });
+  nextBtn.addEventListener('click', () => { goTo(current + 1); stop(); start(); });
+  track.addEventListener('mouseenter', stop);
+  track.addEventListener('mouseleave', start);
+  track.addEventListener('touchstart', stop, { passive: true });
+  track.addEventListener('touchend', start);
+  renderDots();
+  goTo(0);
+  start();
+  window.addEventListener('resize', applyTransform);
+}
 
-  reviewDots.forEach((dot, idx) => {
-    dot.addEventListener('click', () => {
-      updateReviewCarousel(idx);
-      stopReviewAuto();
-      startReviewAuto();
+function initSearchSuggestions() {
+  const input = document.getElementById('searchInput');
+  const suggestions = document.getElementById('searchSuggestions');
+  if (!input || !suggestions) return;
+
+  const buildItem = (term) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'suggestion-item';
+    button.textContent = term;
+    button.addEventListener('click', () => {
+      input.value = term;
+      suggestions.classList.remove('show');
+      suggestions.innerHTML = '';
+      input.focus();
     });
-  });
+    return button;
+  };
 
-  reviewTrack.addEventListener('mouseenter', stopReviewAuto);
-  reviewTrack.addEventListener('mouseleave', startReviewAuto);
-  // touch handlers for swipe
-  reviewTrack.addEventListener('touchstart', onTouchStart, { passive: true });
-  reviewTrack.addEventListener('touchmove', onTouchMove, { passive: true });
-  reviewTrack.addEventListener('touchend', onTouchEnd);
-  // mouse drag support
-  reviewTrack.addEventListener('mousedown', onMouseDown);
-
-  function initReviews() {
-    calculateReviewMetrics();
-    updateReviewCarousel(0);
-    startReviewAuto();
-    window.addEventListener('resize', handleResize);
-
-    // If dots count doesn't match cards, rebuild dots to match the number of cards
-    const dotsContainer = document.querySelector('.review-dots');
-    if (dotsContainer && reviewDots.length !== reviewCards.length) {
-      dotsContainer.innerHTML = '';
-      reviewCards.forEach((_, idx) => {
-        const btn = document.createElement('button');
-        btn.className = 'review-dot' + (idx === 0 ? ' active' : '');
-        btn.setAttribute('aria-label', `Review ${idx + 1}`);
-        btn.addEventListener('click', () => {
-          updateReviewCarousel(idx);
-          stopReviewAuto();
-          startReviewAuto();
-        });
-        dotsContainer.appendChild(btn);
-      });
-      // refresh the live NodeList reference
-      reviewDots = document.querySelectorAll('.review-dot');
+  const update = (value) => {
+    const query = String(value || '').toLowerCase().trim();
+    const list = query ? SEARCH_TERMS.filter((term) => term.toLowerCase().includes(query)) : SEARCH_TERMS.slice(0, 5);
+    suggestions.innerHTML = '';
+    if (!list.length) {
+      suggestions.classList.remove('show');
+      return;
     }
-  }
+    list.slice(0, 6).forEach((term) => suggestions.appendChild(buildItem(term)));
+    suggestions.classList.add('show');
+  };
 
-  // Ensure fonts/layout are ready before measuring
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(initReviews).catch(initReviews);
-  } else {
-    window.addEventListener('load', initReviews);
-  }
-});
-
-// ==========================================================================
-// Accessories Page Controls & Dynamic Interactions
-// ==========================================================================
-
-document.addEventListener('DOMContentLoaded', () => {
-  const accessoriesPage = document.body.classList.contains('accessories-page');
-  if (!accessoriesPage) return;
-
-  // Target WhatsApp Business Phone Number
-  const WHATSAPP_PHONE = '254115369156';
-
-  // DOM Elements
-  const scrollUpBtn = document.getElementById('scrollUpBtn');
-  const typeFilter = document.getElementById('typeFilter');
-  const sortSelect = document.getElementById('sortSelect');
-  const searchInput = document.getElementById('searchInput');
-  const productGrid = document.getElementById('productGrid');
-  const chips = document.querySelectorAll('.chip');
-  const cards = productGrid ? productGrid.querySelectorAll('.product-card') : [];
-
-  if (!productGrid || !cards.length) return;
-
-  /**
-   * 1. Initialize Dynamic WhatsApp Direct Links for All Products
-   */
-  cards.forEach((card) => {
-    const title = card.dataset.title || '';
-    const category = (card.dataset.category || '').toUpperCase();
-    const price = card.querySelector('.product-price')?.textContent || '';
-    const specs = card.dataset.specs || '';
-    const prodId = card.dataset.id || '';
-    const btn = card.querySelector('.whatsapp-btn');
-
-    if (!btn) return;
-
-    const pageUrl = window.location.origin + window.location.pathname;
-    const message =
-      `*NEW ORDER - UPTOP COMPUTERS*\n\n` +
-      `*Item:* ${title}\n` +
-      `*Category:* ${category}\n` +
-      `*Price:* ${price}\n` +
-      `*Product ID:* ${prodId}\n` +
-      `*Specifications:* ${specs}\n\n` +
-      `*Product Link:* ${pageUrl}#${prodId}`;
-
-    const encodedMsg = encodeURIComponent(message);
-    btn.href = `https://wa.me/${WHATSAPP_PHONE}?text=${encodedMsg}`;
+  input.addEventListener('input', (event) => update(event.target.value));
+  input.addEventListener('focus', () => update(input.value));
+  input.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      suggestions.classList.remove('show');
+      suggestions.innerHTML = '';
+    }
   });
 
-  /**
-   * 2. Live Search & Category Filter
-   */
-  function filterProducts() {
-    const selectedType = typeFilter?.value || 'all';
-    const searchQuery = searchInput?.value.toLowerCase().trim() || '';
+  document.addEventListener('click', (event) => {
+    if (!suggestions.contains(event.target) && event.target !== input) {
+      suggestions.classList.remove('show');
+      suggestions.innerHTML = '';
+    }
+  });
+}
 
-    cards.forEach((card) => {
-      const category = card.dataset.category || '';
-      const title = (card.dataset.title || '').toLowerCase();
-      const specs = (card.dataset.specs || '').toLowerCase();
+function initViewAllOverlay() {
+  const button = document.querySelector('.view-all');
+  const overlay = document.getElementById('viewAllOverlay');
+  if (!button || !overlay) return;
 
-      const matchesType = selectedType === 'all' || category === selectedType;
-      const matchesSearch = title.includes(searchQuery) || specs.includes(searchQuery);
+  const closeOverlay = () => {
+    overlay.classList.remove('open');
+    button.setAttribute('aria-expanded', 'false');
+  };
 
-      card.style.display = matchesType && matchesSearch ? 'flex' : 'none';
-    });
-  }
-
-  typeFilter?.addEventListener('change', filterProducts);
-  searchInput?.addEventListener('input', filterProducts);
-
-  /**
-   * 3. Sync Category Chips with Dropdown Selection
-   */
-  chips.forEach((chip) => {
-    chip.addEventListener('click', () => {
-      chips.forEach((c) => c.classList.remove('active'));
-      chip.classList.add('active');
-      if (typeFilter) {
-        typeFilter.value = chip.dataset.filter || 'all';
-      }
-      filterProducts();
-    });
+  button.addEventListener('click', (event) => {
+    event.stopPropagation();
+    const isOpen = overlay.classList.toggle('open');
+    button.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   });
 
-  /**
-   * 4. Price Sorting Logic
-   */
-  sortSelect?.addEventListener('change', (e) => {
-    const val = e.target.value;
-    const cardArray = Array.from(cards);
-
-    cardArray.sort((a, b) => {
-      const priceA = parseInt(a.dataset.price || '0', 10);
-      const priceB = parseInt(b.dataset.price || '0', 10);
-
-      if (val === 'low-high') return priceA - priceB;
-      if (val === 'high-low') return priceB - priceA;
-      return 0;
-    });
-
-    cardArray.forEach((card) => productGrid.appendChild(card));
+  document.addEventListener('click', (event) => {
+    if (!overlay.contains(event.target) && event.target !== button) closeOverlay();
   });
+}
 
-  /**
-   * 5. Smooth Scroll-To-Top Button Controller
-   */
-  if (scrollUpBtn) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-        scrollUpBtn.classList.add('visible');
-      } else {
-        scrollUpBtn.classList.remove('visible');
-      }
-    });
+function initMobileMenu() {
+  const toggle = document.getElementById('mobileMenuBtn');
+  if (!toggle) return;
+  const navId = toggle.getAttribute('aria-controls');
+  if (!navId) return;
+  const nav = document.getElementById(navId);
+  if (!nav) return;
+  toggle.addEventListener('click', () => nav.classList.toggle('active'));
+}
 
-    scrollUpBtn.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-  }
-});
+function initScrollToTop() {
+  const button = document.querySelector('.scroll-up-btn');
+  if (!button) return;
+  const update = () => button.classList.toggle('visible', window.scrollY > 300);
+  window.addEventListener('scroll', update);
+  button.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  update();
+}
 
-// ==========================================================================
-// Catalog Page Controls & Dynamic Interactions
-// ==========================================================================
+function initLaptopFilters() {
+  if (!document.querySelector('.products-grid')) return;
 
-document.addEventListener('DOMContentLoaded', () => {
-  const scrollTopBtn = document.getElementById('scrollTopBtn');
-  const filterToggleBtn = document.getElementById('filterToggleBtn');
-
-  // Smooth scroll back to top of page
-  if (scrollTopBtn) {
-    scrollTopBtn.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-  }
-
+  const filterToggle = document.getElementById('filterToggleBtn');
+  const filterOverlay = document.getElementById('filterOverlay');
+  const filterClose = document.getElementById('filterCloseBtn');
+  const applyFilters = document.getElementById('applyFiltersBtn');
+  const toggles = Array.from(document.querySelectorAll('.filter-option-toggle'));
   const brandFilter = document.getElementById('brandFilter');
   const sortFilter = document.getElementById('sortFilter');
   const timeFilter = document.getElementById('timeFilter');
-  const productsGridList = Array.from(document.querySelectorAll('.products-grid'));
+  if (!filterToggle || !filterOverlay || !filterClose || !applyFilters || !brandFilter || !sortFilter || !timeFilter) return;
+
+  const products = Array.from(document.querySelectorAll('.product-card'));
 
   const inferBrand = (title) => {
     const map = [
@@ -432,331 +243,155 @@ document.addEventListener('DOMContentLoaded', () => {
       { pattern: /hp/i, value: 'HP' },
       { pattern: /asus/i, value: 'Asus' },
       { pattern: /samsung/i, value: 'Samsung' },
-      { pattern: /google/i, value: 'Google' },
       { pattern: /acer/i, value: 'Acer' },
       { pattern: /msi/i, value: 'MSI' },
-      { pattern: /microsoft|surface/i, value: 'Microsoft' },
       { pattern: /razer/i, value: 'Razer' },
+      { pattern: /microsoft|surface/i, value: 'Microsoft' },
+      { pattern: /google/i, value: 'Google' },
       { pattern: /lg/i, value: 'LG' }
     ];
     const match = map.find((item) => item.pattern.test(title));
     return match ? match.value : 'Other';
   };
 
-  const parsePrice = (card) => {
-    const priceText = card.querySelector('.product-price')?.innerText || '';
-    return parseFloat(priceText.replace(/[^0-9.]/g, '')) || 0;
-  };
+  const items = products.map((product, index) => ({
+    element: product,
+    title: product.querySelector('.product-title')?.innerText.trim() || '',
+    brand: inferBrand(product.querySelector('.product-title')?.innerText || ''),
+    price: parseFloat((product.querySelector('.product-price')?.innerText || '').replace(/[^0-9.]/g, '')) || 0,
+    originalIndex: index,
+    grid: product.closest('.products-grid')
+  }));
 
-  const cards = productsGridList.length
-    ? productsGridList.flatMap((grid) =>
-        Array.from(grid.querySelectorAll('.product-card')).map((card, index) => ({
-          element: card,
-          title: card.querySelector('.product-title')?.innerText.trim() || '',
-          brand: inferBrand(card.querySelector('.product-title')?.innerText || ''),
-          price: parsePrice(card),
-          originalIndex: index,
-          grid,
-        }))
-      )
-    : [];
-
-  const applyFilters = () => {
-    if (!productsGridList.length || !brandFilter || !sortFilter || !timeFilter) return;
-
-    const selectedBrand = brandFilter.value;
-    const selectedSort = sortFilter.value;
-    const selectedTime = timeFilter.value;
-
-    cards.forEach((card) => {
-      const isBrandMatch = selectedBrand === 'all' || card.brand === selectedBrand;
-      card.element.style.display = isBrandMatch ? '' : 'none';
+  const applyFilterLogic = () => {
+    const brand = brandFilter.value;
+    const sort = sortFilter.value;
+    const time = timeFilter.value;
+    items.forEach((item) => {
+      item.element.style.display = brand === 'all' || item.brand === brand ? '' : 'none';
     });
-
-    const sortedCards = [...cards].filter((card) => card.element.style.display !== 'none');
-
-    sortedCards.sort((a, b) => {
-      if (selectedSort === 'price-low-high') {
-        const priceDiff = a.price - b.price;
-        if (priceDiff !== 0) return priceDiff;
-      }
-      if (selectedSort === 'price-high-low') {
-        const priceDiff = b.price - a.price;
-        if (priceDiff !== 0) return priceDiff;
-      }
-
-      if (selectedTime === 'new-to-old') {
-        return b.originalIndex - a.originalIndex;
-      }
-      if (selectedTime === 'old-to-new') {
-        return a.originalIndex - b.originalIndex;
-      }
+    const visible = items.filter((item) => item.element.style.display !== 'none');
+    visible.sort((a, b) => {
+      if (sort === 'price-low-high') return a.price - b.price;
+      if (sort === 'price-high-low') return b.price - a.price;
+      if (time === 'new-to-old') return b.originalIndex - a.originalIndex;
+      if (time === 'old-to-new') return a.originalIndex - b.originalIndex;
       return a.originalIndex - b.originalIndex;
     });
-
-    productsGridList.forEach((grid) => {
-      const gridCards = sortedCards.filter((card) => card.grid === grid);
-      gridCards.forEach((card) => grid.appendChild(card.element));
-    });
+    const grid = document.querySelector('.products-grid');
+    visible.forEach((item) => grid.appendChild(item.element));
   };
 
-  const filterPanel = document.querySelector('.filter-controls');
-  const filterOverlay = document.getElementById('filterOverlay');
-  const filterCloseBtn = document.getElementById('filterCloseBtn');
-  const applyFiltersBtn = document.getElementById('applyFiltersBtn');
-  const overlayToggles = Array.from(document.querySelectorAll('.filter-option-toggle'));
-
-  const closeFilterPanel = () => {
-    if (!filterOverlay || !filterPanel || !filterToggleBtn) return;
+  const closePanel = () => {
     filterOverlay.classList.remove('open');
     filterOverlay.setAttribute('aria-hidden', 'true');
-    filterPanel.setAttribute('aria-expanded', 'false');
-    filterToggleBtn.setAttribute('aria-expanded', 'false');
-    overlayToggles.forEach((toggle) => toggle.classList.remove('open'));
-    document.body.classList.remove('filter-open');
+    filterToggle.setAttribute('aria-expanded', 'false');
+    toggles.forEach((toggle) => toggle.classList.remove('open'));
   };
 
-  const openFilterPanel = () => {
-    if (!filterOverlay || !filterPanel || !filterToggleBtn) return;
+  const openPanel = () => {
     filterOverlay.classList.add('open');
     filterOverlay.setAttribute('aria-hidden', 'false');
-    filterPanel.setAttribute('aria-expanded', 'true');
-    filterToggleBtn.setAttribute('aria-expanded', 'true');
-    document.body.classList.add('filter-open');
+    filterToggle.setAttribute('aria-expanded', 'true');
   };
 
-  if (filterToggleBtn) {
-    filterToggleBtn.addEventListener('click', (event) => {
-      event.stopPropagation();
-      if (!filterOverlay) return;
-      const isOpen = filterOverlay.classList.toggle('open');
-      if (isOpen) {
-        openFilterPanel();
-      } else {
-        closeFilterPanel();
-      }
-    });
-  }
-
-  if (filterCloseBtn) {
-    filterCloseBtn.addEventListener('click', closeFilterPanel);
-  }
-
-  if (applyFiltersBtn) {
-    applyFiltersBtn.addEventListener('click', () => {
-      applyFilters();
-      closeFilterPanel();
-    });
-  }
-
-  if (filterOverlay) {
-    filterOverlay.addEventListener('click', (event) => {
-      if (event.target === filterOverlay) {
-        closeFilterPanel();
-      }
-    });
-  }
-
-  overlayToggles.forEach((toggle) => {
-    const targetId = toggle.dataset.target;
-    const panel = document.getElementById(targetId);
-    if (!panel) return;
-
+  filterToggle.addEventListener('click', (event) => {
+    event.stopPropagation();
+    filterOverlay.classList.toggle('open');
+    if (filterOverlay.classList.contains('open')) openPanel(); else closePanel();
+  });
+  filterClose.addEventListener('click', closePanel);
+  filterOverlay.addEventListener('click', (event) => { if (event.target === filterOverlay) closePanel(); });
+  toggles.forEach((toggle) => {
+    const target = document.getElementById(toggle.dataset.target);
+    if (!target) return;
     toggle.addEventListener('click', () => {
-      const isOpen = panel.classList.toggle('open');
+      const isOpen = target.classList.toggle('open');
       toggle.classList.toggle('open', isOpen);
     });
   });
 
-  [brandFilter, sortFilter, timeFilter].forEach((select) => {
-    if (select) select.addEventListener('change', applyFilters);
+  [brandFilter, sortFilter, timeFilter].forEach((select) => select.addEventListener('change', applyFilterLogic));
+  applyFilters.addEventListener('click', () => { applyFilterLogic(); closePanel(); });
+  applyFilterLogic();
+}
+
+function initAccessoryFilters() {
+  if (!document.body.classList.contains('accessories-page')) return;
+  const productGrid = document.getElementById('productGrid');
+  const typeFilter = document.getElementById('typeFilter');
+  const sortSelect = document.getElementById('sortSelect');
+  const searchInput = document.getElementById('searchInput');
+  const chips = Array.from(document.querySelectorAll('.chip'));
+  const cards = productGrid ? Array.from(productGrid.querySelectorAll('.product-card')) : [];
+  if (!productGrid || !cards.length) return;
+
+  cards.forEach((card) => {
+    const title = card.dataset.title || card.querySelector('.product-title')?.innerText || '';
+    const price = card.querySelector('.product-price')?.textContent || '';
+    const specs = card.dataset.specs || '';
+    const prodId = card.dataset.id || '';
+    const btn = card.querySelector('.whatsapp-btn');
+    if (!btn) return;
+    const pageUrl = window.location.href.split('#')[0];
+    const message = [
+      '*NEW ORDER - UPTOP COMPUTERS*',
+      `Item: ${title}`,
+      `Price: ${price}`,
+      `Product ID: ${prodId}`,
+      `Specifications: ${specs}`,
+      `Product Link: ${pageUrl}#${prodId}`
+    ].join('\n');
+    btn.href = `${WA_URL}?text=${encodeURIComponent(message)}`;
   });
 
-  applyFilters();
-
-  // Dynamic Event handling for product cards
-  const slugify = (value) =>
-    String(value)
-      .toLowerCase()
-      .trim()
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/(^-|-$)/g, '');
-
-  const getProductData = (card) => {
-    const title = card.querySelector('.product-title')?.innerText.trim() || 'Laptop';
-    const priceText = card.querySelector('.product-price')?.innerText.trim() || 'Price available on request';
-    const specs = Array.from(card.querySelectorAll('.product-specs span'))
-      .map((span) => span.innerText.trim())
-      .filter(Boolean)
-      .join(' | ');
-
-    return { title, priceText, specs };
+  const filtered = () => {
+    const type = typeFilter?.value || 'all';
+    const query = searchInput?.value.toLowerCase().trim() || '';
+    cards.forEach((card) => {
+      const category = card.dataset.category || '';
+      const title = (card.dataset.title || '').toLowerCase();
+      const specs = (card.dataset.specs || '').toLowerCase();
+      const show = (type === 'all' || category === type) && (title.includes(query) || specs.includes(query));
+      card.style.display = show ? 'flex' : 'none';
+    });
   };
 
-  productsGridList.forEach((grid) => {
-    Array.from(grid.querySelectorAll('.product-card')).forEach((card, index) => {
-      const { title, priceText, specs } = getProductData(card);
-      const slug = slugify(title) || `product-${index + 1}`;
-      const cardId = `${slug}-${index + 1}`;
-      card.id = cardId;
-      card.dataset.productTitle = title;
-      card.dataset.productPrice = priceText;
-      card.dataset.productSpecs = specs;
-      card.dataset.productUrl = `${window.location.href.split('#')[0]}#${cardId}`;
+  typeFilter.addEventListener('change', filtered);
+  searchInput.addEventListener('input', filtered);
+  sortSelect.addEventListener('change', (event) => {
+    const order = event.target.value;
+    const sorted = cards.slice().sort((a, b) => {
+      const aPrice = parseInt(a.dataset.price || '0', 10);
+      const bPrice = parseInt(b.dataset.price || '0', 10);
+      if (order === 'low-high') return aPrice - bPrice;
+      if (order === 'high-low') return bPrice - aPrice;
+      return 0;
+    });
+    sorted.forEach((card) => productGrid.appendChild(card));
+  });
+
+  chips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      chips.forEach((item) => item.classList.remove('active'));
+      chip.classList.add('active');
+      typeFilter.value = chip.dataset.filter || 'all';
+      filtered();
     });
   });
 
-  const detailButtons = document.querySelectorAll('.btn-details');
-  detailButtons.forEach((btn) => {
-    btn.innerHTML = '<i class="fa-brands fa-whatsapp"></i><span>Order Now</span>';
-    btn.setAttribute('type', 'button');
+  filtered();
+}
 
-    btn.addEventListener('click', (e) => {
-      const card = e.currentTarget.closest('.product-card');
-      const title = card?.dataset.productTitle || card?.querySelector('.product-title')?.innerText.trim() || 'Laptop';
-      const priceText = card?.dataset.productPrice || card?.querySelector('.product-price')?.innerText.trim() || 'Price available on request';
-      const specs = card?.dataset.productSpecs || Array.from(card?.querySelectorAll('.product-specs span') || [])
-        .map((span) => span.innerText.trim())
-        .filter(Boolean)
-        .join(' | ');
-      const productUrl = card?.dataset.productUrl || window.location.href;
-      const message = [
-        'Hello! I would like to order this laptop from Uptop.',
-        `Product: ${title}`,
-        `Price: ${priceText}`,
-        `Specifications: ${specs}`,
-        `Product link: ${productUrl}`
-      ].join('\n');
+function initSite() {
+  initMobileMenu();
+  initSearchSuggestions();
+  initScrollToTop();
+  initViewAllOverlay();
+  initHomeCarousel();
+  initReviewCarousel();
+  initLaptopFilters();
+  initAccessoryFilters();
+}
 
-      const whatsappUrl = `https://wa.me/+254115369156?text=${encodeURIComponent(message)}`;
-      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-    });
-  });
-});
-
-/**
- * Laptop Accessories & Replacement Hub - Client-Side Logic
- */
-
-document.addEventListener('DOMContentLoaded', () => {
-  // --- DOM Elements ---
-  const filterOverlay = document.getElementById('filterOverlay');
-  const filterDrawer = document.getElementById('filterDrawer');
-  const searchInput = document.querySelector('.search-box input');
-  const productCards = document.querySelectorAll('.product-card');
-  const filterCheckboxes = document.querySelectorAll('.filter-group input[type="checkbox"]');
-  const addToCartButtons = document.querySelectorAll('.add-cart-btn');
-
-  // Track active cart count
-  let cartCount = 0;
-
-  // ==========================================================================
-  // 1. Filter Drawer Controls
-  // ==========================================================================
-
-  /**
-   * Toggles the visibility of the slide-out filter drawer
-   */
-  window.toggleFilterDrawer = function () {
-    if (!filterDrawer || !filterOverlay) return;
-
-    const isActive = filterDrawer.classList.contains('active');
-
-    if (isActive) {
-      filterDrawer.classList.remove('active');
-      filterOverlay.style.display = 'none';
-      document.body.style.overflow = ''; // Restore background scrolling
-    } else {
-      filterDrawer.classList.add('active');
-      filterOverlay.style.display = 'block';
-      document.body.style.overflow = 'hidden'; // Prevent background scrolling when open
-    }
-  };
-
-  // Close filter drawer when pressing the Escape key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && filterDrawer && filterDrawer.classList.contains('active')) {
-      window.toggleFilterDrawer();
-    }
-  });
-
-  // ==========================================================================
-  // 2. Real-Time Search & Filtering Logic
-  // ==========================================================================
-
-  /**
-   * Filters the visible product cards based on search query and selected filter options
-   */
-  function filterProducts() {
-    const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
-
-    // Collect checked filter categories
-    const selectedCategories = Array.from(filterCheckboxes)
-      .filter((cb) => cb.checked)
-      .map((cb) => cb.parentElement.textContent.toLowerCase().trim());
-
-    productCards.forEach((card) => {
-      const title = card.querySelector('.product-title')?.textContent.toLowerCase() || '';
-      const specs = card.querySelector('.product-specs')?.textContent.toLowerCase() || '';
-      const badge = card.querySelector('.badge')?.textContent.toLowerCase() || '';
-
-      // Match search input against title, specs, or badge text
-      const matchesSearch = !query || title.includes(query) || specs.includes(query) || badge.includes(query);
-
-      // Match checked filter options
-      const matchesCategory =
-        selectedCategories.length === 0 ||
-        selectedCategories.some(
-          (category) => title.includes(category) || specs.includes(category) || badge.includes(category)
-        );
-
-      // Display card if both conditions are met
-      if (matchesSearch && matchesCategory) {
-        card.style.display = 'flex';
-      } else {
-        card.style.display = 'none';
-      }
-    });
-  }
-
-  // Bind real-time search input event
-  if (searchInput) {
-    searchInput.addEventListener('input', filterProducts);
-  }
-
-  // Bind category checkbox events
-  filterCheckboxes.forEach((checkbox) => {
-    checkbox.addEventListener('change', filterProducts);
-  });
-
-  // ==========================================================================
-  // 3. Shopping Cart Interactions
-  // ==========================================================================
-
-  /**
-   * Handles adding products to the cart with visual feedback
-   */
-  addToCartButtons.forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-      const card = e.target.closest('.product-card');
-      const title = card.querySelector('.product-title')?.textContent || 'Item';
-      const price = card.querySelector('.price')?.textContent || '';
-
-      cartCount++;
-
-      // Temporary visual button feedback
-      const originalText = btn.textContent;
-      btn.textContent = 'Added ✓';
-      btn.style.backgroundColor = 'var(--success, #10b981)';
-      btn.disabled = true;
-
-      setTimeout(() => {
-        btn.textContent = originalText;
-        btn.style.backgroundColor = '';
-        btn.disabled = false;
-      }, 1500);
-
-      console.log(`Cart Updated (+1): ${title} - ${price}. Total items: ${cartCount}`);
-    });
-  });
-});
+window.addEventListener('DOMContentLoaded', initSite);
