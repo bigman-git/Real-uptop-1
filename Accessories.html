@@ -1,1219 +1,1129 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Uptop - Laptop Accessories</title>
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body class="accessories-page">
-    <div class="site-wrapper">
-      <header class="navbar">
-        <a href="index.html" class="logo">Uptop</a>
-        <nav class="accessory-nav-links" aria-label="Section links">
-          <a href="index.html">Home</a>
-          <a href="laptops.html">Laptops</a>
-          <a href="services.html">Services</a>
-        </nav>
-        <div class="search-box">
-          <input
-            type="text"
-            id="searchInput"
-            placeholder="Search accessories..."
-            aria-label="Search accessories"
-          />
-          <span class="search-icon">🔍</span>
-        </div>
-        <button class="menu-toggle" aria-label="Toggle Navigation">☰</button>
-      </header>
-
-      <main class="container">
-        <h1 class="page-title">Accessories & Peripherals</h1>
-
-        <!-- Filter and Sort Bar -->
-        <section class="filter-section">
-          <div class="filter-controls">
-            <select
-              class="dropdown-select"
-              id="typeFilter"
-              aria-label="Filter by Category"
-            >
-              <option value="all">All Categories (60)</option>
-              <option value="power">Power & Cables (10)</option>
-              <option value="bags">Carrying & Protection (10)</option>
-              <option value="peripherals">Peripherals & Input (10)</option>
-              <option value="audio">Audio & Comms (10)</option>
-              <option value="docks">Docks & Expansion (10)</option>
-              <option value="cooling">Cooling & Stands (10)</option>
-            </select>
-            <select
-              class="dropdown-select"
-              id="sortSelect"
-              aria-label="Sort products"
-            >
-              <option value="featured">Sort: Featured</option>
-              <option value="low-high">Price: Low to High</option>
-              <option value="high-low">Price: High to Low</option>
-            </select>
-          </div>
-        </section>
-
-        <!-- Quick Filter Chips -->
-        <nav class="category-chips" aria-label="Quick Category Filter">
-          <button class="chip active" data-filter="all">All</button>
-          <button class="chip" data-filter="power">Power</button>
-          <button class="chip" data-filter="bags">Bags & Sleeves</button>
-          <button class="chip" data-filter="peripherals">Peripherals</button>
-          <button class="chip" data-filter="audio">Audio</button>
-          <button class="chip" data-filter="docks">Docks & Hubs</button>
-          <button class="chip" data-filter="cooling">Stands</button>
-        </nav>
-
-        <!-- 60 Products Grid -->
-        <section class="product-grid" id="productGrid">
-          <!-- ================= 1. POWER & CABLES ================= -->
-          <article
-            class="product-card"
-            data-category="power"
-            data-price="2500"
-            data-title="65W Type-C Power Adapter"
-            data-specs="PD 3.0, 20V/3.25A, 1.8m Braided Cable"
-            data-id="PWR-01"
-          >
-            <div class="product-img">🔌</div>
-            <span class="product-category">Power</span>
-            <h2 class="product-title">65W Type-C Power Adapter</h2>
-            <p class="product-specs">PD 3.0, 20V/3.25A, 1.8m Cable</p>
-            <div class="product-price">KSh 2,500</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="power"
-            data-price="3800"
-            data-title="100W GaN Fast Charger"
-            data-specs="Dual Type-C + USB-A, Multi-Device Fast Charge"
-            data-id="PWR-02"
-          >
-            <div class="product-img">⚡</div>
-            <span class="product-category">Power</span>
-            <h2 class="product-title">100W GaN Fast Charger</h2>
-            <p class="product-specs">Dual USB-C + USB-A, Compact</p>
-            <div class="product-price">KSh 3,800</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="power"
-            data-price="4500"
-            data-title="20,000mAh 65W Power Bank"
-            data-specs="Laptop Power Bank, Digital Display, Type-C Output"
-            data-id="PWR-03"
-          >
-            <div class="product-img">🔋</div>
-            <span class="product-category">Power</span>
-            <h2 class="product-title">20,000mAh 65W Power Bank</h2>
-            <p class="product-specs">Laptop Capable, Digital Display</p>
-            <div class="product-price">KSh 4,500</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="power"
-            data-price="1200"
-            data-title="HP Smart AC Adapter 45W"
-            data-specs="4.5mm Blue Pin, 19.5V, Surge Protection"
-            data-id="PWR-04"
-          >
-            <div class="product-img">🔌</div>
-            <span class="product-category">Power</span>
-            <h2 class="product-title">HP 45W Smart Adapter</h2>
-            <p class="product-specs">4.5mm Blue Pin, Surge Guard</p>
-            <div class="product-price">KSh 1,200</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="power"
-            data-price="1500"
-            data-title="Dell 65W Barrel Charger"
-            data-specs="7.4mm Tip, 19.5V, High Quality OEM"
-            data-id="PWR-05"
-          >
-            <div class="product-img">🔌</div>
-            <span class="product-category">Power</span>
-            <h2 class="product-title">Dell 65W Barrel Charger</h2>
-            <p class="product-specs">7.4mm Tip, 19.5V/3.34A OEM</p>
-            <div class="product-price">KSh 1,500</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="power"
-            data-price="1800"
-            data-title="Lenovo 65W Type-C Adapter"
-            data-specs="Type-C PD, Auto-Voltage 5V-20V"
-            data-id="PWR-06"
-          >
-            <div class="product-img">⚡</div>
-            <span class="product-category">Power</span>
-            <h2 class="product-title">Lenovo 65W Type-C Adapter</h2>
-            <p class="product-specs">Type-C PD, Auto-Voltage</p>
-            <div class="product-price">KSh 1,800</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="power"
-            data-price="1000"
-            data-title="100W Type-C to Type-C Cable"
-            data-specs="2 Meters, 20V/5A, Nylon Braided 480Mbps"
-            data-id="PWR-07"
-          >
-            <div class="product-img">🧵</div>
-            <span class="product-category">Power</span>
-            <h2 class="product-title">100W Type-C Braided Cable</h2>
-            <p class="product-specs">2m Length, 5A High Current</p>
-            <div class="product-price">KSh 1,000</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="power"
-            data-price="5200"
-            data-title="140W MagSafe 3 Cable & Adapter"
-            data-specs="For Apple MacBook Pro 16, Fast Charge"
-            data-id="PWR-08"
-          >
-            <div class="product-img">⚡</div>
-            <span class="product-category">Power</span>
-            <h2 class="product-title">140W MagSafe 3 Charger</h2>
-            <p class="product-specs">MacBook Pro 16", Fast Charge</p>
-            <div class="product-price">KSh 5,200</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="power"
-            data-price="850"
-            data-title="Magsafe 2 60W Adapter Tip"
-            data-specs="For older MacBook Pro 13, Magnetic Connector"
-            data-id="PWR-09"
-          >
-            <div class="product-img">🔌</div>
-            <span class="product-category">Power</span>
-            <h2 class="product-title">MagSafe 2 60W Adapter</h2>
-            <p class="product-specs">Magnetic Connector, 16.5V</p>
-            <div class="product-price">KSh 850</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="power"
-            data-price="2200"
-            data-title="Car Laptop Charger 90W"
-            data-specs="12V Cigarette Lighter Plug, Multi-Tips"
-            data-id="PWR-10"
-          >
-            <div class="product-img">🚗</div>
-            <span class="product-category">Power</span>
-            <h2 class="product-title">90W Universal Car Charger</h2>
-            <p class="product-specs">12V Auto Plug, Multi-Tips</p>
-            <div class="product-price">KSh 2,200</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <!-- ================= 2. CARRYING & PROTECTION ================= -->
-          <article
-            class="product-card"
-            data-category="bags"
-            data-price="2800"
-            data-title="Waterproof Laptop Backpack 15.6"
-            data-specs="Anti-theft, USB Charging Port, Padded Straps"
-            data-id="BAG-01"
-          >
-            <div class="product-img">🎒</div>
-            <span class="product-category">Bags</span>
-            <h2 class="product-title">Waterproof Backpack 15.6"</h2>
-            <p class="product-specs">Anti-Theft, External USB Port</p>
-            <div class="product-price">KSh 2,800</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="bags"
-            data-price="1200"
-            data-title="Shockproof Sleeve 13-14 inch"
-            data-specs="Fleece Lining, Water Resistant, Accessory Pocket"
-            data-id="BAG-02"
-          >
-            <div class="product-img">💼</div>
-            <span class="product-category">Bags</span>
-            <h2 class="product-title">Shockproof Sleeve 13-14"</h2>
-            <p class="product-specs">Fleece Lined, Front Zipper</p>
-            <div class="product-price">KSh 1,200</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="bags"
-            data-price="1500"
-            data-title="Hard Shell Case MacBook Air 13"
-            data-specs="Matte Finish, Snap-On Protection, Heat Vents"
-            data-id="BAG-03"
-          >
-            <div class="product-img">🛡️</div>
-            <span class="product-category">Bags</span>
-            <h2 class="product-title">Hard Case MacBook Air 13"</h2>
-            <p class="product-specs">Matte Finish, Vent Slots</p>
-            <div class="product-price">KSh 1,500</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="bags"
-            data-price="3500"
-            data-title="Executive Leather Messenger Bag"
-            data-specs="Genuine Leather, Fits 15 inch, Shoulder Strap"
-            data-id="BAG-04"
-          >
-            <div class="product-img">💼</div>
-            <span class="product-category">Bags</span>
-            <h2 class="product-title">Executive Leather Messenger</h2>
-            <p class="product-specs">Fits 15.6", Brass Buckles</p>
-            <div class="product-price">KSh 3,500</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="bags"
-            data-price="500"
-            data-title="Silicone Keyboard Protector"
-            data-specs="Dustproof, Washable, Universal 14-15.6 inch"
-            data-id="BAG-05"
-          >
-            <div class="product-img">⌨️</div>
-            <span class="product-category">Bags</span>
-            <h2 class="product-title">Silicone Keyboard Skin</h2>
-            <p class="product-specs">Dustproof, Spill Resistant</p>
-            <div class="product-price">KSh 500</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="bags"
-            data-price="4200"
-            data-title="Gaming Laptop Backpack 17 inch"
-            data-specs="Hard Shell Front, Heavy Duty Padding"
-            data-id="BAG-06"
-          >
-            <div class="product-img">🎒</div>
-            <span class="product-category">Bags</span>
-            <h2 class="product-title">Gaming Backpack 17"</h2>
-            <p class="product-specs">Hard Armor Front, Padded</p>
-            <div class="product-price">KSh 4,200</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="bags"
-            data-price="800"
-            data-title="Webcam Privacy Cover 3-Pack"
-            data-specs="Ultra Thin 0.027in, Slider Design, Universal"
-            data-id="BAG-07"
-          >
-            <div class="product-img">📷</div>
-            <span class="product-category">Bags</span>
-            <h2 class="product-title">Webcam Cover 3-Pack</h2>
-            <p class="product-specs">Ultra-Thin Slider, Universal</p>
-            <div class="product-price">KSh 800</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="bags"
-            data-price="1100"
-            data-title="Neoprene Sleeve 15.6 inch"
-            data-specs="Ultra Lightweight, Dual Zipper, Scratch Proof"
-            data-id="BAG-08"
-          >
-            <div class="product-img">💼</div>
-            <span class="product-category">Bags</span>
-            <h2 class="product-title">Neoprene Sleeve 15.6"</h2>
-            <p class="product-specs">Lightweight, Dual Zipper</p>
-            <div class="product-price">KSh 1,100</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="bags"
-            data-price="1800"
-            data-title="Anti-Spy Privacy Screen Filter"
-            data-specs="14 inch 16:9, Anti-Glare, Blue Light Cut"
-            data-id="BAG-09"
-          >
-            <div class="product-img">🖥️</div>
-            <span class="product-category">Bags</span>
-            <h2 class="product-title">14" Privacy Screen Filter</h2>
-            <p class="product-specs">Anti-Spy, Anti-Blue Light</p>
-            <div class="product-price">KSh 1,800</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="bags"
-            data-price="2200"
-            data-title="Briefcase Carry Bag with Strap"
-            data-specs="Multi-Pocket, Waterproof Nylon, 14 inch"
-            data-id="BAG-10"
-          >
-            <div class="product-img">💼</div>
-            <span class="product-category">Bags</span>
-            <h2 class="product-title">Nylon Briefcase 14"</h2>
-            <p class="product-specs">Multi-Compartment, Strap</p>
-            <div class="product-price">KSh 2,200</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <!-- ================= 3. PERIPHERALS & INPUT ================= -->
-          <article
-            class="product-card"
-            data-category="peripherals"
-            data-price="1800"
-            data-title="Ergonomic Wireless Mouse"
-            data-specs="2.4GHz + BT 5.0, Rechargeable, Quiet Click"
-            data-id="PER-01"
-          >
-            <div class="product-img">🖱️</div>
-            <span class="product-category">Peripherals</span>
-            <h2 class="product-title">Ergonomic Wireless Mouse</h2>
-            <p class="product-specs">Dual-Mode BT/2.4G, Silent</p>
-            <div class="product-price">KSh 1,800</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="peripherals"
-            data-price="3500"
-            data-title="Mechanical Keyboard RGB 60%"
-            data-specs="Blue Switches, Detachable Type-C, RGB Lighting"
-            data-id="PER-02"
-          >
-            <div class="product-img">⌨️</div>
-            <span class="product-category">Peripherals</span>
-            <h2 class="product-title">60% RGB Mechanical Keyboard</h2>
-            <p class="product-specs">Blue Switches, Type-C Cable</p>
-            <div class="product-price">KSh 3,500</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="peripherals"
-            data-price="800"
-            data-title="Extended RGB Mousepad XL"
-            data-specs="800x300mm, 14 LED Light Modes, Non-Slip Base"
-            data-id="PER-03"
-          >
-            <div class="product-img">🗺️</div>
-            <span class="product-category">Peripherals</span>
-            <h2 class="product-title">RGB Mousepad XL (80x30cm)</h2>
-            <p class="product-specs">14 Lighting Modes, Non-Slip</p>
-            <div class="product-price">KSh 800</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="peripherals"
-            data-price="4800"
-            data-title="Logitech MX Master 3S Replica"
-            data-specs="8K DPI Tracking, Quiet Clicks, Ergonomic"
-            data-id="PER-04"
-          >
-            <div class="product-img">🖱️</div>
-            <span class="product-category">Peripherals</span>
-            <h2 class="product-title">MX Master 3S Wireless Mouse</h2>
-            <p class="product-specs">8000 DPI, Ergonomic Thumb</p>
-            <div class="product-price">KSh 4,800</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="peripherals"
-            data-price="1200"
-            data-title="Slim Bluetooth Wireless Keyboard"
-            data-specs="Multi-Device Toggle, Ultra Thin, AAA Powered"
-            data-id="PER-05"
-          >
-            <div class="product-img">⌨️</div>
-            <span class="product-category">Peripherals</span>
-            <h2 class="product-title">Slim Bluetooth Keyboard</h2>
-            <p class="product-specs">Multi-Device Switch, Compact</p>
-            <div class="product-price">KSh 1,200</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="peripherals"
-            data-price="5500"
-            data-title="Graphic Drawing Tablet 10x6"
-            data-specs="8192 Battery-Free Stylus, 8 Express Keys"
-            data-id="PER-06"
-          >
-            <div class="product-img">🎨</div>
-            <span class="product-category">Peripherals</span>
-            <h2 class="product-title">10x6 Drawing Tablet</h2>
-            <p class="product-specs">8192 Pressure Stylus, 8 Keys</p>
-            <div class="product-price">KSh 5,500</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="peripherals"
-            data-price="650"
-            data-title="Wired USB Optical Mouse"
-            data-specs="1200 DPI, Plug and Play, Ambidextrous"
-            data-id="PER-07"
-          >
-            <div class="product-img">🖱️</div>
-            <span class="product-category">Peripherals</span>
-            <h2 class="product-title">Wired USB Optical Mouse</h2>
-            <p class="product-specs">1200 DPI, Plug & Play</p>
-            <div class="product-price">KSh 650</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="peripherals"
-            data-price="1500"
-            data-title="Memory Foam Wrist Rest Set"
-            data-specs="Keyboard Pad + Mouse Pad, Ergonomic Relief"
-            data-id="PER-08"
-          >
-            <div class="product-img">🧱</div>
-            <span class="product-category">Peripherals</span>
-            <h2 class="product-title">Memory Foam Wrist Rest Set</h2>
-            <p class="product-specs">Keyboard + Mouse Ergonomic Pad</p>
-            <div class="product-price">KSh 1,500</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="peripherals"
-            data-price="2200"
-            data-title="Presenter Wireless Clicker"
-            data-specs="2.4GHz Laser Pointer, 100ft Range, USB Nano"
-            data-id="PER-09"
-          >
-            <div class="product-img">🪄</div>
-            <span class="product-category">Peripherals</span>
-            <h2 class="product-title">Wireless Presenter Clicker</h2>
-            <p class="product-specs">Red Laser Pointer, 30m Range</p>
-            <div class="product-price">KSh 2,200</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="peripherals"
-            data-price="1900"
-            data-title="Numeric Keypad Wireless 2.4G"
-            data-specs="18-Key Mini Numpad for Accounting, USB Receiver"
-            data-id="PER-10"
-          >
-            <div class="product-img">🔢</div>
-            <span class="product-category">Peripherals</span>
-            <h2 class="product-title">Wireless Numeric Keypad</h2>
-            <p class="product-specs">18 Keys, Ideal for Accounting</p>
-            <div class="product-price">KSh 1,900</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <!-- ================= 4. AUDIO & COMMS ================= -->
-          <article
-            class="product-card"
-            data-category="audio"
-            data-price="4500"
-            data-title="Noise-Canceling USB Headset"
-            data-specs="Boom Mic, Inline Volume, Padded Earcups"
-            data-id="AUD-01"
-          >
-            <div class="product-img">🎧</div>
-            <span class="product-category">Audio</span>
-            <h2 class="product-title">Noise-Canceling Headset</h2>
-            <p class="product-specs">USB Plug, Noise-Canceling Mic</p>
-            <div class="product-price">KSh 4,500</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="audio"
-            data-price="3200"
-            data-title="1080P Full HD Webcam"
-            data-specs="Built-in Mic, Autofocus, Privacy Shutter"
-            data-id="AUD-02"
-          >
-            <div class="product-img">📷</div>
-            <span class="product-category">Audio</span>
-            <h2 class="product-title">1080P Full HD Webcam</h2>
-            <p class="product-specs">Autofocus, Dual Stereo Mic</p>
-            <div class="product-price">KSh 3,200</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="audio"
-            data-price="3800"
-            data-title="USB Condenser Studio Mic"
-            data-specs="Cardioid Pick-up, Tripod Stand, Pop Filter"
-            data-id="AUD-03"
-          >
-            <div class="product-img">🎙️</div>
-            <span class="product-category">Audio</span>
-            <h2 class="product-title">USB Studio Condenser Mic</h2>
-            <p class="product-specs">Cardioid, Pop Filter + Stand</p>
-            <div class="product-price">KSh 3,800</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="audio"
-            data-price="2800"
-            data-title="Bluetooth 5.3 Earbuds TWS"
-            data-specs="30Hr Playtime, ENC Clear Calls, Touch Control"
-            data-id="AUD-04"
-          >
-            <div class="product-img">🎧</div>
-            <span class="product-category">Audio</span>
-            <h2 class="product-title">TWS Wireless Earbuds</h2>
-            <p class="product-specs">30H Playtime, ENC Calls</p>
-            <div class="product-price">KSh 2,800</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="audio"
-            data-price="1800"
-            data-title="Desktop USB Soundbar Speaker"
-            data-specs="Dual Drivers, 3.5mm + USB Power, Volume Knob"
-            data-id="AUD-05"
-          >
-            <div class="product-img">🔊</div>
-            <span class="product-category">Audio</span>
-            <h2 class="product-title">Desktop Mini Soundbar</h2>
-            <p class="product-specs">USB Powered, Dual Speakers</p>
-            <div class="product-price">KSh 1,800</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="audio"
-            data-price="5500"
-            data-title="Gaming Headset 7.1 Surround"
-            data-specs="RGB Light, 50mm Drivers, Detachable Mic"
-            data-id="AUD-06"
-          >
-            <div class="product-img">🎧</div>
-            <span class="product-category">Audio</span>
-            <h2 class="product-title">7.1 Gaming Headset RGB</h2>
-            <p class="product-specs">50mm Drivers, Surround Sound</p>
-            <div class="product-price">KSh 5,500</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="audio"
-            data-price="1200"
-            data-title="USB to 3.5mm Audio Adapter"
-            data-specs="External Sound Card, Mic & Headphone Jack"
-            data-id="AUD-07"
-          >
-            <div class="product-img">🔌</div>
-            <span class="product-category">Audio</span>
-            <h2 class="product-title">USB External Sound Card</h2>
-            <p class="product-specs">Aux + Mic Ports, Aluminum</p>
-            <div class="product-price">KSh 1,200</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="audio"
-            data-price="6200"
-            data-title="4K Ultra HD Streaming Camera"
-            data-specs="60FPS, Ring Light Built-in, Remote Control"
-            data-id="AUD-08"
-          >
-            <div class="product-img">📷</div>
-            <span class="product-category">Audio</span>
-            <h2 class="product-title">4K HD Streaming Camera</h2>
-            <p class="product-specs">Built-in Ring Light, 60FPS</p>
-            <div class="product-price">KSh 6,200</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="audio"
-            data-price="2500"
-            data-title="3.5mm Call Center Headset"
-            data-specs="Dual Plug + USB Adapter, Noise Isolation"
-            data-id="AUD-09"
-          >
-            <div class="product-img">🎧</div>
-            <span class="product-category">Audio</span>
-            <h2 class="product-title">Call Center Mono Headset</h2>
-            <p class="product-specs">Single Ear, Flexible Mic</p>
-            <div class="product-price">KSh 2,500</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="audio"
-            data-price="1500"
-            data-title="Clip-On Lavalier Mic USB-C"
-            data-specs="Wireless 2.4G Transmitter, 20m Range, Noise Red."
-            data-id="AUD-10"
-          >
-            <div class="product-img">🎙️</div>
-            <span class="product-category">Audio</span>
-            <h2 class="product-title">Wireless Lavalier Mic Type-C</h2>
-            <p class="product-specs">Clip-On, Plug & Play Receiver</p>
-            <div class="product-price">KSh 1,500</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <!-- ================= 5. DOCKS & EXPANSION ================= -->
-          <article
-            class="product-card"
-            data-category="docks"
-            data-price="3200"
-            data-title="7-in-1 USB-C Hub Adapter"
-            data-specs="4K HDMI, 100W PD, 3x USB 3.0, SD/TF Card"
-            data-id="DCK-01"
-          >
-            <div class="product-img">🔌</div>
-            <span class="product-category">Docks</span>
-            <h2 class="product-title">7-in-1 USB-C Hub</h2>
-            <p class="product-specs">4K HDMI, 100W PD, SD Reader</p>
-            <div class="product-price">KSh 3,200</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="docks"
-            data-price="7500"
-            data-title="Thunderbolt 4 Docking Station"
-            data-specs="Dual 4K Display, Gigabit Ethernet, 85W Pass-Thru"
-            data-id="DCK-02"
-          >
-            <div class="product-img">🖥️</div>
-            <span class="product-category">Docks</span>
-            <h2 class="product-title">Thunderbolt 4 Dock Station</h2>
-            <p class="product-specs">Dual 4K HDMI, RJ45 Ethernet</p>
-            <div class="product-price">KSh 7,500</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="docks"
-            data-price="1500"
-            data-title="USB-C to Gigabit Ethernet"
-            data-specs="1000Mbps RJ45 LAN Adapter, Aluminum Shell"
-            data-id="DCK-03"
-          >
-            <div class="product-img">🌐</div>
-            <span class="product-category">Docks</span>
-            <h2 class="product-title">USB-C to Gigabit LAN</h2>
-            <p class="product-specs">1000Mbps RJ45, Aluminum</p>
-            <div class="product-price">KSh 1,500</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="docks"
-            data-price="1200"
-            data-title="USB 3.0 4-Port Aluminum Hub"
-            data-specs="5Gbps Data Speed, Slim Design, 0.5m Cable"
-            data-id="DCK-04"
-          >
-            <div class="product-img">🔌</div>
-            <span class="product-category">Docks</span>
-            <h2 class="product-title">4-Port USB 3.0 Hub</h2>
-            <p class="product-specs">5Gbps Transfer, Aluminum</p>
-            <div class="product-price">KSh 1,200</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="docks"
-            data-price="1800"
-            data-title="USB-C to HDMI 4K Adapter"
-            data-specs="4K@60Hz, Thunderbolt 3/4 Compatible"
-            data-id="DCK-05"
-          >
-            <div class="product-img">📺</div>
-            <span class="product-category">Docks</span>
-            <h2 class="product-title">USB-C to HDMI 4K Cable</h2>
-            <p class="product-specs">4K @ 60Hz Ultra HD</p>
-            <div class="product-price">KSh 1,800</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="docks"
-            data-price="2500"
-            data-title="M.2 NVMe SSD Enclosure"
-            data-specs="10Gbps USB 3.2 Gen 2, Aluminum Heat Sink"
-            data-id="DCK-06"
-          >
-            <div class="product-img">💾</div>
-            <span class="product-category">Docks</span>
-            <h2 class="product-title">NVMe M.2 SSD Enclosure</h2>
-            <p class="product-specs">10Gbps High Speed, Aluminum</p>
-            <div class="product-price">KSh 2,500</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="docks"
-            data-price="1000"
-            data-title="High-Speed SD / MicroSD Reader"
-            data-specs="USB-C + USB 3.0 Dual Plug, 5Gbps"
-            data-id="DCK-07"
-          >
-            <div class="product-img">🎴</div>
-            <span class="product-category">Docks</span>
-            <h2 class="product-title">Dual SD/MicroSD Reader</h2>
-            <p class="product-specs">USB-C & USB 3.0 Dual Connector</p>
-            <div class="product-price">KSh 1,000</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="docks"
-            data-price="2200"
-            data-title="USB-C VGA + HDMI Adapter"
-            data-specs="Dual Screen Mirror, 1080P VGA, 4K HDMI"
-            data-id="DCK-08"
-          >
-            <div class="product-img">📺</div>
-            <span class="product-category">Docks</span>
-            <h2 class="product-title">USB-C HDMI + VGA Adapter</h2>
-            <p class="product-specs">Dual Video Output 1080P</p>
-            <div class="product-price">KSh 2,200</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="docks"
-            data-price="1400"
-            data-title="2.5 inch SATA to USB Cable"
-            data-specs="USB 3.0 to SATA III for HDD / SSD"
-            data-id="DCK-09"
-          >
-            <div class="product-img">💽</div>
-            <span class="product-category">Docks</span>
-            <h2 class="product-title">2.5" SATA to USB 3.0 Cable</h2>
-            <p class="product-specs">For SSD & Laptop HDDs</p>
-            <div class="product-price">KSh 1,400</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="docks"
-            data-price="4200"
-            data-title="Vertical Laptop Dock Station"
-            data-specs="Triple Display Output, 100W Power Delivery"
-            data-id="DCK-10"
-          >
-            <div class="product-img">🖥️</div>
-            <span class="product-category">Docks</span>
-            <h2 class="product-title">11-in-1 Dual Display Dock</h2>
-            <p class="product-specs">Triple Display, 100W PD</p>
-            <div class="product-price">KSh 4,200</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <!-- ================= 6. COOLING & STANDS ================= -->
-          <article
-            class="product-card"
-            data-category="cooling"
-            data-price="3200"
-            data-title="Adjustable Aluminum Stand"
-            data-specs="Ergonomic Height, Ventilated, Foldable"
-            data-id="STD-01"
-          >
-            <div class="product-img">📐</div>
-            <span class="product-category">Stands</span>
-            <h2 class="product-title">Adjustable Aluminum Stand</h2>
-            <p class="product-specs">Ergonomic Height, Foldable</p>
-            <div class="product-price">KSh 3,200</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="cooling"
-            data-price="2800"
-            data-title="Dual-Fan Cooling Pad RGB"
-            data-specs="Fits up to 17 inch, 6 Speed Levels, Quiet Fans"
-            data-id="STD-02"
-          >
-            <div class="product-img">🪭</div>
-            <span class="product-category">Stands</span>
-            <h2 class="product-title">RGB Dual Fan Cooling Pad</h2>
-            <p class="product-specs">Fits 17", 6 Speed Control</p>
-            <div class="product-price">KSh 2,800</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="cooling"
-            data-price="1800"
-            data-title="Vertical Desktop Dock Stand"
-            data-specs="3D Curved Aluminum, Adjustable Width 0.55-2.87in"
-            data-id="STD-03"
-          >
-            <div class="product-img">🖥️</div>
-            <span class="product-category">Stands</span>
-            <h2 class="product-title">Vertical Desktop Dock Stand</h2>
-            <p class="product-specs">Adjustable Width Aluminum</p>
-            <div class="product-price">KSh 1,800</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="cooling"
-            data-price="1200"
-            data-title="Portable Mini Plastic Riser"
-            data-specs="Compact Foldable Feet, Anti-Slip Silicone"
-            data-id="STD-04"
-          >
-            <div class="product-img">📐</div>
-            <span class="product-category">Stands</span>
-            <h2 class="product-title">Portable Mini Laptop Riser</h2>
-            <p class="product-specs">Foldable Feet, Anti-Slip</p>
-            <div class="product-price">KSh 1,200</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="cooling"
-            data-price="3800"
-            data-title="6-Fan RGB Gaming Cooler"
-            data-specs="LCD Control Screen, Phone Holder Slot, USB Hub"
-            data-id="STD-05"
-          >
-            <div class="product-img">🪭</div>
-            <span class="product-category">Stands</span>
-            <h2 class="product-title">6-Fan RGB Gaming Cooler</h2>
-            <p class="product-specs">LCD Screen, Phone Slot</p>
-            <div class="product-price">KSh 3,800</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="cooling"
-            data-price="4500"
-            data-title="360 Swivel Rotating Stand"
-            data-specs="Heavy-Duty Metal, 360-Degree Base Rotation"
-            data-id="STD-06"
-          >
-            <div class="product-img">🔄</div>
-            <span class="product-category">Stands</span>
-            <h2 class="product-title">360° Rotating Metal Stand</h2>
-            <p class="product-specs">Swivel Base, Heavy Duty</p>
-            <div class="product-price">KSh 4,500</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="cooling"
-            data-price="1500"
-            data-title="Vacuum Exhaust Heat Extractor"
-            data-specs="Temperature Display, Direct Vent Attachment"
-            data-id="STD-07"
-          >
-            <div class="product-img">💨</div>
-            <span class="product-category">Stands</span>
-            <h2 class="product-title">Vacuum Exhaust Heat Fan</h2>
-            <p class="product-specs">Attaches to Vent, Temp Screen</p>
-            <div class="product-price">KSh 1,500</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="cooling"
-            data-price="2200"
-            data-title="Bed Cushion Lap Desk Tray"
-            data-specs="Soft Pillow Cushion Base, Tablet Slot, Mousepad"
-            data-id="STD-08"
-          >
-            <div class="product-img">🛋️</div>
-            <span class="product-category">Stands</span>
-            <h2 class="product-title">Lap Desk Cushion Tray</h2>
-            <p class="product-specs">Soft Pillow Base, Phone Slot</p>
-            <div class="product-price">KSh 2,200</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="cooling"
-            data-price="950"
-            data-title="Invisible Keyboard Feet Stand"
-            data-specs="Zinc Alloy Mini Wedge, Adhesive Stick-On"
-            data-id="STD-09"
-          >
-            <div class="product-img">🦶</div>
-            <span class="product-category">Stands</span>
-            <h2 class="product-title">Invisible Stick-On Feet 2-Pack</h2>
-            <p class="product-specs">Zinc Alloy Wedges, Adhesive</p>
-            <div class="product-price">KSh 950</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-
-          <article
-            class="product-card"
-            data-category="cooling"
-            data-price="5200"
-            data-title="Ergonomic Monitor & Laptop Arm"
-            data-specs="Gas Spring Arm, Desk Clamp Mount, Full Motion"
-            data-id="STD-10"
-          >
-            <div class="product-img">🦾</div>
-            <span class="product-category">Stands</span>
-            <h2 class="product-title">Gas Spring Laptop Desk Mount</h2>
-            <p class="product-specs">Full Motion Desk Clamp Arm</p>
-            <div class="product-price">KSh 5,200</div>
-            <a class="whatsapp-btn" href="#" target="_blank" rel="noopener"
-              >💬 Order Now</a
-            >
-          </article>
-        </section>
-      </main>
-
-      <button
-        class="scroll-up-btn"
-        id="scrollUpBtn"
-        aria-label="Scroll back to top"
-      >
-        ↑
-      </button>
-
-      <footer class="site-footer">
-        <div class="footer-container">
-          <div class="footer-col brand-col">
-            <h3 class="footer-logo">Uptop Computers</h3>
-            <p class="footer-desc">Your trusted computer shop for quality laptops, accessories, custom PC builds, and professional tech support.</p>
-            <div class="payment-methods">
-              <span>Accepted: M-Pesa | Card | Cash</span>
-            </div>
-          </div>
-
-          <div class="footer-col">
-            <h4>Quick Links</h4>
-            <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="laptops.html">Laptops</a></li>
-              <li><a href="Accessories.html">Accessories</a></li>
-              <li><a href="services.html">Services</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-col">
-            <h4>Customer Care</h4>
-            <ul>
-              <li><a href="#privacy">Privacy Policy</a></li>
-              <li><a href="#terms">Terms of Service</a></li>
-              <li><a href="#warranty">Warranty & Returns</a></li>
-              <li><a href="#faq">FAQs</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-col">
-            <h4>Contact Us</h4>
-            <ul class="contact-info">
-              <li>📍 Nairobi, Kenya</li>
-              <li>📞 +254 115 369 156</li>
-              <li>💬 <a href="https://wa.me/254115369156" target="_blank" rel="noopener">WhatsApp Support</a></li>
-              <li>⏰ Mon - Sat: 8:00 AM - 6:00 PM</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="footer-bottom">
-          <p>&copy; 2026 Uptop Computers. All rights reserved.</p>
-        </div>
-      </footer>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessories - Uptop Computers</title>
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <!-- JavaScript -->
+  <script src="jss/java.js" defer></script>
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Top Contact Bar -->
+    <div class="top-contact-bar">
+      <a class="contact-item contact-whatsapp" href="https://wa.me/254115369156">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span>WhatsApp Us</span>
+      </a>
+      <a class="contact-item contact-call" href="tel:254115369156">
+        <i class="fa-solid fa-phone"></i>
+        <span>Call Now</span>
+      </a>
     </div>
 
-    <script src="jss/java.js"></script>
+    <!-- Header -->
+    <header class="header">
+      <div class="brand-logo">UPTOP</div>
+      <div class="search-container">
+        <input
+          type="text"
+          class="search-input"
+          placeholder="Search accessories, chargers, cables..."
+          aria-label="Site search"
+        />
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+      </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="pills-nav">
+      <a class="pill-item" href="index.html">Home</a>
+      <a class="pill-item" href="laptops.html">Laptops</a>
+      <a class="pill-item active" href="accessories.html">Accessories</a>
+      <a class="pill-item" href="services.html">Services</a>
+    </nav>
+  <!-- Main Content Container -->
+<main class="main-content">
+  <div class="content-container">
+
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+      <div class="hero-content">
+        <h1>Essential Tech Accessories</h1>
+        <p>Premium chargers, high-speed storage, durable cables, and everyday computing products for your setup and upgrade.</p>
+      </div>
+    </section>
+
+    <!-- Filter Chips (Single Quick-Access System) -->
+    <section class="filter-section">
+      <div class="chip-container">
+        <button class="chip-btn active" data-filter="keyboards">Keyboards</button>
+        <button class="chip-btn" data-filter="chargers">Chargers & Adapters</button>
+        <button class="chip-btn" data-filter="storage">Storage & Drives</button>
+        <button class="chip-btn" data-filter="cables">Cables & Hubs</button>
+        <button class="chip-btn" data-filter="peripherals">Mouse </button>
+        <button class="chip-btn" data-filter="audio">Headsets</button>
+        <button class="chip-btn" data-filter="screen">Screen</button>
+      </div>
+    </section>
+
+    <!-- Product Grid -->
+<section class="product-section">
+  <div class="product-grid" id="productGrid">
+
+    <!-- ORIGINAL ITEMS -->
+    <article class="product-card" data-category="chargers" data-price="3500" data-title="65W Type-C Fast Charger">
+      <div class="product-badge">In Stock</div>
+      <div class="product-image">
+        <img src="images/65w-charger.jpg" alt="65W Type-C Laptop Charger" loading="lazy">
+      </div>
+      <div class="product-info">
+        <span class="product-category">Chargers & Adapters</span>
+        <h3 class="product-title">65W Type-C Fast Charger</h3>
+        <div class="product-price-row">
+          <span class="product-price">KSh 3,500</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hi%20Uptop%20Computers,%20I'm%20interested%20in%20the%2065W%20Type-C%20Fast%20Charger" target="_blank" rel="noopener">
+            <i class="fa-brands fa-whatsapp"></i> Order
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="storage" data-price="11500" data-title="1TB Portable External SSD">
+      <div class="product-badge">In Stock</div>
+      <div class="product-image">
+        <img src="images/1tb-ssd.jpg" alt="1TB Portable External SSD" loading="lazy">
+      </div>
+      <div class="product-info">
+        <span class="product-category">Storage & Drives</span>
+        <h3 class="product-title">1TB Portable External SSD</h3>
+        <div class="product-price-row">
+          <span class="product-price">KSh 11,500</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hi%20Uptop%20Computers,%20I'm%20interested%20in%20the%201TB%20Portable%20External%20SSD" target="_blank" rel="noopener">
+            <i class="fa-brands fa-whatsapp"></i> Order
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="cables" data-price="4200" data-title="7-in-1 USB-C Multiport Adapter">
+      <div class="product-badge">In Stock</div>
+      <div class="product-image">
+        <img src="images/usb-c-hub.jpg" alt="7-in-1 USB-C Multiport Hub" loading="lazy">
+      </div>
+      <div class="product-info">
+        <span class="product-category">Cables & Hubs</span>
+        <h3 class="product-title">7-in-1 USB-C Multiport Adapter</h3>
+        <div class="product-price-row">
+          <span class="product-price">KSh 4,200</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hi%20Uptop%20Computers,%20I'm%20interested%20in%20the%207-in-1%20USB-C%20Hub" target="_blank" rel="noopener">
+            <i class="fa-brands fa-whatsapp"></i> Order
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="peripherals" data-price="2000" data-title="Ergonomic Wireless Mouse">
+      <div class="product-badge">In Stock</div>
+      <div class="product-image">
+        <img src="images/wireless-mouse.jpg" alt="Ergonomic Wireless Mouse" loading="lazy">
+      </div>
+      <div class="product-info">
+        <span class="product-category">Mouse & Keyboards</span>
+        <h3 class="product-title">Ergonomic Wireless Mouse</h3>
+        <div class="product-price-row">
+          <span class="product-price">KSh 2,000</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hi%20Uptop%20Computers,%20I'm%20interested%20in%20the%20Ergonomic%20Wireless%20Mouse" target="_blank" rel="noopener">
+            <i class="fa-brands fa-whatsapp"></i> Order
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- CATEGORY 1: POWER & CABLES -->
+    <article class="product-card" data-category="power" data-price="3500" data-title="Anker 65W GaN USB-C Fast Charger" data-specs="65W Fast Charge Dual Port GaN Tech" data-id="acc-pow-01">
+      <div class="product-badge">Power</div>
+      <div class="product-image">
+        <img src="images/accessories/anker-65w.jpg" alt="Anker 65W Fast Charger" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Anker 65W GaN USB-C Fast Charger</h3>
+        <p class="product-specs">65W Output | Dual USB-C & USB-A | Compact GaN Tech</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 3,500</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20Anker%2065W%20GaN%20USB-C%20Fast%20Charger" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="power" data-price="4200" data-title="Baseus 100W GaN Pro Desktop Charger" data-specs="100W Output 4-Ports Fast Charging" data-id="acc-pow-02">
+      <div class="product-badge">Power</div>
+      <div class="product-image">
+        <img src="images/accessories/baseus-100w.jpg" alt="Baseus 100W Charger" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Baseus 100W GaN Pro Desktop Charger</h3>
+        <p class="product-specs">100W Max | 2x USB-C + 2x USB-A | Multi-device Fast Charge</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 4,200</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20Baseus%20100W%20GaN%20Pro%20Desktop%20Charger" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="power" data-price="6500" data-title="Anker PowerCore 20,000mAh Power Bank" data-specs="20000mAh 22.5W Fast Charging PD" data-id="acc-pow-03">
+      <div class="product-badge">Power</div>
+      <div class="product-image">
+        <img src="images/accessories/anker-20k.jpg" alt="Anker 20000mAh Power Bank" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Anker PowerCore 20,000mAh Power Bank</h3>
+        <p class="product-specs">20000mAh Capacity | 22.5W Power Delivery | Twin USB Ports</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 6,500</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20Anker%20PowerCore%2020,000mAh%20Power%20Bank" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="power" data-price="12500" data-title="Romoss 60,000mAh 65W Laptop Power Bank" data-specs="60000mAh 65W PD Laptop Fast Charge" data-id="acc-pow-04">
+      <div class="product-badge">Power</div>
+      <div class="product-image">
+        <img src="images/accessories/romoss-60k.jpg" alt="Romoss 60000mAh Power Bank" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Romoss 60,000mAh 65W Laptop Power Bank</h3>
+        <p class="product-specs">60000mAh Massive Capacity | 65W Laptop Fast Charge | Multiple Inputs</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 12,500</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20Romoss%2060,000mAh%2065W%20Laptop%20Power%20Bank" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="power" data-price="1500" data-title="UGreen 100W Braided USB-C to USB-C Cable (2m)" data-specs="100W 5A PD Fast Charge Nylon Braided 2 Meters" data-id="acc-pow-05">
+      <div class="product-badge">Power</div>
+      <div class="product-image">
+        <img src="images/accessories/ugreen-cable.jpg" alt="UGreen 100W USB-C Cable" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">UGreen 100W Braided USB-C Cable (2m)</h3>
+        <p class="product-specs">100W 5A PD Charging | Nylon Braided | 2 Metres Length</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 1,500</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20UGreen%20100W%20Braided%20USB-C%20Cable%20(2m)" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="power" data-price="2500" data-title="Apple MagSafe Charger (Wireless)" data-specs="15W Wireless Fast Charging Magnetic" data-id="acc-pow-06">
+      <div class="product-badge">Power</div>
+      <div class="product-image">
+        <img src="images/accessories/apple-magsafe.jpg" alt="Apple MagSafe Charger" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Apple MagSafe Charger (Wireless)</h3>
+        <p class="product-specs">15W Magnetic Fast Wireless | USB-C Integrated Cable</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 2,500</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20Apple%20MagSafe%20Charger" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="power" data-price="4500" data-title="Universal Laptop Power Adapter 90W" data-specs="90W Universal Tips Auto Voltage Adjustment" data-id="acc-pow-07">
+      <div class="product-badge">Power</div>
+      <div class="product-image">
+        <img src="images/accessories/universal-charger.jpg" alt="Universal 90W Charger" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Universal Laptop Adapter 90W</h3>
+        <p class="product-specs">90W Output | 10 Interchangeable Tips | Auto Voltage Switch</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 4,500</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20Universal%20Laptop%20Adapter%2090W" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="power" data-price="1800" data-title="Baseus 3-in-1 Fast Charging Cable (1.2m)" data-specs="Micro USB Lightning USB-C 3.5A Fast Charge" data-id="acc-pow-08">
+      <div class="product-badge">Power</div>
+      <div class="product-image">
+        <img src="images/accessories/baseus-3in1.jpg" alt="Baseus 3in1 Cable" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Baseus 3-in-1 Cable (1.2m)</h3>
+        <p class="product-specs">Type-C + Lightning + Micro-USB | 3.5A Fast Charge | Heavy Duty</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 1,800</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20Baseus%203-in-1%20Cable%20(1.2m)" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="power" data-price="3200" data-title="Oroimo PowerCube 30W Wall Charger + Cable" data-specs="30W PD QC 3.0 Dual Output Kit" data-id="acc-pow-09">
+      <div class="product-badge">Power</div>
+      <div class="product-image">
+        <img src="images/accessories/oraimo-charger.jpg" alt="Oraimo 30W Charger Kit" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Oraimo PowerCube 30W Fast Kit</h3>
+        <p class="product-specs">30W Quick Charge 3.0 & PD | Includes Type-C Braided Cable</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 3,200</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20Oraimo%20PowerCube%2030W%20Fast%20Kit" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="power" data-price="2800" data-title="UGreen 8k HDMI 2.1 High Speed Cable (3m)" data-specs="8K@60Hz 4K@120Hz 48Gbps HDR VRR" data-id="acc-pow-10">
+      <div class="product-badge">Power</div>
+      <div class="product-image">
+        <img src="images/accessories/ugreen-hdmi.jpg" alt="UGreen 8K HDMI Cable" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">UGreen 8K HDMI 2.1 Cable (3m)</h3>
+        <p class="product-specs">8K @ 60Hz / 4K @ 120Hz | 48Gbps Ultra High Speed | Dynamic HDR</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 2,800</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20UGreen%208K%20HDMI%202.1%20Cable%20(3m)" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- CATEGORY 2: CARRYING & PROTECTION -->
+    <article class="product-card" data-category="bags" data-price="4500" data-title="Targus Intellect 15.6 Inch Laptop Backpack" data-specs="Water Resistant Padded Laptop Compartment Lightweight" data-id="acc-bag-01">
+      <div class="product-badge">Protection</div>
+      <div class="product-image">
+        <img src="images/accessories/targus-backpack.jpg" alt="Targus 15.6 Backpack" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Targus Intellect 15.6" Laptop Backpack</h3>
+        <p class="product-specs">Fits up to 15.6" Laptops | Water Resistant | Dedicated Storage</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 4,500</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20Targus%20Intellect%2015.6%20Laptop%20Backpack" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="bags" data-price="6800" data-title="HP Renew Executive 16-inch Backpack" data-specs="Eco Friendly Recycled Premium Business Backpack" data-id="acc-bag-02">
+      <div class="product-badge">Protection</div>
+      <div class="product-image">
+        <img src="images/accessories/hp-renew.jpg" alt="HP Renew Executive Backpack" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">HP Renew Executive 16" Backpack</h3>
+        <p class="product-specs">Sustainable Recycled Material | RFID Blocking Pocket | TSA Friendly</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 6,800</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20HP%20Renew%20Executive%2016-inch%20Backpack" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="bags" data-price="2200" data-title="Tomtoc 360 Protective Sleeve (13-14 inch)" data-specs="CornerArmor Tech Soft Fleece Interior Water Resistant" data-id="acc-bag-03">
+      <div class="product-badge">Protection</div>
+      <div class="product-image">
+        <img src="images/accessories/tomtoc-sleeve.jpg" alt="Tomtoc Laptop Sleeve" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Tomtoc 360 Protective Sleeve (13"-14")</h3>
+        <p class="product-specs">Patent CornerArmor Protection | Soft Fleece Lining | Accessory Pocket</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 2,200</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20Tomtoc%20360%20Protective%20Sleeve" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="bags" data-price="3800" data-title="Lenovo ThinkPad Executive Toploader Briefcase" data-specs="Professional Messenger Bag Durable Ballistic Nylon" data-id="acc-bag-04">
+      <div class="product-badge">Protection</div>
+      <div class="product-image">
+        <img src="images/accessories/thinkpad-briefcase.jpg" alt="Lenovo ThinkPad Briefcase" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Lenovo ThinkPad Executive Briefcase</h3>
+        <p class="product-specs">Heavy-duty Ballistic Nylon | Shoulder Strap | Trolley Strap</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 3,800</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20Lenovo%20ThinkPad%20Executive%20Briefcase" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="bags" data-price="2500" data-title="Privacy Filter Screen Protector (15.6-inch)" data-specs="Anti Glare Anti Peeping Screen Guard Easy Install" data-id="acc-bag-05">
+      <div class="product-badge">Protection</div>
+      <div class="product-image">
+        <img src="images/accessories/privacy-screen.jpg" alt="Privacy Filter Screen Protector" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Privacy Filter Screen Guard (15.6")</h3>
+        <p class="product-specs">60-Degree Viewing Limit | Scratch Resistant | Anti Blue Light</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 2,500</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20Privacy%20Filter%20Screen%20Guard%20(15.6)" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="bags" data-price="1800" data-title="Hard Shell Case for MacBook Pro 14-inch" data-specs="Clear Matte Hard Shell Shock Absorbent Ventilation" data-id="acc-bag-06">
+      <div class="product-badge">Protection</div>
+      <div class="product-image">
+        <img src="images/accessories/macbook-case.jpg" alt="MacBook Pro Hard Shell Case" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">MacBook Pro 14" Matte Case</h3>
+        <p class="product-specs">Snap-on Hard Shell | Heat Dissipation Vents | Anti-slip Rubber Feet</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 1,800</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20MacBook%20Pro%2014%20Matte%20Case" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="bags" data-price="5500" data-title="Dell Gaming Backpack 17-inch" data-specs="Waterproof Front Shield Reflecive Accents Fits 17inch" data-id="acc-bag-07">
+      <div class="product-badge">Protection</div>
+      <div class="product-image">
+        <img src="images/accessories/dell-gaming-bag.jpg" alt="Dell Gaming Backpack" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Dell Gaming Backpack 17"</h3>
+        <p class="product-specs">Waterproof EVA Front Shield | Fits Large 17" Laptops | Airflow Mesh</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 5,500</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20Dell%20Gaming%20Backpack%2017" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="bags" data-price="1200" data-title="Silicone Keyboard Cover Protector for Laptops" data-specs="Dustproof Waterproof Washable Universal Fit" data-id="acc-bag-08">
+      <div class="product-badge">Protection</div>
+      <div class="product-image">
+        <img src="images/accessories/keyboard-cover.jpg" alt="Silicone Keyboard Cover" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Silicone Keyboard Protector</h3>
+        <p class="product-specs">Ultra-thin Clear Silicone | Spill & Dust Protection | Washable</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 1,200</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20Silicone%20Keyboard%20Protector" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="bags" data-price="3200" data-title="WiWU Hard Shell Gadget Storage Organizer" data-specs="Cable Electronics Organizer Bag Shockproof" data-id="acc-bag-09">
+      <div class="product-badge">Protection</div>
+      <div class="product-image">
+        <img src="images/accessories/wiwu-organizer.jpg" alt="WiWU Electronics Organizer" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">WiWU Hard Shell Gadget Case</h3>
+        <p class="product-specs">EVA Hard Shell | Multiple Elastic Loops & Pockets | Waterproof Zip</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 3,200</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20WiWU%20Hard%20Shell%20Gadget%20Case" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="bags" data-price="2800" data-title="Kensington Combination Cable Laptop Lock" data-specs="T-Bar Locking Tech Cut Resistant Carbon Steel Cable" data-id="acc-bag-10">
+      <div class="product-badge">Protection</div>
+      <div class="product-image">
+        <img src="images/accessories/kensington-lock.jpg" alt="Kensington Cable Lock" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Kensington Cable Security Lock</h3>
+        <p class="product-specs">4-Number Resettable Combination | Carbon Steel Cable | Universal Slot</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 2,800</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20Kensington%20Cable%20Security%20Lock" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- CATEGORY 3: PERIPHERALS & INPUT -->
+    <article class="product-card" data-category="peripherals" data-price="12500" data-title="Logitech MX Master 3S Wireless Mouse" data-specs="8K DPI Quiet Clicks Electromagnetic Scroll Wheel" data-id="acc-per-01">
+      <div class="product-badge">Peripherals</div>
+      <div class="product-image">
+        <img src="images/accessories/mx-master-3s.jpg" alt="Logitech MX Master 3S" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Logitech MX Master 3S Mouse</h3>
+        <p class="product-specs">8000 DPI Glass Tracking | Quiet Clicks | MagSpeed Scroll</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 12,500</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20Logitech%20MX%20Master%203S%20Mouse" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="peripherals" data-price="14000" data-title="Logitech MX Keys S Wireless Keyboard" data-specs="Smart Backlighting Multi Device Low Profile Typing" data-id="acc-per-02">
+      <div class="product-badge">Peripherals</div>
+      <div class="product-image">
+        <img src="images/accessories/mx-keys-s.jpg" alt="Logitech MX Keys S" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Logitech MX Keys S Keyboard</h3>
+        <p class="product-specs">Spherically-dished Keys | Smart Backlight | Connect 3 Devices</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 14,000</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20Logitech%20MX%20Keys%20S%20Keyboard" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="peripherals" data-price="2200" data-title="Logitech B100 Optical USB Wired Mouse" data-specs="Simple Ambidextrous Plug Play Optical 800 DPI" data-id="acc-per-03">
+      <div class="product-badge">Peripherals</div>
+      <div class="product-image">
+        <img src="images/accessories/logitech-b100.jpg" alt="Logitech B100 Mouse" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Logitech B100 Wired Optical Mouse</h3>
+        <p class="product-specs">Plug & Play | Ambidextrous Design | 800 DPI Precision</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 2,200</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20Logitech%20B100%20Wired%20Optical%20Mouse" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="peripherals" data-price="3800" data-title="Logitech MK270 Wireless Keyboard and Mouse Combo" data-specs="2.4GHz Wireless Long Battery Life Spill Resistant" data-id="acc-per-04">
+      <div class="product-badge">Peripherals</div>
+      <div class="product-image">
+        <img src="images/accessories/mk270-combo.jpg" alt="Logitech MK270 Combo" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Logitech MK270 Wireless Combo</h3>
+        <p class="product-specs">Keyboard + Mouse Combo | 10m Wireless Range | Long Battery Life</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 3,800</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20Logitech%20MK270%20Wireless%20Combo" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="peripherals" data-price="8500" data-title="Keychron K2 Mechanical Keyboard (Hot-swappable)" data-specs="75 Percent Layout Wireless Bluetooth RGB Backlit" data-id="acc-per-05">
+      <div class="product-badge">Peripherals</div>
+      <div class="product-image">
+        <img src="images/accessories/keychron-k2.jpg" alt="Keychron K2 Mechanical Keyboard" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Keychron K2 Mechanical Keyboard</h3>
+        <p class="product-specs">75% Compact Layout | Mac/Windows Compatible | RGB Backlit</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 8,500</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20Keychron%20K2%20Mechanical%20Keyboard" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="peripherals" data-price="6500" data-title="Razer DeathAdder V2 Gaming Mouse" data-specs="20K DPI Focus+ Optical Sensor Speedflex Cable" data-id="acc-per-06">
+      <div class="product-badge">Peripherals</div>
+      <div class="product-image">
+        <img src="images/accessories/razer-deathadder.jpg" alt="Razer DeathAdder V2" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Razer DeathAdder V2 Gaming Mouse</h3>
+        <p class="product-specs">20,000 DPI Optical Sensor | 8 Programmable Buttons | Chroma RGB</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 6,500</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20Razer%20DeathAdder%20V2%20Gaming%20Mouse" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="peripherals" data-price="9000" data-title="Wacom One By Small Graphic Drawing Tablet" data-specs="Pressure Sensitive Pen Compact Size Digital Art" data-id="acc-per-07">
+      <div class="product-badge">Peripherals</div>
+      <div class="product-image">
+        <img src="images/accessories/wacom-one.jpg" alt="Wacom One Tablet" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Wacom One Small Drawing Tablet</h3>
+        <p class="product-specs">2048 Pressure Levels | Battery-free Stylus | Compact Active Area</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 9,000</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20Wacom%20One%20Small%20Drawing%20Tablet" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="peripherals" data-price="4500" data-title="Logitech R400 Wireless Presenter Clicker" data-specs="Red Laser Pointer 15m Range Intuitive Controls" data-id="acc-per-08">
+      <div class="product-badge">Peripherals</div>
+      <div class="product-image">
+        <img src="images/accessories/logitech-r400.jpg" alt="Logitech R400 Presenter" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Logitech R400 Wireless Presenter</h3>
+        <p class="product-specs">Integrated Red Laser Pointer | 15m Operating Range | Battery Indicator</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 4,500</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20Logitech%20R400%20Wireless%20Presenter" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="peripherals" data-price="1800" data-title="Extended RGB Desk Pad Mouse Pad (900x400mm)" data-specs="Waterproof Non Slip Rubber Base LED Lighting" data-id="acc-per-09">
+      <div class="product-badge">Peripherals</div>
+      <div class="product-image">
+        <img src="images/accessories/rgb-mousepad.jpg" alt="RGB Extended Mouse Pad" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Extended RGB Gaming Desk Mat</h3>
+        <p class="product-specs">900 x 400 mm | 14 Spectrum RGB Modes | Anti-Slip Base</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 1,800</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20Extended%20RGB%20Gaming%20Desk%20Mat" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="peripherals" data-price="7800" data-title="Logitech Lift Vertical Ergonomic Wireless Mouse" data-specs="Ergonomic 57 Degree Angle Soft Grip Silent Clicks" data-id="acc-per-10">
+      <div class="product-badge">Peripherals</div>
+      <div class="product-image">
+        <img src="images/accessories/logitech-lift.jpg" alt="Logitech Lift Ergonomic Mouse" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Logitech Lift Ergonomic Mouse</h3>
+        <p class="product-specs">57-Degree Vertical Angle | Reduced Wrist Strain | SmartWheel Scroll</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 7,800</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20Logitech%20Lift%20Ergonomic%20Mouse" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- CATEGORY 4: AUDIO & COMMS -->
+    <article class="product-card" data-category="audio" data-price="4500" data-title="Logitech H390 USB Computer Headset" data-specs="Noise Cancelling Mic In Line Controls USB Plug Play" data-id="acc-aud-01">
+      <div class="product-badge">Audio</div>
+      <div class="product-image">
+        <img src="images/accessories/logitech-h390.jpg" alt="Logitech H390 Headset" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Logitech H390 USB Headset</h3>
+        <p class="product-specs">Noise-Canceling Mic | In-line Volume Controls | USB Connection</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 4,500</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20Logitech%20H390%20USB%20Headset" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="audio" data-price="6200" data-title="Logitech C920 Pro HD Webcam (1080p)" data-specs="Full HD 1080p 30fps Stereo Audio Light Correction" data-id="acc-aud-02">
+      <div class="product-badge">Audio</div>
+      <div class="product-image">
+        <img src="images/accessories/logitech-c920.jpg" alt="Logitech C920 Webcam" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Logitech C920 Pro HD Webcam</h3>
+        <p class="product-specs">1080p Full HD Resolution | Dual Stereo Mics | Auto Light Adjustment</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 6,200</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20Logitech%20C920%20Pro%20HD%20Webcam" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="audio" data-price="13500" data-title="Jabra Evolve 40 Professional Headset" data-specs="Busy Light 3.5mm and USB Call Control Noise Isolation" data-id="acc-aud-03">
+      <div class="product-badge">Audio</div>
+      <div class="product-image">
+        <img src="images/accessories/jabra-evolve-40.jpg" alt="Jabra Evolve 40" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Jabra Evolve 40 Stereo Headset</h3>
+        <p class="product-specs">Integrated Busylight | 3.5mm Jack & USB | Passive Noise Cancellation</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 13,500</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20Jabra%20Evolve%2040%20Stereo%20Headset" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="audio" data-price="8500" data-title="Fifine K669B USB Studio Condenser Microphone" data-specs="Cardioid Pick Up Metal Body Gain Control Streaming Mic" data-id="acc-aud-04">
+      <div class="product-badge">Audio</div>
+      <div class="product-image">
+        <img src="images/accessories/fifine-k669b.jpg" alt="Fifine USB Studio Mic" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Fifine K669B USB Studio Mic</h3>
+        <p class="product-specs">Cardioid Pickup Pattern | On-mic Volume Knob | All-metal Build</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 8,500</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20Fifine%20K669B%20USB%20Studio%20Mic" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="audio" data-price="3500" data-title="Creative Pebble 2.0 USB Desktop Speakers" data-specs="Far Field Drivers Passive Radiators 45 Degree Angle" data-id="acc-aud-05">
+      <div class="product-badge">Audio</div>
+      <div class="product-image">
+        <img src="images/accessories/creative-pebble.jpg" alt="Creative Pebble Speakers" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Creative Pebble 2.0 Speakers</h3>
+        <p class="product-specs">45° Elevated Drivers | Passive Radiator Bass | USB Powered</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 3,500</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20Creative%20Pebble%202.0%20Speakers" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="audio" data-price="18000" data-title="Sony WH-1000XM4 Noise Canceling Headphones" data-specs="Industry Leading ANC 30hr Battery Touch Sensor Controls" data-id="acc-aud-06">
+      <div class="product-badge">Audio</div>
+      <div class="product-image">
+        <img src="images/accessories/sony-xm4.jpg" alt="Sony WH-1000XM4 Headphones" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Sony WH-1000XM4 ANC Headphones</h3>
+        <p class="product-specs">Industry Active Noise Canceling | 30hr Battery | Multipoint Bluetooth</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 18,000</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20Sony%20WH-1000XM4%20ANC%20Headphones" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="audio" data-price="2500" data-title="Redragon H120 Gaming Headset with Mic" data-specs="3.5mm Stereo Surround Sound Lightweight Soft Earpads" data-id="acc-aud-07">
+      <div class="product-badge">Audio</div>
+      <div class="product-image">
+        <img src="images/accessories/redragon-h120.jpg" alt="Redragon H120 Headset" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Redragon H120 Gaming Headset</h3>
+        <p class="product-specs">Stereo Sound | High Sensitivity Microphone | 3.5mm Audio Splitter</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 2,500</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20Redragon%20H120%20Gaming%20Headset" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="audio" data-price="9500" data-title="Anker PowerConf Bluetooth Speakerphone" data-specs="6 Mics 360 Degree Voice Pickup Conference Speaker" data-id="acc-aud-08">
+      <div class="product-badge">Audio</div>
+      <div class="product-image">
+        <img src="images/accessories/anker-powerconf.jpg" alt="Anker PowerConf Speakerphone" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Anker PowerConf Speakerphone</h3>
+        <p class="product-specs">6 Microphones Array | 360° Voice Pickup | 24-Hour Call Time</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 9,500</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20Anker%20PowerConf%20Speakerphone" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="audio" data-price="2800" data-title="720p HD Webcam with Built-in Noise Mic" data-specs="Driverless USB Web Cam Rotatable Clip" data-id="acc-aud-09">
+      <div class="product-badge">Audio</div>
+      <div class="product-image">
+        <img src="images/accessories/720p-webcam.jpg" alt="720p HD USB Webcam" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">720p HD USB Desktop Webcam</h3>
+        <p class="product-specs">Plug & Play | Integrated Noise Reduction Mic | Monitor Clip</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 2,800</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20720p%20HD%20USB%20Desktop%20Webcam" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="audio" data-price="11000" data-title="HyperX QuadCast Standalone Gaming Mic" data-specs="Anti Vibration Shock Mount Tap to Mute Sensor RGB" data-id="acc-aud-10">
+      <div class="product-badge">Audio</div>
+      <div class="product-image">
+        <img src="images/accessories/hyperx-quadcast.jpg" alt="HyperX QuadCast Mic" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">HyperX QuadCast Gaming Mic</h3>
+        <p class="product-specs">Built-in Shock Mount | Tap-to-Mute Sensor | 4 Polar Patterns</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 11,000</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20HyperX%20QuadCast%20Gaming%20Mic" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- CATEGORY 5: DOCKS & EXPANSION -->
+    <article class="product-card" data-category="docks" data-price="3800" data-title="UGreen 7-in-1 USB-C Hub Adapter" data-specs="4K HDMI 100W PD 2x USB 3.0 SD TF Card Reader" data-id="acc-doc-01">
+      <div class="product-badge">Docks</div>
+      <div class="product-image">
+        <img src="images/accessories/ugreen-7in1.jpg" alt="UGreen 7in1 Hub" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">UGreen 7-in-1 USB-C Hub</h3>
+        <p class="product-specs">4K HDMI @ 60Hz | 100W Power Delivery | SD/TF Slots | USB 3.0</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 3,800</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20UGreen%207-in-1%20USB-C%20Hub" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="docks" data-price="16500" data-title="Dell WD19S 130W USB-C Docking Station" data-specs="Dual DisplayPort HDMI Gigabit Ethernet 130W Power" data-id="acc-doc-02">
+      <div class="product-badge">Docks</div>
+      <div class="product-image">
+        <img src="images/accessories/dell-wd19s.jpg" alt="Dell WD19S Docking Station" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Dell WD19S 130W Docking Station</h3>
+        <p class="product-specs">Modular USB-C Dock | Supports Dual 4K Displays | 130W Power Delivery</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 16,500</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20Dell%20WD19S%20130W%20Docking%20Station" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="docks" data-price="2500" data-title="ORICO NVMe M.2 SSD Enclosure (10Gbps)" data-specs="USB 3.1 Gen2 Aluminum Alloy High Speed Transmission" data-id="acc-doc-03">
+      <div class="product-badge">Docks</div>
+      <div class="product-image">
+        <img src="images/accessories/orico-nvme.jpg" alt="ORICO M.2 Enclosure" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">ORICO M.2 NVMe Enclosure</h3>
+        <p class="product-specs">10Gbps Transfer Speed | Aluminum Heat Dissipation | Tool-free</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 2,500</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20ORICO%20M.2%20NVMe%20Enclosure" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="docks" data-price="5500" data-title="Baseus 11-in-1 Dual HDMI USB-C Dock" data-specs="Dual 4K HDMI VGA Gigabit RJ45 100W PD 3x USB 3.0" data-id="acc-doc-04">
+      <div class="product-badge">Docks</div>
+      <div class="product-image">
+        <img src="images/accessories/baseus-11in1.jpg" alt="Baseus 11in1 Dock" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Baseus 11-in-1 Multiport Dock</h3>
+        <p class="product-specs">Triple Display Support (Dual HDMI + VGA) | RJ45 Gigabit | 100W PD</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 5,500</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20Baseus%2011-in-1%20Multiport%20Dock" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="docks" data-price="1200" data-title="USB 3.0 High Speed 4-Port Compact Hub" data-specs="5Gbps Fast Sync Plug Play Slim Portable" data-id="acc-doc-05">
+      <div class="product-badge">Docks</div>
+      <div class="product-image">
+        <img src="images/accessories/usb3-hub.jpg" alt="4 Port USB 3.0 Hub" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">4-Port USB 3.0 Slim Hub</h3>
+        <p class="product-specs">5Gbps Data Transfer | Blue LED Indicator | Ultra Slim Design</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 1,200</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%204-Port%20USB%203.0%20Slim%20Hub" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="docks" data-price="1800" data-title="UGreen USB-C to Ethernet RJ45 Adapter" data-specs="1000Mbps Gigabit Network LAN Converter" data-id="acc-doc-06">
+      <div class="product-badge">Docks</div>
+      <div class="product-image">
+        <img src="images/accessories/ugreen-ethernet.jpg" alt="UGreen USB-C to Ethernet Adapter" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">UGreen USB-C Gigabit Ethernet Adapter</h3>
+        <p class="product-specs">1000Mbps RJ45 Port | Aluminum Shell | Plug & Play Compatible</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 1,800</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20UGreen%20USB-C%20Gigabit%20Ethernet%20Adapter" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="docks" data-price="18000" data-title="Lenovo ThinkPad Universal Thunderbolt 4 Dock" data-specs="40Gbps 8K Single Display 4K Quad Display 100W Charging" data-id="acc-doc-07">
+      <div class="product-badge">Docks</div>
+      <div class="product-image">
+        <img src="images/accessories/thinkpad-dock.jpg" alt="ThinkPad Thunderbolt 4 Dock" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">ThinkPad Thunderbolt 4 Dock</h3>
+        <p class="product-specs">40Gbps Ultra Bandwidth | Up to Single 8K Display | 100W Charging</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 18,000</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20ThinkPad%20Thunderbolt%204%20Dock" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="docks" data-price="2200" data-title="Transcend Multi-Card Reader USB 3.1" data-specs="SDHC SDXC MicroSD CompactFlash High Speed" data-id="acc-doc-08">
+      <div class="product-badge">Docks</div>
+      <div class="product-image">
+        <img src="images/accessories/transcend-reader.jpg" alt="Transcend Card Reader" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Transcend USB 3.1 Multi-Card Reader</h3>
+        <p class="product-specs">Supports SD, MicroSD & CompactFlash | Fast Transfer | USB 3.1</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 2,200</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20Transcend%20USB%203.1%20Multi-Card%20Reader" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="docks" data-price="1900" data-title="2.5 Inch SATA External Hard Drive Enclosure" data-specs="USB 3.0 Tool Free Transparent SSD HDD Case" data-id="acc-doc-09">
+      <div class="product-badge">Docks</div>
+      <div class="product-image">
+        <img src="images/accessories/sata-enclosure.jpg" alt="2.5 Inch SATA Enclosure" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">2.5" SATA External Hard Drive Case</h3>
+        <p class="product-specs">Turn 2.5" HDD/SSD into External Drive | USB 3.0 | Tool-Free</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 1,900</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%202.5%20SATA%20External%20Hard%20Drive%20Case" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="docks" data-price="2800" data-title="UGreen USB-C to Dual HDMI Splitter Adapter" data-specs="Dual 4K Display Extended Desktop Mode" data-id="acc-doc-10">
+      <div class="product-badge">Docks</div>
+      <div class="product-image">
+        <img src="images/accessories/ugreen-dual-hdmi.jpg" alt="UGreen Dual HDMI Splitter" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">UGreen USB-C Dual HDMI Adapter</h3>
+        <p class="product-specs">Dual 4K @ 30Hz Output | Extended & Mirror Modes Supported</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 2,800</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20UGreen%20USB-C%20Dual%20HDMI%20Adapter" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- CATEGORY 6: COOLING & STANDS -->
+    <article class="product-card" data-category="cooling" data-price="2200" data-title="Aluminum Foldable Laptop Stand (Adjustable)" data-specs="Ergonomic Height Adjustable Heat Dissipation Portable" data-id="acc-coo-01">
+      <div class="product-badge">Cooling</div>
+      <div class="product-image">
+        <img src="images/accessories/aluminum-stand.jpg" alt="Aluminum Laptop Stand" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Aluminum Foldable Laptop Stand</h3>
+        <p class="product-specs">6-Speed Height Adjustment | Anti-Slip Silicone | Lightweight Metal</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 2,200</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20Aluminum%20Foldable%20Laptop%20Stand" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="cooling" data-price="3500" data-title="ICE COOREL RGB Gaming Laptop Cooling Pad" data-specs="6 Quiet Fans Dual USB Ports Speed Control Fits 17inch" data-id="acc-coo-02">
+      <div class="product-badge">Cooling</div>
+      <div class="product-image">
+        <img src="images/accessories/ice-coorel.jpg" alt="Ice Coorel Cooling Pad" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">ICE COOREL 6-Fan Cooling Pad</h3>
+        <p class="product-specs">6 High Speed Silent Fans | RGB Side Lighting | Phone Holder</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 3,500</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20ICE%20COOREL%206-Fan%20Cooling%20Pad" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="cooling" data-price="4800" data-title="North Bayou F80 Gas Spring Monitor Arm" data-specs="17 to 30 inch Monitors Full Motion Desk Mount VESA" data-id="acc-coo-03">
+      <div class="product-badge">Cooling</div>
+      <div class="product-image">
+        <img src="images/accessories/nb-f80.jpg" alt="North Bayou F80 Monitor Arm" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">North Bayou F80 Monitor Desk Mount</h3>
+        <p class="product-specs">Fits 17"-30" Screens | Gas Spring Flexi Mount | Cable Management</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 4,800</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20North%20Bayou%20F80%20Monitor%20Desk%20Mount" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="cooling" data-price="2800" data-title="Vertical Desktop Stand for Laptops & MacBooks" data-specs="Space Saving Aluminum Dock Dual Slot Adjustable Width" data-id="acc-coo-04">
+      <div class="product-badge">Cooling</div>
+      <div class="product-image">
+        <img src="images/accessories/vertical-stand.jpg" alt="Vertical Laptop Stand" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Vertical Aluminum Desktop Stand</h3>
+        <p class="product-specs">Space-saving Vertical Dock | Adjustable Thickness | Dual Slot</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 2,800</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20Vertical%20Aluminum%20Desktop%20Stand" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="cooling" data-price="1800" data-title="Climate Vacuum Laptop Cooler (Exhaust Fan)" data-specs="Direct Temperature Display Extraction Cooling USB" data-id="acc-coo-05">
+      <div class="product-badge">Cooling</div>
+      <div class="product-image">
+        <img src="images/accessories/vacuum-cooler.jpg" alt="Vacuum Laptop Cooler" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Laptop Vacuum Exhaust Cooler</h3>
+        <p class="product-specs">Quick Thermal Extraction | Digital Temp Display | Auto Fan Control</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 1,800</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20Laptop%20Vacuum%20Exhaust%20Cooler" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="cooling" data-price="4200" data-title="Nillkin Metal Swivel Laptop Riser (360 Rotatable)" data-specs="360 Rotation Heavy Duty Heavy Base Ergonomic" data-id="acc-coo-06">
+      <div class="product-badge">Cooling</div>
+      <div class="product-image">
+        <img src="images/accessories/nillkin-swivel.jpg" alt="Nillkin Swivel Stand" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Nillkin 360° Swivel Laptop Riser</h3>
+        <p class="product-specs">360-degree Rotating Base | Solid Heavy-Duty Build | Ergonomic Eye Level</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 4,200</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20Nillkin%20360%20Swivel%20Laptop%20Riser" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="cooling" data-price="2500" data-title="DeepCool Multi Core X6 Laptop Cooling Pad" data-specs="4 Silent Fans 2 Status Control Settings USB Passthrough" data-id="acc-coo-07">
+      <div class="product-badge">Cooling</div>
+      <div class="product-image">
+        <img src="images/accessories/deepcool-x6.jpg" alt="DeepCool X6 Pad" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">DeepCool Multi Core X6 Pad</h3>
+        <p class="product-specs">4 Independent Fans | Multi-status Fan Control | USB Passthrough</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 2,500</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20DeepCool%20Multi%20Core%20X6%20Pad" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="cooling" data-price="8500" data-title="North Bayou F160 Dual Gas Spring Monitor Arm" data-specs="Dual Monitor Desk Mount 17 to 27 inch Full Motion" data-id="acc-coo-08">
+      <div class="product-badge">Cooling</div>
+      <div class="product-image">
+        <img src="images/accessories/nb-f160.jpg" alt="North Bayou F160 Dual Mount" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">North Bayou F160 Dual Arm</h3>
+        <p class="product-specs">Holds 2 Screens (17"-27") | Full Motion Gas Struts | VESA 75/100</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 8,500</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20North%20Bayou%20F160%20Dual%20Arm" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="cooling" data-price="1500" data-title="Mini Magnetic Ergonomic Laptop Feet (2 Pack)" data-specs="Elevated Typing Angle Rubber Grip Portable Cooling" data-id="acc-coo-09">
+      <div class="product-badge">Cooling</div>
+      <div class="product-image">
+        <img src="images/accessories/magnetic-feet.jpg" alt="Magnetic Laptop Feet" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Mini Magnetic Laptop Stand Feet</h3>
+        <p class="product-specs">Ultra Portable Mini Feet | Improves Air Circulation | Non-slip</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 1,500</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20Mini%20Magnetic%20Laptop%20Stand%20Feet" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="cooling" data-price="3200" data-title="Baseus Mesh Folding Laptop Stand with Kickstand" data-specs="Slim Lightweight Foldable Alloy Steel Non Slip" data-id="acc-coo-10">
+      <div class="product-badge">Cooling</div>
+      <div class="product-image">
+        <img src="images/accessories/baseus-mesh-stand.jpg" alt="Baseus Mesh Laptop Stand" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Baseus Mesh Folding Stand</h3>
+        <p class="product-specs">Honeycomb Mesh Design | Ultra-Thin Foldable | 5 Angle Options</p>
+        <div class="product-price-row">
+          <span class="product-price">KSh 3,200</span>
+          <a class="whatsapp-btn" href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20want%20to%20order%20the%20Baseus%20Mesh%20Folding%20Stand" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Order</a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+ <!-- Scroll back to top button -->
+              <button
+                id="scrollUpBtn"
+                class="scroll-top-btn"
+                aria-label="Scroll to Top"
+              >
+                <i class="fa-solid fa-arrow-up"></i>
+              </button>
+            </main>
+
+            <!-- Footer -->
+            <footer class="main-footer">
+              <div class="footer-container">
+                <div class="footer-col">
+                  <h3>Uptop Computers</h3>
+                  <p>
+                    Your leading source for quality laptops, computer
+                    peripherals, and mobile tech accessories in Nairobi, Kenya.
+                  </p>
+                </div>
+                <div class="footer-col">
+                  <h3>Quick Links</h3>
+                  <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="laptops.html">Laptops</a></li>
+                    <li><a href="accessories.html">Accessories</a></li>
+                    <li><a href="services.html">services</a></li>
+                  </ul>
+                </div>
+
+               <div class="footer-col">
+  <h3>Contact Info</h3>
+  <p>
+    <a href="https://maps.google.com/?q=Rasu+Mall,+Tom+Mboya+Street,+Nairobi" target="_blank" rel="noopener">
+      <i class="fa-solid fa-location-dot"></i> Rasu Mall, Tom Mboya Street, Nairobi CBD
+    </a>
+  </p>
+  <p>
+    <a href="tel:+254115369156">
+      <i class="fa-solid fa-phone"></i> +254 115 369 156
+    </a>
+  </p>
+  <p>
+    <a href="https://wa.me/254115369156?text=Hi%20Uptop%20Computers,%20I%20need%20help" target="_blank" rel="noopener">
+      <i class="fa-brands fa-whatsapp"></i> +254 115 369 156 (WhatsApp)
+    </a>
+  </p>
+  <p>
+    <a href="mailto:sales@uptopcomputers.co.ke">
+      <i class="fa-solid fa-envelope"></i> sales@uptopcomputers.co.ke
+    </a>
+  </p>
+</div>
+              </div>
+
+              <div class="footer-bottom">
+                <p>&copy; 2026 Uptop Computers. All Rights Reserved.</p>
+              </div>
+            </footer>
+          </div>
+
+          <!-- External JS Script -->
+          <script src="jss/java.js"></script>
+        </body>
+      </html>
+    </div>
   </body>
 </html>

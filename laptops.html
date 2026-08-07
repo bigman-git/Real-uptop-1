@@ -1,10 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Uptop - Laptops Catalog</title>
-    <link
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Buy genuine HP, Dell, Lenovo, ASUS, Acer, Apple, and other quality laptops in Kenya from UpTop Computers. Explore affordable laptops for students, professionals, businesses, and gamers with trusted support.">
+  <title>Laptops Catalogue</title>
+  <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
@@ -13,812 +14,365 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body>
-    <div class="app-container">
-      <header class="header">
-        <div class="brand-logo">
-          <div class="logo-mark" aria-hidden="true"></div>
-          <span>Uptop</span>
-        </div>
-        <div class="header-actions">
-          <a class="btn-home" href="index.html">Home</a>
-          <a class="btn-home" href="Accessories.html">Accessories</a>
-          <a class="btn-home" href="services.html">Services</a>
-          <button class="icon-btn" aria-label="Search">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-          <button class="icon-btn" aria-label="Cart">
-            <i class="fa-solid fa-cart-shopping"></i>
-          </button>
-          <button class="icon-btn" aria-label="Menu">
-            <i class="fa-solid fa-bars"></i>
-          </button>
-        </div>
-      </header>
+    <script src="jss/java.js" defer></script>
+</head>
+<body>
+  <!-- whatsaap and phone icon -->
+ <div class="app-container">
+      <div class="top-contact-bar">
+        <a
+          class="contact-item contact-whatsapp"
+          href="https://wa.me/254115369156"
+        >
+          <i class="fa-brands fa-whatsapp"></i>
+          <span>WhatsApp Us</span>
+        </a>
+        <a class="contact-item contact-call" href="tel:254115369156">
+          <i class="fa-solid fa-phone"></i>
+          <span>Call Now</span>
+        </a>
+      </div>
+  <!-- Top Controls / Toolbar -->
+  <header class="site-header">
+  <!-- Top Section: Branding & Search -->
+  <div class="header-main">
+    <div class="brand-logo">UPTOP</div>
+    <div class="search-container">
+      <input
+        type="text"
+        class="search-input"
+        placeholder="Search laptops, accessories..."
+        aria-label="Site search"
+      />
+      <i class="fa-solid fa-magnifying-glass search-icon"></i>
+    </div>
+  </div>
 
-      <section class="catalog-header">
-        <h1 class="page-title">Laptops</h1>
-        <div class="filter-controls" aria-expanded="false">
-          <button class="btn-filter" id="filterToggleBtn" aria-expanded="false">
-            <i class="fa-solid fa-sliders"></i> Filter
-          </button>
+  <!-- Bottom Section: Controls Toolbar -->
+  <div class="header-toolbar">
+    <div class="filter-wrapper">
+      <label for="brandFilter">Filter:</label>
+      <select id="brandFilter" class="select-input">
+        <option value="all">All Brands</option>
+        <option value="Hp">Hp</option>
+        <option value="Dell">Dell</option>
+        <option value="lenovo">Lenovo</option>
+        <option value="Asus">ASUS</option>
+         <option value="Acer">Acer</option>
+      </select>
+    </div>
+    <div class="sort-wrapper">
+      <label for="sortSelect">Sort By:</label>
+      <select id="sortSelect" class="select-input">
+        <option value="featured">Featured</option>
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
+      </select>
+    </div>
+  </div>
+</header>
+<nav class="pills-nav">
+        <a class="pill-item" href="index.html">Home</a>
+        <a class="pill-item" href="laptops.html">Laptops</a>
+        <a class="pill-item" href="accessories.html">Accessories</a>
+        <a class="pill-item" href="services.html">Services</a>
+      </nav>
+  <!-- Single Consolidated Grid Container -->
+  <main class="products-grid" id="productsGrid">
+    
+    <!-- Product 1 -->
+    <article class="product-card" data-brand="apple" data-price="1299" data-date="2026-01-15">
+      <div class="card-image">
+        <img src="images/macbook-pro.jpg" alt="Apple MacBook Pro 14-inch" />
+      </div>
+      <div class="card-body">
+        <span class="product-brand">Apple</span>
+        <h3 class="product-title">MacBook Pro 14"</h3>
+        <p class="product-price">$1,299.00</p>
+        <button class="btn btn-primary">Buy Now</button>
+      </div>
+    </article>
+    <!-- Product 2 -->
+    <article class="product-card" data-brand="apple" data-price="1299" data-date="2026-01-15">
+      <div class="card-image">
+        <img src="images/macbook-pro.jpg" alt="Apple MacBook Pro 14-inch" />
+      </div>
+      <div class="card-body">
+        <span class="product-brand">Apple</span>
+        <h3 class="product-title">MacBook Pro 14"</h3>
+        <p class="product-price">$1,299.00</p>
+        <button class="btn btn-primary">Buy Now</button>
+      </div>
+    </article>
+    <!-- Product 3 -->
+    <article class="product-card" data-brand="apple" data-price="1299" data-date="2026-01-15">
+      <div class="card-image">
+        <img src="images/macbook-pro.jpg" alt="Apple MacBook Pro 14-inch" />
+      </div>
+      <div class="card-body">
+        <span class="product-brand">Apple</span>
+        <h3 class="product-title">MacBook Pro 14"</h3>
+        <p class="product-price">$1,299.00</p>
+        <button class="btn btn-primary">Buy Now</button>
+      </div>
+    </article>
+    <!-- Product 4 -->
+    <article class="product-card" data-brand="apple" data-price="1299" data-date="2026-01-15">
+      <div class="card-image">
+        <img src="images/macbook-pro.jpg" alt="Apple MacBook Pro 14-inch" />
+      </div>
+      <div class="card-body">
+        <span class="product-brand">Apple</span>
+        <h3 class="product-title">MacBook Pro 14"</h3>
+        <p class="product-price">$1,299.00</p>
+        <button class="btn btn-primary">Buy Now</button>
+      </div>
+    </article>
+    <!-- Product 5 -->
+    <article class="product-card" data-brand="apple" data-price="1299" data-date="2026-01-15">
+      <div class="card-image">
+        <img src="images/macbook-pro.jpg" alt="Apple MacBook Pro 14-inch" />
+      </div>
+      <div class="card-body">
+        <span class="product-brand">Apple</span>
+        <h3 class="product-title">MacBook Pro 14"</h3>
+        <p class="product-price">$1,299.00</p>
+        <button class="btn btn-primary">Buy Now</button>
+      </div>
+    </article>
+    <!-- Product 6 -->
+    <article class="product-card" data-brand="apple" data-price="1299" data-date="2026-01-15">
+      <div class="card-image">
+        <img src="images/macbook-pro.jpg" alt="Apple MacBook Pro 14-inch" />
+      </div>
+      <div class="card-body">
+        <span class="product-brand">Apple</span>
+        <h3 class="product-title">MacBook Pro 14"</h3>
+        <p class="product-price">$1,299.00</p>
+        <button class="btn btn-primary">Buy Now</button>
+      </div>
+    </article>
+    <!-- Product 7 -->
+    <article class="product-card" data-brand="apple" data-price="1299" data-date="2026-01-15">
+      <div class="card-image">
+        <img src="images/macbook-pro.jpg" alt="Apple MacBook Pro 14-inch" />
+      </div>
+      <div class="card-body">
+        <span class="product-brand">Apple</span>
+        <h3 class="product-title">MacBook Pro 14"</h3>
+        <p class="product-price">$1,299.00</p>
+        <button class="btn btn-primary">Buy Now</button>
+      </div>
+    </article>
+    <!-- Product 8 -->
+    <article class="product-card" data-brand="apple" data-price="1299" data-date="2026-01-15">
+      <div class="card-image">
+        <img src="images/macbook-pro.jpg" alt="Apple MacBook Pro 14-inch" />
+      </div>
+      <div class="card-body">
+        <span class="product-brand">Apple</span>
+        <h3 class="product-title">MacBook Pro 14"</h3>
+        <p class="product-price">$1,299.00</p>
+        <button class="btn btn-primary">Buy Now</button>
+      </div>
+    </article>
+    <!-- Product 9 -->
+    <article class="product-card" data-brand="apple" data-price="1299" data-date="2026-01-15">
+      <div class="card-image">
+        <img src="images/macbook-pro.jpg" alt="Apple MacBook Pro 14-inch" />
+      </div>
+      <div class="card-body">
+        <span class="product-brand">Apple</span>
+        <h3 class="product-title">MacBook Pro 14"</h3>
+        <p class="product-price">$1,299.00</p>
+        <button class="btn btn-primary">Buy Now</button>
+      </div>
+    </article>
+    <!-- Product 10 -->
+    <article class="product-card" data-brand="apple" data-price="1299" data-date="2026-01-15">
+      <div class="card-image">
+        <img src="images/macbook-pro.jpg" alt="Apple MacBook Pro 14-inch" />
+      </div>
+      <div class="card-body">
+        <span class="product-brand">Apple</span>
+        <h3 class="product-title">MacBook Pro 14"</h3>
+        <p class="product-price">$1,299.00</p>
+        <button class="btn btn-primary">Buy Now</button>
+      </div>
+    </article>
+    <!-- Product 11 -->
+    <article class="product-card" data-brand="apple" data-price="1299" data-date="2026-01-15">
+      <div class="card-image">
+        <img src="images/macbook-pro.jpg" alt="Apple MacBook Pro 14-inch" />
+      </div>
+      <div class="card-body">
+        <span class="product-brand">Apple</span>
+        <h3 class="product-title">MacBook Pro 14"</h3>
+        <p class="product-price">$1,299.00</p>
+        <button class="btn btn-primary">Buy Now</button>
+      </div>
+    </article>
+    <!-- Product 1 -->
+    <article class="product-card" data-brand="apple" data-price="1299" data-date="2026-01-15">
+      <div class="card-image">
+        <img src="images/macbook-pro.jpg" alt="Apple MacBook Pro 14-inch" />
+      </div>
+      <div class="card-body">
+        <span class="product-brand">Apple</span>
+        <h3 class="product-title">MacBook Pro 14"</h3>
+        <p class="product-price">$1,299.00</p>
+        <button class="btn btn-primary">Buy Now</button>
+      </div>
+    </article>
+    <!-- Product 13 -->
+    <article class="product-card" data-brand="apple" data-price="1299" data-date="2026-01-15">
+      <div class="card-image">
+        <img src="images/macbook-pro.jpg" alt="Apple MacBook Pro 14-inch" />
+      </div>
+      <div class="card-body">
+        <span class="product-brand">Apple</span>
+        <h3 class="product-title">MacBook Pro 14"</h3>
+        <p class="product-price">$1,299.00</p>
+        <button class="btn btn-primary">Buy Now</button>
+      </div>
+    </article>
 
-          <div class="filter-overlay" id="filterOverlay" aria-hidden="true">
-            <div class="filter-overlay-card">
-              <div class="filter-overlay-header">
-                <span>Refine search</span>
-                <button
-                  class="filter-close-btn"
-                  id="filterCloseBtn"
-                  aria-label="Close filters"
-                >
-                  ×
-                </button>
-              </div>
+    <!-- Product 14 -->
+    <article class="product-card" data-brand="dell" data-price="999" data-date="2025-11-20">
+      <div class="card-image">
+        <img src="images/dell-xps.jpg" alt="Dell XPS 13" />
+      </div>
+      <div class="card-body">
+        <span class="product-brand">Dell</span>
+        <h3 class="product-title">Dell XPS 13</h3>
+        <p class="product-price">$999.00</p>
+        <button class="btn btn-primary">Buy Now</button>
+      </div>
+    </article>
 
-              <div class="filter-option">
-                <button
-                  class="filter-option-toggle"
-                  type="button"
-                  data-target="brandPanel"
-                >
-                  <span>Brand</span>
-                  <i class="fa-solid fa-chevron-down"></i>
-                </button>
-                <div class="filter-option-panel" id="brandPanel">
-                  <select class="select-dropdown" id="brandFilter">
-                    <option value="all">All brands</option>
-                    <option value="Apple">Apple</option>
-                    <option value="Dell">Dell</option>
-                    <option value="Lenovo">Lenovo</option>
-                    <option value="HP">HP</option>
-                    <option value="Asus">Asus</option>
-                    <option value="Samsung">Samsung</option>
-                    <option value="Acer">Acer</option>
-                    <option value="MSI">MSI</option>
-                    <option value="Razer">Razer</option>
-                    <option value="Microsoft">Microsoft</option>
-                    <option value="Google">Google</option>
-                    <option value="LG">LG</option>
-                  </select>
-                </div>
-              </div>
+    <!-- Product 15 -->
+    <article class="product-card" data-brand="lenovo" data-price="1149" data-date="2026-02-01">
+      <div class="card-image">
+        <img src="images/thinkpad-x1.jpg" alt="Lenovo ThinkPad X1 Carbon" />
+      </div>
+      <div class="card-body">
+        <span class="product-brand">Lenovo</span>
+        <h3 class="product-title">ThinkPad X1 Carbon</h3>
+        <p class="product-price">$1,149.00</p>
+        <button class="btn btn-primary">Buy Now</button>
+      </div>
+    </article>
 
-              <div class="filter-option">
-                <button
-                  class="filter-option-toggle"
-                  type="button"
-                  data-target="sortPanel"
-                >
-                  <span>Sort by</span>
-                  <i class="fa-solid fa-chevron-down"></i>
-                </button>
-                <div class="filter-option-panel" id="sortPanel">
-                  <select class="select-dropdown" id="sortFilter">
-                    <option value="featured">Featured</option>
-                    <option value="price-low-high">Price: Low to High</option>
-                    <option value="price-high-low">Price: High to Low</option>
-                  </select>
-                </div>
-              </div>
+    <!-- Product 16 -->
+    <article class="product-card" data-brand="asus" data-price="1499" data-date="2025-12-10">
+      <div class="card-image">
+        <img src="images/rog-zephyrus.jpg" alt="ASUS ROG Zephyrus G14" />
+      </div>
+      <div class="card-body">
+        <span class="product-brand">ASUS</span>
+        <h3 class="product-title">ROG Zephyrus G14</h3>
+        <p class="product-price">$1,499.00</p>
+        <button class="btn btn-primary">Buy Now</button>
+      </div>
+    </article>
 
-              <div class="filter-option">
-                <button
-                  class="filter-option-toggle"
-                  type="button"
-                  data-target="timePanel"
-                >
-                  <span>Condition / Date</span>
-                  <i class="fa-solid fa-chevron-down"></i>
-                </button>
-                <div class="filter-option-panel" id="timePanel">
-                  <select class="select-dropdown" id="timeFilter">
-                    <option value="new-to-old">New to old</option>
-                    <option value="old-to-new">Old to new</option>
-                  </select>
-                </div>
-              </div>
+  </main>
 
-              <button class="btn-filter apply-filters" id="applyFiltersBtn">
-                Apply Filters
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <main class="products-grid">
-        <div class="product-card">
-          <div class="card-img-wrapper">
-            <img
-              src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500&q=80"
-              alt="MacBook Air M2"
-            />
-          </div>
-          <h3 class="product-title">MacBook Air M2</h3>
-          <p class="product-price">$1299</p>
-          <div class="product-specs">
-            <span>Storage: 256GB SSD · RAM: 8GB</span>
-            <span>Processor: Apple M2 8-core · 3.2GHz · 2nd Gen</span>
-          </div>
-          <button class="btn-details">View Details</button>
-        </div>
-
-        <div class="product-card">
-          <div class="card-img-wrapper">
-            <img
-              src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=500&q=80"
-              alt="Dell XPS 13"
-            />
-          </div>
-          <h3 class="product-title">Dell XPS 13</h3>
-          <p class="product-price">$999</p>
-          <div class="product-specs">
-            <span>Storage: 512GB SSD · RAM: 16GB</span>
-            <span>Processor: Intel Core i7-1250U · 1.7GHz · 12th Gen</span>
-          </div>
-          <button class="btn-details">View Details</button>
-        </div>
-
-        <div class="product-card">
-          <div class="card-img-wrapper">
-            <img
-              src="https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=500&q=80"
-              alt="MacBook Pro 14"
-            />
-          </div>
-          <h3 class="product-title">MacBook Pro 14</h3>
-          <p class="product-price">$1999</p>
-          <div class="product-specs">
-            <span>Storage: 1TB SSD · RAM: 16GB</span>
-            <span>Processor: Apple M1 Pro 10-core · 3.2GHz · 1st Gen</span>
-          </div>
-          <button class="btn-details">View Details</button>
-        </div>
-
-        <div class="product-card">
-          <div class="card-img-wrapper">
-            <img
-              src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=500&q=80"
-              alt="ThinkPad X1"
-            />
-          </div>
-          <h3 class="product-title">ThinkPad X1</h3>
-          <p class="product-price">$999</p>
-          <div class="product-specs">
-            <span>Storage: 512GB SSD · RAM: 16GB</span>
-            <span>Processor: Intel Core i7-1165G7 · 2.8GHz · 11th Gen</span>
-          </div>
-          <button class="btn-details">View Details</button>
-        </div>
-
-        <div class="product-card">
-          <div class="card-img-wrapper">
-            <img
-              src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=500&q=80"
-              alt="ASUS ROG Zephyrus"
-            />
-          </div>
-          <h3 class="product-title">ASUS ROG G14</h3>
-          <p class="product-price">$1499</p>
-          <div class="product-specs">
-            <span>Storage: 1TB SSD · RAM: 16GB</span>
-            <span>Processor: AMD Ryzen 9 6900HS · 3.3GHz · 6th Gen</span>
-          </div>
-          <button class="btn-details">View Details</button>
-        </div>
-
-        <div class="product-card">
-          <div class="card-img-wrapper">
-            <img
-              src="https://images.unsplash.com/photo-1544731612-de7f96afe55f?w=500&q=80"
-              alt="HP Spectre x360"
-            />
-          </div>
-          <h3 class="product-title">HP Spectre x360</h3>
-          <p class="product-price">$1199</p>
-          <div class="product-specs">
-            <span>Storage: 512GB SSD · RAM: 16GB</span>
-            <span>Processor: Intel Core i7-1255U · 1.7GHz · 12th Gen</span>
-          </div>
-          <button class="btn-details">View Details</button>
-        </div>
-
-        <div class="product-card">
-          <div class="card-img-wrapper">
-            <img
-              src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=500&q=80"
-              alt="Lenovo Legion 5"
-            />
-          </div>
-          <h3 class="product-title">Lenovo Legion 5</h3>
-          <p class="product-price">$1299</p>
-          <div class="product-specs">
-            <span>Storage: 1TB SSD · RAM: 16GB</span>
-            <span>Processor: AMD Ryzen 7 6800H · 3.2GHz · 6th Gen</span>
-          </div>
-          <button class="btn-details">View Details</button>
-        </div>
-
-        <div class="product-card">
-          <div class="card-img-wrapper">
-            <img
-              src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500&q=80"
-              alt="MacBook Air M1"
-            />
-          </div>
-          <h3 class="product-title">MacBook Air M1</h3>
-          <p class="product-price">$899</p>
-          <div class="product-specs">
-            <span>Storage: 256GB SSD · RAM: 8GB</span>
-            <span>Processor: Apple M1 8-core · 3.2GHz · 1st Gen</span>
-          </div>
-          <button class="btn-details">View Details</button>
-        </div>
-
-        <div class="product-card">
-          <div class="card-img-wrapper">
-            <img
-              src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=500&q=80"
-              alt="Dell Inspiron 15"
-            />
-          </div>
-          <h3 class="product-title">Dell Inspiron 15</h3>
-          <p class="product-price">$649</p>
-          <div class="product-specs">
-            <span>Storage: 512GB SSD · RAM: 12GB</span>
-            <span>Processor: Intel Core i5-1235U · 1.3GHz · 12th Gen</span>
-          </div>
-          <button class="btn-details">View Details</button>
-        </div>
-
-        <div class="product-card">
-          <div class="card-img-wrapper">
-            <img
-              src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=500&q=80"
-              alt="Acer Swift 3"
-            />
-          </div>
-          <h3 class="product-title">Acer Swift 3</h3>
-          <p class="product-price">$599</p>
-          <div class="product-specs">
-            <span>Storage: 256GB SSD · RAM: 8GB</span>
-            <span>Processor: AMD Ryzen 5 5625U · 2.3GHz · 5th Gen</span>
-          </div>
-          <button class="btn-details">View Details</button>
-        </div>
-
-        <div class="product-card">
-          <div class="card-img-wrapper">
-            <img
-              src="https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=500&q=80"
-              alt="Microsoft Surface Pro"
-            />
-          </div>
-          <h3 class="product-title">Surface Pro 9</h3>
-          <p class="product-price">$1099</p>
-          <div class="product-specs">
-            <span>Storage: 512GB SSD · RAM: 16GB</span>
-            <span>Processor: Intel Core i7-1255U · 1.7GHz · 12th Gen</span>
-          </div>
-          <button class="btn-details">View Details</button>
-        </div>
-
-        <div class="product-card">
-          <div class="card-img-wrapper">
-            <img
-              src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=500&q=80"
-              alt="Razer Blade 15"
-            />
-          </div>
-          <h3 class="product-title">Razer Blade 15</h3>
-          <p class="product-price">$2399</p>
-          <div class="product-specs">
-            <span>Storage: 1TB SSD · RAM: 32GB</span>
-            <span>Processor: Intel Core i9-12900H · 2.4GHz · 12th Gen</span>
-          </div>
-          <button class="btn-details">View Details</button>
-        </div>
-
-        <div class="product-card">
-          <div class="card-img-wrapper">
-            <img
-              src="https://images.unsplash.com/photo-1544731612-de7f96afe55f?w=500&q=80"
-              alt="Samsung Galaxy Book"
-            />
-          </div>
-          <h3 class="product-title">Galaxy Book3</h3>
-          <p class="product-price">$849</p>
-          <div class="product-specs">
-            <span>Storage: 512GB SSD · RAM: 16GB</span>
-            <span>Processor: Intel Core i7-1360P · 1.9GHz · 13th Gen</span>
-          </div>
-          <button class="btn-details">View Details</button>
-        </div>
-
-        <div class="product-card">
-          <div class="card-img-wrapper">
-            <img
-              src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=500&q=80"
-              alt="LG Gram 16"
-            />
-          </div>
-          <h3 class="product-title">LG Gram 16</h3>
-          <p class="product-price">$1199</p>
-          <div class="product-specs">
-            <span>Storage: 1TB SSD · RAM: 16GB</span>
-            <span>Processor: Intel Core i7-1360P · 1.9GHz · 13th Gen</span>
-          </div>
-          <button class="btn-details">View Details</button>
-        </div>
-
-        <div class="product-card">
-          <div class="card-img-wrapper">
-            <img
-              src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500&q=80"
-              alt="Google Pixelbook Go"
-            />
-          </div>
-          <h3 class="product-title">Google Pixelbook Go</h3>
-          <p class="product-price">$899</p>
-          <div class="product-specs">
-            <span>Storage: 256GB SSD · RAM: 8GB</span>
-            <span>Processor: Intel Core i5-8200Y · 1.3GHz · 8th Gen</span>
-          </div>
-          <button class="btn-details">View Details</button>
-        </div>
-
-        <div class="product-card">
-          <div class="card-img-wrapper">
-            <img
-              src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=500&q=80"
-              alt="Acer Predator Helios"
-            />
-          </div>
-          <h3 class="product-title">Acer Predator Helios</h3>
-          <p class="product-price">$1699</p>
-          <div class="product-specs">
-            <span>Storage: 1TB SSD · RAM: 16GB</span>
-            <span>Processor: Intel Core i7-11800H · 2.3GHz · 11th Gen</span>
-          </div>
-          <button class="btn-details">View Details</button>
-        </div>
-
-        <div class="product-card">
-          <div class="card-img-wrapper">
-            <img
-              src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=500&q=80"
-              alt="MSI Stealth 15M"
-            />
-          </div>
-          <h3 class="product-title">MSI Stealth 15M</h3>
-          <p class="product-price">$1799</p>
-          <div class="product-specs">
-            <span>Storage: 1TB SSD · RAM: 16GB</span>
-            <span>Processor: Intel Core i7-11370H · 3.3GHz · 11th Gen</span>
-          </div>
-          <button class="btn-details">View Details</button>
-        </div>
-
-        <div class="product-card">
-          <div class="card-img-wrapper">
-            <img
-              src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=500&q=80"
-              alt="Lenovo Yoga 9i"
-            />
-          </div>
-          <h3 class="product-title">Lenovo Yoga 9i</h3>
-          <p class="product-price">$1399</p>
-          <div class="product-specs">
-            <span>Storage: 512GB SSD · RAM: 16GB</span>
-            <span>Processor: Intel Core i7-1260P · 2.1GHz · 12th Gen</span>
-          </div>
-          <button class="btn-details">View Details</button>
-        </div>
-
-        <div class="product-card">
-          <div class="card-img-wrapper">
-            <img
-              src="https://images.unsplash.com/photo-1544731612-de7f96afe55f?w=500&q=80"
-              alt="Samsung Galaxy Book"
-            />
-          </div>
-          <h3 class="product-title">Samsung Galaxy Book</h3>
-          <p class="product-price">$999</p>
-          <div class="product-specs">
-            <span>Storage: 512GB SSD · RAM: 16GB</span>
-            <span>Processor: Intel Core i5-1240P · 1.7GHz · 12th Gen</span>
-          </div>
-          <button class="btn-details">View Details</button>
-        </div>
-      </main>
-
-      <section class="catalogue-section">
-        <div class="catalog-title-wrap">
-          <h2 class="catalog-title">More Laptops</h2>
-          <p class="catalog-description">
-            Explore a second catalogue of high-performance laptops across top
-            brands.
-          </p>
-        </div>
-        <main class="products-grid">
-          <div class="product-card">
-            <div class="card-img-wrapper">
-              <img
-                src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500&q=80"
-                alt="HP Elite Dragonfly Max"
-              />
-            </div>
-            <h3 class="product-title">HP Elite Dragonfly Max</h3>
-            <p class="product-price">$1,399</p>
-            <div class="product-specs">
-              <span>Storage: 512GB SSD · RAM: 16GB</span>
-              <span>Processor: Intel Core i7-1265U · 1.8GHz · 12th Gen</span>
-            </div>
-            <button class="btn-details">View Details</button>
-          </div>
-
-          <div class="product-card">
-            <div class="card-img-wrapper">
-              <img
-                src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=500&q=80"
-                alt="Dell G15 5510"
-              />
-            </div>
-            <h3 class="product-title">Dell G15 5510</h3>
-            <p class="product-price">$1,149</p>
-            <div class="product-specs">
-              <span>Storage: 1TB SSD · RAM: 16GB</span>
-              <span>Processor: Intel Core i7-12700H · 2.3GHz · 12th Gen</span>
-            </div>
-            <button class="btn-details">View Details</button>
-          </div>
-
-          <div class="product-card">
-            <div class="card-img-wrapper">
-              <img
-                src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=500&q=80"
-                alt="Lenovo Yoga 7i"
-              />
-            </div>
-            <h3 class="product-title">Lenovo Yoga 7i</h3>
-            <p class="product-price">$999</p>
-            <div class="product-specs">
-              <span>Storage: 512GB SSD · RAM: 16GB</span>
-              <span>Processor: Intel Core i5-1235U · 1.3GHz · 12th Gen</span>
-            </div>
-            <button class="btn-details">View Details</button>
-          </div>
-
-          <div class="product-card">
-            <div class="card-img-wrapper">
-              <img
-                src="https://images.unsplash.com/photo-1544731612-de7f96afe55f?w=500&q=80"
-                alt="ASUS VivoBook S15"
-              />
-            </div>
-            <h3 class="product-title">ASUS VivoBook S15</h3>
-            <p class="product-price">$849</p>
-            <div class="product-specs">
-              <span>Storage: 512GB SSD · RAM: 16GB</span>
-              <span>Processor: Intel Core i5-1240P · 3.4GHz · 12th Gen</span>
-            </div>
-            <button class="btn-details">View Details</button>
-          </div>
-
-          <div class="product-card">
-            <div class="card-img-wrapper">
-              <img
-                src="https://images.unsplash.com/photo-1542751110-97427bbecf20?w=500&q=80"
-                alt="Samsung Galaxy Book4"
-              />
-            </div>
-            <h3 class="product-title">Samsung Galaxy Book4</h3>
-            <p class="product-price">$1,199</p>
-            <div class="product-specs">
-              <span>Storage: 512GB SSD · RAM: 16GB</span>
-              <span>Processor: Intel Core i7-1360P · 1.9GHz · 13th Gen</span>
-            </div>
-            <button class="btn-details">View Details</button>
-          </div>
-
-          <div class="product-card">
-            <div class="card-img-wrapper">
-              <img
-                src="https://images.unsplash.com/photo-1527443154391-507e9dc6c5cc?w=500&q=80"
-                alt="Acer Spin 5"
-              />
-            </div>
-            <h3 class="product-title">Acer Spin 5</h3>
-            <p class="product-price">$749</p>
-            <div class="product-specs">
-              <span>Storage: 512GB SSD · RAM: 16GB</span>
-              <span>Processor: Intel Core i5-1235U · 1.3GHz · 12th Gen</span>
-            </div>
-            <button class="btn-details">View Details</button>
-          </div>
-
-          <div class="product-card">
-            <div class="card-img-wrapper">
-              <img
-                src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500&q=80"
-                alt="MSI Creator 15"
-              />
-            </div>
-            <h3 class="product-title">MSI Creator 15</h3>
-            <p class="product-price">$1,749</p>
-            <div class="product-specs">
-              <span>Storage: 1TB SSD · RAM: 32GB</span>
-              <span>Processor: Intel Core i9-13900H · 2.6GHz · 13th Gen</span>
-            </div>
-            <button class="btn-details">View Details</button>
-          </div>
-
-          <div class="product-card">
-            <div class="card-img-wrapper">
-              <img
-                src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=500&q=80"
-                alt="Razer Book 13"
-              />
-            </div>
-            <h3 class="product-title">Razer Book 13</h3>
-            <p class="product-price">$1,599</p>
-            <div class="product-specs">
-              <span>Storage: 512GB SSD · RAM: 16GB</span>
-              <span>Processor: Intel Core i7-1260P · 2.1GHz · 12th Gen</span>
-            </div>
-            <button class="btn-details">View Details</button>
-          </div>
-
-          <div class="product-card">
-            <div class="card-img-wrapper">
-              <img
-                src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=500&q=80"
-                alt="Surface Laptop Studio 2"
-              />
-            </div>
-            <h3 class="product-title">Surface Laptop Studio 2</h3>
-            <p class="product-price">$2,199</p>
-            <div class="product-specs">
-              <span>Storage: 1TB SSD · RAM: 32GB</span>
-              <span>Processor: Intel Core i7-13700H · 2.4GHz · 13th Gen</span>
-            </div>
-            <button class="btn-details">View Details</button>
-          </div>
-
-          <div class="product-card">
-            <div class="card-img-wrapper">
-              <img
-                src="https://images.unsplash.com/photo-1544731612-de7f96afe55f?w=500&q=80"
-                alt="Google Pixelbook"
-              />
-            </div>
-            <h3 class="product-title">Google Pixelbook</h3>
-            <p class="product-price">$999</p>
-            <div class="product-specs">
-              <span>Storage: 256GB SSD · RAM: 16GB</span>
-              <span>Processor: Intel Core i7-1060Y · 1.5GHz · 8th Gen</span>
-            </div>
-            <button class="btn-details">View Details</button>
-          </div>
-
-          <div class="product-card">
-            <div class="card-img-wrapper">
-              <img
-                src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=500&q=80"
-                alt="LG Gram 16"
-              />
-            </div>
-            <h3 class="product-title">LG Gram 16</h3>
-            <p class="product-price">$1,299</p>
-            <div class="product-specs">
-              <span>Storage: 1TB SSD · RAM: 16GB</span>
-              <span>Processor: Intel Core i7-1360P · 1.9GHz · 13th Gen</span>
-            </div>
-            <button class="btn-details">View Details</button>
-          </div>
-
-          <div class="product-card">
-            <div class="card-img-wrapper">
-              <img
-                src="https://images.unsplash.com/photo-1544731612-de7f96afe55f?w=500&q=80"
-                alt="MacBook Pro 16"
-              />
-            </div>
-            <h3 class="product-title">MacBook Pro 16</h3>
-            <p class="product-price">$2,499</p>
-            <div class="product-specs">
-              <span>Storage: 2TB SSD · RAM: 32GB</span>
-              <span>Processor: Apple M2 Max · 3.5GHz · 12-core</span>
-            </div>
-            <button class="btn-details">View Details</button>
-          </div>
-
-          <div class="product-card">
-            <div class="card-img-wrapper">
-              <img
-                src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500&q=80"
-                alt="Dell XPS 15 Plus"
-              />
-            </div>
-            <h3 class="product-title">Dell XPS 15 Plus</h3>
-            <p class="product-price">$1,799</p>
-            <div class="product-specs">
-              <span>Storage: 1TB SSD · RAM: 32GB</span>
-              <span>Processor: Intel Core i9-12900HK · 2.5GHz · 12th Gen</span>
-            </div>
-            <button class="btn-details">View Details</button>
-          </div>
-
-          <div class="product-card">
-            <div class="card-img-wrapper">
-              <img
-                src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=500&q=80"
-                alt="Lenovo Legion Slim 7"
-              />
-            </div>
-            <h3 class="product-title">Lenovo Legion Slim 7</h3>
-            <p class="product-price">$1,699</p>
-            <div class="product-specs">
-              <span>Storage: 1TB SSD · RAM: 32GB</span>
-              <span>Processor: AMD Ryzen 9 7940HS · 3.3GHz · 7th Gen</span>
-            </div>
-            <button class="btn-details">View Details</button>
-          </div>
-
-          <div class="product-card">
-            <div class="card-img-wrapper">
-              <img
-                src="https://images.unsplash.com/photo-1544731612-de7f96afe55f?w=500&q=80"
-                alt="HP Pavilion Aero"
-              />
-            </div>
-            <h3 class="product-title">HP Pavilion Aero</h3>
-            <p class="product-price">$749</p>
-            <div class="product-specs">
-              <span>Storage: 512GB SSD · RAM: 16GB</span>
-              <span>Processor: AMD Ryzen 7 7840U · 2.8GHz · 7th Gen</span>
-            </div>
-            <button class="btn-details">View Details</button>
-          </div>
-
-          <div class="product-card">
-            <div class="card-img-wrapper">
-              <img
-                src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500&q=80"
-                alt="ASUS ROG Strix G16"
-              />
-            </div>
-            <h3 class="product-title">ASUS ROG Strix G16</h3>
-            <p class="product-price">$1,499</p>
-            <div class="product-specs">
-              <span>Storage: 1TB SSD · RAM: 16GB</span>
-              <span>Processor: Intel Core i7-13700H · 2.4GHz · 13th Gen</span>
-            </div>
-            <button class="btn-details">View Details</button>
-          </div>
-
-          <div class="product-card">
-            <div class="card-img-wrapper">
-              <img
-                src="https://images.unsplash.com/photo-1542751110-97427bbecf20?w=500&q=80"
-                alt="Samsung Galaxy Book3 Pro"
-              />
-            </div>
-            <h3 class="product-title">Samsung Galaxy Book3 Pro</h3>
-            <p class="product-price">$999</p>
-            <div class="product-specs">
-              <span>Storage: 512GB SSD · RAM: 16GB</span>
-              <span>Processor: Intel Core i7-1360P · 1.9GHz · 13th Gen</span>
-            </div>
-            <button class="btn-details">View Details</button>
-          </div>
-
-          <div class="product-card">
-            <div class="card-img-wrapper">
-              <img
-                src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500&q=80"
-                alt="Acer Swift X"
-              />
-            </div>
-            <h3 class="product-title">Acer Swift X</h3>
-            <p class="product-price">$899</p>
-            <div class="product-specs">
-              <span>Storage: 512GB SSD · RAM: 16GB</span>
-              <span>Processor: AMD Ryzen 7 7840U · 3.3GHz · 7th Gen</span>
-            </div>
-            <button class="btn-details">View Details</button>
-          </div>
-
-          <div class="product-card">
-            <div class="card-img-wrapper">
-              <img
-                src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=500&q=80"
-                alt="MSI Pulse GL66"
-              />
-            </div>
-            <h3 class="product-title">MSI Pulse GL66</h3>
-            <p class="product-price">$1,299</p>
-            <div class="product-specs">
-              <span>Storage: 1TB SSD · RAM: 16GB</span>
-              <span>Processor: Intel Core i7-12700H · 2.3GHz · 12th Gen</span>
-            </div>
-            <button class="btn-details">View Details</button>
-          </div>
-
-          <div class="product-card">
-            <div class="card-img-wrapper">
-              <img
-                src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500&q=80"
-                alt="Razer Blade 16"
-              />
-            </div>
-            <h3 class="product-title">Razer Blade 16</h3>
-            <p class="product-price">$2,299</p>
-            <div class="product-specs">
-              <span>Storage: 1TB SSD · RAM: 32GB</span>
-              <span>Processor: Intel Core i9-13950HX · 2.4GHz · 13th Gen</span>
-            </div>
-            <button class="btn-details">View Details</button>
-          </div>
-        </main>
-      </section>
-
-      <div class="scroll-top-wrapper">
-        <button class="scroll-top-btn" id="scrollTopBtn">
-          <i class="fa-solid fa-chevron-up"></i>
-        </button>
-        <span>Scroll up</span>
+  <!-- Filter Drawer / Overlay -->
+  <aside id="filterOverlay" class="filter-overlay" aria-hidden="true">
+    <div class="overlay-header">
+      <h2>Filters</h2>
+      <button id="filterCloseBtn" class="close-btn" aria-label="Close filters">&times;</button>
+    </div>
+    
+    <div class="overlay-content">
+      <!-- Overlay kept for future advanced filters; brand filter moved to toolbar -->
+      <div class="filter-group">
+        <p class="muted">Brand filter moved to toolbar for quick access.</p>
       </div>
     </div>
 
-    <footer class="site-footer">
-      <div class="footer-container">
-        <div class="footer-col brand-col">
-          <h3 class="footer-logo">Uptop Computers</h3>
-          <p class="footer-desc">Your trusted computer shop for quality laptops, accessories, custom PC builds, and professional tech support.</p>
-          <div class="payment-methods">
-            <span>Accepted: M-Pesa | Card | Cash</span>
+    <div class="overlay-footer">
+      <button id="applyFiltersBtn" class="btn btn-primary">Apply Filters</button>
+    </div>
+  </aside>
+
+
+  <!-- Floating WhatsApp Order Icon -->
+  <a 
+  href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20would%20like%20to%20place%20an%20order." 
+  class="floating-whatsapp" 
+  target="_blank" 
+  rel="noopener"
+  aria-label="Chat with us on WhatsApp"
+>
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+      <!-- Footer included inside outer app wrapper -->
+      <footer class="site-footer">
+        <div class="footer-container">
+          <div class="footer-col brand-col">
+            <h3 class="footer-logo">Uptop Computers</h3>
+            <p class="footer-desc">
+              Your trusted computer shop for quality laptops, accessories, custom
+              PC builds, and professional tech support.
+            </p>
+          </div>
+
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="laptops.html">Laptops</a></li>
+              <li><a href="accessories.html">Accessories</a></li>
+              <li><a href="services.html">Services</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Customer Care</h4>
+            <ul>
+              <li><a href="#privacy">Privacy Policy</a></li>
+              <li><a href="#terms">Terms of Service</a></li>
+              <li><a href="#warranty">Warranty & Returns</a></li>
+              <li><a href="#faq">FAQs</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Contact Us</h4>
+            <ul class="contact-info">
+              <li>📍 Nairobi, Kenya</li>
+              <li>
+                📞
+                <a href="tel:254115369156" target="_blank" rel="noopener"
+                  >Call Now</a
+                >
+              </li>
+              <li>
+                💬
+                <a
+                  href="https://wa.me/254115369156"
+                  target="_blank"
+                  rel="noopener"
+                  >WhatsApp Support</a
+                >
+              </li>
+              <li>⏰ Mon - Sat: 8:00 AM - 6:00 PM</li>
+            </ul>
           </div>
         </div>
 
-        <div class="footer-col">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="laptops.html">Laptops</a></li>
-            <li><a href="Accessories.html">Accessories</a></li>
-            <li><a href="services.html">Services</a></li>
-          </ul>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Uptop Computers. All rights reserved.</p>
         </div>
+      </footer>
+      <!-- Scroll to top button -->
+  <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll to top">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
 
-        <div class="footer-col">
-          <h4>Customer Care</h4>
-          <ul>
-            <li><a href="#privacy">Privacy Policy</a></li>
-            <li><a href="#terms">Terms of Service</a></li>
-            <li><a href="#warranty">Warranty & Returns</a></li>
-            <li><a href="#faq">FAQs</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Contact Us</h4>
-          <ul class="contact-info">
-            <li>📍 Nairobi, Kenya</li>
-            <li>📞 +254 115 369 156</li>
-            <li>💬 <a href="https://wa.me/254115369156" target="_blank" rel="noopener">WhatsApp Support</a></li>
-            <li>⏰ Mon - Sat: 8:00 AM - 6:00 PM</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p>&copy; 2026 Uptop Computers. All rights reserved.</p>
-      </div>
-    </footer>
-
-    <script src="jss/java.js"></script>
-  </body>
+  <script src="jss/java.js"></script>
+</body>
+</body>
 </html>

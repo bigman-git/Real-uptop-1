@@ -395,3 +395,206 @@ function initSite() {
 }
 
 window.addEventListener('DOMContentLoaded', initSite);
+document.addEventListener("DOMContentLoaded", () => {
+  // 1. Filter Overlay Toggle
+  const filterToggleBtn = document.getElementById("filterToggleBtn");
+  const filterCloseBtn = document.getElementById("filterCloseBtn");
+  const filterOverlay = document.getElementById("filterOverlay");
+
+  filterToggleBtn?.addEventListener("click", () => {
+    filterOverlay.classList.add("active");
+    filterOverlay.setAttribute("aria-hidden", "false");
+  });
+
+  filterCloseBtn?.addEventListener("click", () => {
+    filterOverlay.classList.remove("active");
+    filterOverlay.setAttribute("aria-hidden", "true");
+  });
+
+  // 2. Accordion Toggles Inside Filter Overlay
+  const optionToggles = document.querySelectorAll(".filter-option-toggle");
+  optionToggles.forEach((toggle) => {
+    toggle.addEventListener("click", () => {
+      const targetId = toggle.getAttribute("data-target");
+      const targetPanel = document.getElementById(targetId);
+      if (targetPanel) {
+        targetPanel.classList.toggle("open");
+      }
+    });
+  });
+
+  // 3. Scroll to Top
+  const scrollTopBtn = document.getElementById("scrollTopBtn");
+  scrollTopBtn?.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  // 4. Client-side Brand Filtering Example
+  const applyFiltersBtn = document.getElementById("applyFiltersBtn");
+  const brandFilter = document.getElementById("brandFilter");
+  const productCards = document.querySelectorAll(".product-card");
+
+  applyFiltersBtn?.addEventListener("click", () => {
+    const selectedBrand = brandFilter.value.toLowerCase();
+
+    productCards.forEach((card) => {
+      const title =
+        card.querySelector(".product-title")?.textContent.toLowerCase() || "";
+
+      if (selectedBrand === "all" || title.includes(selectedBrand)) {
+        card.style.display = "flex"; // or "block", matching your CSS grid item layout
+      } else {
+        card.style.display = "none";
+      }
+    });
+
+    // Close overlay on mobile after applying
+    filterOverlay.classList.remove("active");
+    filterOverlay.setAttribute("aria-hidden", "true");
+  });
+});
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const filterToggleBtn = document.getElementById("filterToggleBtn");
+    const filterOverlay = document.getElementById("filterOverlay");
+    const filterCloseBtn = document.getElementById("filterCloseBtn");
+
+    // Open filter overlay on button click
+    filterToggleBtn?.addEventListener("click", () => {
+      filterOverlay.classList.add("active");
+      filterOverlay.setAttribute("aria-hidden", "false");
+    });
+
+    // Close filter overlay when clicking the close button
+    filterCloseBtn?.addEventListener("click", () => {
+      filterOverlay.classList.remove("active");
+      filterOverlay.setAttribute("aria-hidden", "true");
+    });
+  });
+
+// JavaScript Implementation
+
+  document.addEventListener("DOMContentLoaded", () => {
+      // 1. Overlay Controls
+      const filterToggleBtn = document.getElementById("filterToggleBtn");
+      const filterCloseBtn = document.getElementById("filterCloseBtn");
+      const filterOverlay = document.getElementById("filterOverlay");
+
+      filterToggleBtn?.addEventListener("click", () => {
+        filterOverlay.classList.add("active");
+        filterOverlay.setAttribute("aria-hidden", "false");
+      });
+
+      filterCloseBtn?.addEventListener("click", () => {
+        filterOverlay.classList.remove("active");
+        filterOverlay.setAttribute("aria-hidden", "true");
+      });
+
+      // 2. Filter Accordion Toggles
+      const optionToggles = document.querySelectorAll(".filter-option-toggle");
+      optionToggles.forEach((toggle) => {
+        toggle.addEventListener("click", () => {
+          const targetId = toggle.getAttribute("data-target");
+          const targetPanel = document.getElementById(targetId);
+          if (targetPanel) {
+            targetPanel.classList.toggle("open");
+          }
+        });
+      });
+
+      // 3. Scroll to Top
+      const scrollTopBtn = document.getElementById("scrollTopBtn");
+      scrollTopBtn?.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      // 4. Filtering Logic
+      const applyFiltersBtn = document.getElementById("applyFiltersBtn");
+      const brandFilter = document.getElementById("brandFilter");
+      const productCards = Array.from(document.querySelectorAll(".product-card"));
+
+      applyFiltersBtn?.addEventListener("click", () => {
+        const selectedBrand = brandFilter.value.toLowerCase();
+
+        productCards.forEach((card) => {
+          const cardBrand = card.getAttribute("data-brand") || "";
+          
+          if (selectedBrand === "all" || cardBrand === selectedBrand) {
+            card.style.display = ""; // Restores display to CSS default
+          } else {
+            card.style.display = "none";
+          }
+        });
+
+        // Close mobile overlay on apply
+        filterOverlay.classList.remove("active");
+        filterOverlay.setAttribute("aria-hidden", "true");
+      });
+
+      // Apply brand filtering immediately on select change (like Sort By)
+      brandFilter?.addEventListener('change', () => {
+        const selectedBrand = (brandFilter.value || 'all').toLowerCase();
+        productCards.forEach((card) => {
+          const cardBrand = (card.getAttribute('data-brand') || '').toLowerCase();
+          card.style.display = (selectedBrand === 'all' || cardBrand === selectedBrand) ? '' : 'none';
+        });
+      });
+
+      // 5. Sorting Logic
+      const sortSelect = document.getElementById("sortSelect");
+      const gridContainer = document.getElementById("productsGrid");
+
+      sortSelect?.addEventListener("change", () => {
+        const value = sortSelect.value;
+
+        const sortedCards = productCards.sort((a, b) => {
+          const priceA = parseFloat(a.getAttribute("data-price") || "0");
+          const priceB = parseFloat(b.getAttribute("data-price") || "0");
+          const dateA = new Date(a.getAttribute("data-date") || 0);
+          const dateB = new Date(b.getAttribute("data-date") || 0);
+
+          if (value === "price-asc") return priceA - priceB;
+          if (value === "price-desc") return priceB - priceA;
+          if (value === "date-desc") return dateB - dateA;
+          return 0; // Default ordering
+        });
+
+        // Re-append sorted elements back into grid
+        sortedCards.forEach((card) => gridContainer.appendChild(card));
+      });
+    });
+   
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const viewAllBtn = document.getElementById("viewAllBtn");
+    const viewAllOverlay = document.getElementById("viewAllOverlay");
+
+    viewAllBtn?.addEventListener("click", () => {
+      // Toggle 'active' class on the links container
+      const isActive = viewAllOverlay.classList.toggle("active");
+
+      // Sync button attributes and text
+      viewAllBtn.setAttribute("aria-expanded", isActive);
+      viewAllBtn.textContent = isActive ? "Hide Options" : "View All";
+    });
+  });
+  document.addEventListener("DOMContentLoaded", () => {
+  const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+  // Show/hide button based on scroll distance
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      scrollTopBtn?.classList.add("visible");
+    } else {
+      scrollTopBtn?.classList.remove("visible");
+    }
+  });
+
+  // Smooth scroll back to top when clicked
+  scrollTopBtn?.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+});

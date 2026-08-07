@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Uptop Mobile Wireframe</title>
+    <meta
+      name="description"
+      content="UpTop Computers is your trusted technology store in Kenya for genuine laptops, desktops, computer accessories, software, and professional IT services. Shop quality products at affordable prices with expert support and reliable customer service."
+    />
+    <title>Uptop Computers | Laptops & Tech Accessories in Nairobi</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
@@ -13,18 +17,19 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <link rel="stylesheet" href="css/styles.css" />
+    <script src="jss/java.js" defer></script>
   </head>
   <body>
     <div class="app-container">
       <div class="top-contact-bar">
         <a
           class="contact-item contact-whatsapp"
-          href="https://wa.me/+254115369156"
+          href="https://wa.me/254115369156"
         >
           <i class="fa-brands fa-whatsapp"></i>
           <span>WhatsApp Us</span>
         </a>
-        <a class="contact-item contact-call" href="tel:+254115369156">
+        <a class="contact-item contact-call" href="tel:254115369156">
           <i class="fa-solid fa-phone"></i>
           <span>Call Now</span>
         </a>
@@ -44,10 +49,10 @@
       </header>
 
       <nav class="pills-nav">
+        <a class="pill-item active" href="index.html">Home</a>
         <a class="pill-item" href="laptops.html">Laptops</a>
-        <a class="pill-item" href="Accessories.html">Accessories</a>
-        <a class="pill-item active" href="services.html">Services</a>
-        <a class="pill-item" href="index.html">Home</a>
+        <a class="pill-item" href="accessories.html">Accessories</a>
+        <a class="pill-item" href="services.html">Services</a>
       </nav>
 
       <section class="carousel-container" id="carousel">
@@ -92,11 +97,24 @@
         </div>
       </section>
 
+      <!-- Shop by Category Section -->
       <section class="categories-section">
         <div class="section-header">
           <h3 class="section-title">Shop by Category</h3>
-          <button class="view-all" type="button" aria-expanded="false">View All</button>
-          <div class="view-all-overlay" id="viewAllOverlay" role="menu" aria-label="Category shortcuts">
+          <button
+            class="view-all"
+            id="viewAllBtn"
+            type="button"
+            aria-expanded="false"
+          >
+            View All
+          </button>
+          <div
+            class="view-all-overlay"
+            id="viewAllOverlay"
+            role="menu"
+            aria-label="Category shortcuts"
+          >
             <a href="laptops.html?category=business" role="menuitem">Business</a>
             <a href="laptops.html?category=personal" role="menuitem">Personal</a>
             <a href="laptops.html?category=gaming" role="menuitem">Gaming</a>
@@ -113,7 +131,7 @@
             <div class="icon-wrapper"><i class="fa-solid fa-desktop"></i></div>
             <span class="category-label">Desktops</span>
           </a>
-          <a href="Accessories.html?category=chargers" class="category-card">
+          <a href="accessories.html?category=chargers" class="category-card">
             <div class="icon-wrapper"><i class="fa-solid fa-plug"></i></div>
             <span class="category-label">Chargers</span>
           </a>
@@ -124,8 +142,9 @@
             <span class="category-label">Software</span>
           </a>
         </div>
-      </section>
+      </section> <!-- Added explicit section closure here -->
 
+      <!-- Featured List Section -->
       <section class="featured-section">
         <div class="section-header">
           <h3 class="section-title">Featured List</h3>
@@ -229,6 +248,7 @@
         </div>
       </section>
 
+      <!-- Customer Reviews Section -->
       <section class="review-carousel-section">
         <div class="review-carousel-header">
           <div>
@@ -247,8 +267,7 @@
           <div class="review-carousel-track">
             <article class="review-card active">
               <div class="review-stars">
-                <span>★</span><span>★</span><span>★</span><span>★</span
-                ><span>★</span>
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
               </div>
               <p class="review-quote">
                 “Uptop delivered exactly what was promised — fast shipping,
@@ -270,8 +289,7 @@
 
             <article class="review-card">
               <div class="review-stars">
-                <span>★</span><span>★</span><span>★</span><span>★</span
-                ><span>★</span>
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
               </div>
               <p class="review-quote">
                 “The accessory bundle was well chosen and the support team
@@ -292,8 +310,7 @@
 
             <article class="review-card">
               <div class="review-stars">
-                <span>★</span><span>★</span><span>★</span><span>★</span
-                ><span>★</span>
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
               </div>
               <p class="review-quote">
                 “My workstation feels complete now. The laptop stand and monitor
@@ -314,8 +331,7 @@
 
             <article class="review-card">
               <div class="review-stars">
-                <span>★</span><span>★</span><span>★</span><span>★</span
-                ><span>★</span>
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
               </div>
               <p class="review-quote">
                 “Excellent value and fast delivery. The keyboard and mouse set
@@ -347,54 +363,82 @@
           <button class="review-dot" aria-label="Review 4"></button>
         </div>
       </section>
-    </div>
+   <!-- floating whatsapp button -->
+     <a 
+     href="https://wa.me/254115369156?text=Hello%20Uptop%20Computers,%20I%20would%20like%20to%20place%20an%20order." 
+     class="floating-whatsapp" 
+   target="_blank" 
+   rel="noopener"
+   aria-label="Chat with us on WhatsApp"
+   >
+     <i class="fa-brands fa-whatsapp"></i>
+    </a>
+      
+   <!-- Footer included inside outer app wrapper -->
+      <footer class="site-footer">
+        <div class="footer-container">
+          <div class="footer-col brand-col">
+            <h3 class="footer-logo">Uptop Computers</h3>
+            <p class="footer-desc">
+              Your trusted computer shop for quality laptops, accessories, custom
+              PC builds, and professional tech support.
+            </p>
+          </div>
 
-    <footer class="site-footer">
-      <div class="footer-container">
-        <div class="footer-col brand-col">
-          <h3 class="footer-logo">Uptop Computers</h3>
-          <p class="footer-desc">Your trusted computer shop for quality laptops, accessories, custom PC builds, and professional tech support.</p>
-          <div class="payment-methods">
-            <span>Accepted: M-Pesa | Card | Cash</span>
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="laptops.html">Laptops</a></li>
+              <li><a href="accessories.html">Accessories</a></li>
+              <li><a href="services.html">Services</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Customer Care</h4>
+            <ul>
+              <li><a href="#privacy">Privacy Policy</a></li>
+              <li><a href="#terms">Terms of Service</a></li>
+              <li><a href="#warranty">Warranty & Returns</a></li>
+              <li><a href="#faq">FAQs</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Contact Us</h4>
+            <ul class="contact-info">
+              <li>📍 Nairobi, Kenya</li>
+              <li>
+                📞
+                <a href="tel:254115369156" target="_blank" rel="noopener"
+                  >Call Now</a
+                >
+              </li>
+              <li>
+                💬
+                <a
+                  href="https://wa.me/254115369156"
+                  target="_blank"
+                  rel="noopener"
+                  >WhatsApp Support</a
+                >
+              </li>
+              <li>⏰ Mon - Sat: 8:00 AM - 6:00 PM</li>
+            </ul>
           </div>
         </div>
 
-        <div class="footer-col">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="laptops.html">Laptops</a></li>
-            <li><a href="Accessories.html">Accessories</a></li>
-            <li><a href="services.html">Services</a></li>
-          </ul>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Uptop Computers. All rights reserved.</p>
         </div>
+      </footer>
+   <!-- Scroll to top button -->
+  <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll to top">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
 
-        <div class="footer-col">
-          <h4>Customer Care</h4>
-          <ul>
-            <li><a href="#privacy">Privacy Policy</a></li>
-            <li><a href="#terms">Terms of Service</a></li>
-            <li><a href="#warranty">Warranty & Returns</a></li>
-            <li><a href="#faq">FAQs</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Contact Us</h4>
-          <ul class="contact-info">
-            <li>📍 Nairobi, Kenya</li>
-            <li>📞 +254 115 369 156</li>
-            <li>💬 <a href="https://wa.me/254115369156" target="_blank" rel="noopener">WhatsApp Support</a></li>
-            <li>⏰ Mon - Sat: 8:00 AM - 6:00 PM</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p>&copy; 2026 Uptop Computers. All rights reserved.</p>
-      </div>
-    </footer>
-
-    <script src="jss/java.js"></script>
+  <script src="jss/java.js"></script>
+</body>
   </body>
 </html>
