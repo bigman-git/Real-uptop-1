@@ -665,7 +665,7 @@ body.accessories-page .category-chips::-webkit-scrollbar {
 }
 
 body.accessories-page .chip {
-  background: #f1f5f9;
+  background: #5f93c7;
   border: 1px solid var(--border-color);
   padding: 6px 14px;
   border-radius: 20px;
@@ -956,7 +956,7 @@ body.services-page .grid {
 }
 
 body.services-page .service-card {
-  background: #f8fbff;
+  background: #5191e4;
   border: 1px solid rgba(15, 23, 42, 0.06);
   border-radius: 16px;
   padding: 18px;
@@ -987,7 +987,7 @@ body.services-page .service-btn {
   justify-content: center;
   padding: 9px 12px;
   border-radius: 10px;
-  background: #eaf2ff;
+  background: #a6bca8;
   color: var(--primary);
   text-decoration: none;
   font-weight: 700;
@@ -1318,7 +1318,7 @@ body.accessories-page footer {
   width: 100%;
   border-radius: 16px;
   overflow: hidden;
-  background: linear-gradient(135deg, #e0f2fe 0%, #eff6ff 100%);
+  background: linear-gradient(135deg, #a5a6b3 0%, #eff6ff 100%);
   margin-bottom: 24px;
 }
 
@@ -1342,13 +1342,13 @@ body.accessories-page footer {
 .carousel-title {
   font-size: 1.125rem;
   font-weight: 700;
-  color: #0f172a;
+  color: #073a91;
   margin-bottom: 6px;
 }
 
 .carousel-subtitle {
   font-size: 0.8125rem;
-  color: #64748b;
+  color: #000000fa;
   margin-bottom: 16px;
 }
 
@@ -1361,12 +1361,12 @@ body.accessories-page footer {
   font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+  box-shadow: 0 4px 12px rgba(4, 30, 86, 0.25);
   transition: background-color 0.2s ease;
 }
 
 .btn-primary:hover {
-  background-color: #1d4ed8;
+  background-color: #02055b;
 }
 
 /* Carousel Controls */
@@ -3726,4 +3726,987 @@ html, body {
 ::-webkit-scrollbar-thumb:hover,
 ::-webkit-scrollbar-thumb:active {
   background-color: #1e40af !important; /* Stronger Dark Blue */
+  @media (min-width: 1024px) {
+  /* Remove mobile constraints and center the layout */
+  .app-container,
+  .site-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    box-shadow: none; /* Removes mobile frame effect */
+  }
+
+  /* Expand main content container */
+  .main-content {
+    max-width: 100%;
+    padding: 2.5rem 0;
+  }
+}
+}
+@media (min-width: 1024px) {
+  /* Align logo, search, and action items horizontally */
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 2rem;
+    gap: 2rem;
+  }
+
+  .search-container {
+    max-width: 600px; /* Expands search bar comfortably */
+    flex-grow: 1;
+  }
+
+  /* Unfurl mobile category pills into a sleek top bar or horizontal nav */
+  .category-chips,
+  .pills-nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    overflow-x: visible; /* Disable swipe scrolling on desktop */
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+}
+@media (min-width: 1024px) {
+  .products-grid,
+  .featured-grid,
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 items per row on laptops */
+    gap: 1.75rem;
+  }
+
+  /* 5 columns on large desktop monitors */
+  @media (min-width: 1440px) {
+    .products-grid,
+    .featured-grid,
+    .product-grid {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
+  /* Add subtle desktop elevation on hover */
+  .product-card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  }
+}
+@media (min-width: 1024px) {
+  /* Process steps in a single horizontal row */
+  .process-steps,
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  /* Wide screen adjustments for review/testimonial cards */
+  .testimonials-grid,
+  .reviews-carousel {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    overflow-x: visible; /* Converts carousel swipe to static desktop grid */
+  }
+
+  /* Expanded Footer Columns */
+  .site-footer {
+    display: grid;
+    grid-template-columns: 2fr repeat(3, 1fr);
+    gap: 3rem;
+    padding: 4rem 2rem;
+  }
+}
+/* ==========================================================================
+   DESKTOP & LARGE SCREEN FULL-WIDTH OVERRIDES
+   ========================================================================== */
+
+@media screen and (min-width: 1024px) {
+  
+  /* 1. Break out of the mobile frame constraint */
+  html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: #f8fafc; /* Prevents awkward side margins/gutter colors */
+  }
+
+  /* 2. Uncap main container limits so content spans the screen */
+  .app-container,
+  .site-wrapper,
+  #app,
+  main,
+  .main-content {
+    width: 100% !important;
+    max-width: 100% !important; /* Removes max-width: 480px lock */
+    min-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    box-shadow: none !important; /* Removes any mobile device preview borders */
+    border: none !important;
+    border-radius: 0 !important;
+  }
+
+  /* 3. Constrain inner content sections cleanly while letting backgrounds span 100% */
+  .header-inner,
+  .nav-inner,
+  .banner-container,
+  .section-content,
+  .products-section,
+  .footer-inner {
+    width: 100%;
+    max-width: 1440px; /* Standard wide-screen desktop container */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    box-sizing: border-box;
+  }
+
+  /* 4. Convert full-width stacked components into wide-screen grids */
+  .products-grid,
+  .featured-grid,
+  .categories-grid,
+  .services-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important; /* Spreads cards across 4 columns */
+    gap: 1.5rem;
+    width: 100%;
+  }
+
+  /* 5. Convert horizontal touch-carousels to full desktop layouts */
+  .pills-nav,
+  .category-chips,
+  .scroll-container {
+    overflow-x: visible !important;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* Extra Large Monitors (1600px+) */
+@media screen and (min-width: 1600px) {
+  .products-grid,
+  .featured-grid {
+    grid-template-columns: repeat(5, 1fr) !important; /* 5 columns for ultra-wide displays */
+  }
+  
+  .header-inner,
+  .section-content,
+  .footer-inner {
+    max-width: 1600px;
+  }
+}/* 1. Prevent the root browser window from spawning a second vertical scrollbar */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-y: hidden; /* Disables outer browser scrollbar */
+}
+
+/* 2. Force the inner app wrapper to fill the window and handle the single main scroll */
+.app-container,
+.site-wrapper {
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;  /* Keeps the functional scrollbar inside your site layout */
+  overflow-x: hidden; /* Eliminates unwanted horizontal scrolling */
+}
+/* 1. Kill the outer browser scrollbar entirely */
+html {
+  height: 100%;
+  overflow: hidden !important; /* Force hides the far-right browser scrollbar */
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden !important; /* Ensures no outer body scroll */
+}
+
+/* 2. Set your app wrapper as the single scrollable viewport */
+.app-container,
+.site-wrapper {
+  width: 100%;
+  height: 100vh;
+  height: 100dvh; /* Handles dynamic viewport height on modern browsers */
+  overflow-y: scroll !important; /* Retains internal scrolling */
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* 3. Hide the visual scrollbar bar on the outer root (Webkit/Blink engine safety) */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+}
+/* Custom Shiny Blue Scrollbar Thumb */
+
+/* Firefox standard: Thumb Color | Track Color */
+.app-container,
+.site-wrapper {
+  scrollbar-color: #2563eb #e2e8f0;
+}
+
+/* Webkit browsers (Chrome, Safari, Edge, Opera) */
+.app-container::-webkit-scrollbar-thumb,
+.site-wrapper::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #60a5fa 0%, #2563eb 50%, #1d4ed8 100%);
+  border-radius: 6px;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4), 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.app-container::-webkit-scrollbar-thumb:hover,
+.site-wrapper::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #93c5fd 0%, #3b82f6 50%, #1e40af 100%);
+}
+/* Split-Color Top Contact Bar */
+.top-contact-bar {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 !important;
+  overflow: hidden; /* Clean edge-to-edge colors */
+}
+
+/* Left Side: Intensified WhatsApp Green */
+.top-contact-bar .whatsapp-side,
+.top-contact-bar > *:first-child {
+  flex: 1;
+  background-color: #25d366 !important; /* Authentic vibrant WhatsApp green */
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.top-contact-bar .whatsapp-side a,
+.top-contact-bar .whatsapp-side span,
+.top-contact-bar > *:first-child * {
+  color: #ffffff !important; /* Crisp white text for contrast */
+  font-weight: 600;
+}
+
+/* Right Side: Light Blue */
+.top-contact-bar .call-side,
+.top-contact-bar > *:last-child {
+  flex: 1;
+  background-color: #095edc !important; /* Soft light blue */
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.top-contact-bar .call-side a,
+.top-contact-bar .call-side span,
+.top-contact-bar > *:last-child * {
+  color: #d9dee6 !important; /* Deep blue text/icon */
+  font-weight: 600;
+}
+
+/* Active Page Nav Highlight */
+.nav-link.active,
+.pill-btn.active,
+.pills-nav a.active {
+  background-color: #dbeafe !important; /* Light blue background */
+  color: #0e38ab !important; /* Deep blue text */
+  font-weight: 700;
+  border-radius: 20px;
+}
+/* Align Section Header Title and View All Button */
+.section-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100% !important;
+  max-width: 1200px;
+  margin: 2rem auto 1rem auto;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+}
+
+.section-header .section-title {
+  margin: 0 !important;
+  font-size: 1.75rem !important;
+  font-weight: 800 !important;
+  color: #0f172a !important;
+}
+
+/* Style your exact .view-all button */
+button.view-all,
+.view-all {
+  background-color: #dbeafe !important; /* Soft light blue background */
+  color: #1d4ed8 !important; /* Royal blue text */
+  padding: 8px 18px !important;
+  border-radius: 9999px !important; /* Clean rounded pill style */
+  font-weight: 600 !important;
+  font-size: 0.875rem !important;
+  border: 1px solid #bfdbfe !important;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+}
+
+button.view-all:hover,
+.view-all:hover {
+  background-color: #1d4ed8 !important;
+  color: #ffffff !important;
+  border-color: #1d4ed8 !important;
+}
+/* ==========================================================================
+   UPTOP COMPUTERS - COMPLETE MODERN THEME OVERRIDE
+   ========================================================================== */
+
+/* 1. Global Light Canvas */
+body, 
+.app-container, 
+.main-content, 
+.content-container {
+  background-color: #f8fafc !important; /* Clean cool gray canvas */
+  color: #0f172a !important;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. Top Contact Bar (Split Emerald & Royal Blue) */
+.top-contact-bar {
+  display: flex !important;
+  width: 100% !important;
+  padding: 0 !important;
+}
+
+.top-contact-bar .whatsapp-side,
+.top-contact-bar > div:first-child {
+  flex: 1;
+  background-color: #16a34a !important; /* WhatsApp Emerald */
+  padding: 10px 0;
+  text-align: center;
+}
+
+.top-contact-bar .call-side,
+.top-contact-bar > div:last-child {
+  flex: 1;
+  background-color: #1d4ed8 !important; /* Sapphire Blue */
+  padding: 10px 0;
+  text-align: center;
+}
+
+.top-contact-bar a {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+}
+
+/* 3. Filter Chips System (.chip-btn) */
+.filter-section {
+  padding: 0.75rem 0;
+}
+
+.chip-container {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+}
+
+.chip-btn {
+  background-color: #ffffff !important;
+  color: #475569 !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 9999px !important;
+  padding: 6px 16px !important;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease;
+}
+
+.chip-btn:hover {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+.chip-btn.active {
+  background-color: #dbeafe !important; /* Light ice blue pill */
+  color: #1d4ed8 !important; /* Sapphire blue active text */
+  border-color: #bfdbfe !important;
+  box-shadow: 0 2px 4px rgba(29, 78, 216, 0.1) !important;
+}
+
+/* 4. Product Cards Fix (Replaces Dark Unreadable Cards with Clean White Cards) */
+.product-card, 
+.product-grid > article {
+  background-color: #ffffff !important; /* Clean white card */
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 16px !important;
+  padding: 1.25rem !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Product Card Typography Contrast */
+.product-card h3, 
+.product-card .product-title,
+.product-card * {
+  color: #0f172a !important; /* Pitch black for crystal clear text */
+}
+
+.product-card .product-badge {
+  background-color: #dcfce7 !important;
+  color: #15803d !important;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+}
+
+.product-card button, 
+.product-card .btn {
+  background-color: #1d4ed8 !important; /* Royal Sapphire Blue Buy Button */
+  color: #ffffff !important;
+  border-radius: 8px !important;
+  border: none !important;
+  padding: 10px 16px !important;
+  font-weight: 700 !important;
+  width: 100% !important;
+  cursor: pointer;
+}
+
+.product-card button:hover {
+  background-color: #1e40af !important;
+}
+
+/* 5. Navigation Pills */
+.nav-link, .pills-nav a {
+  background-color: #e2e8f0 !important;
+  color: #475569 !important;
+  border-radius: 9999px !important;
+  padding: 6px 18px !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+}
+
+.nav-link.active, .pills-nav a.active {
+  background-color: #dbeafe !important;
+  color: #1d4ed8 !important;
+}
+/* ==========================================================================
+   FILTER & SORT DROPDOWNS OVERRIDE
+   ========================================================================== */
+
+/* 1. Universal Select Menu Styling */
+select {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  background-color: #f3f3f8 !important;
+  color: #000000 !important;
+  font-family: inherit !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  padding: 8px 36px 8px 14px !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  outline: none !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+  transition: all 0.2s ease-in-out !important;
+
+  /* Adds a custom blue arrow icon replacing the ugly browser arrow */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%231d4ed8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2.5' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 10px center !important;
+  background-size: 16px !important;
+}
+
+/* Hover and Active State */
+select:hover {
+  border-color: #1d4ed8 !important; /* Sapphire blue highlight */
+  background-color: #f8fafc !important;
+}
+
+select:focus {
+  border-color: #1d4ed8 !important;
+  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.15) !important;
+}
+
+/* 2. Label Styling (Filter: and Sort By:) */
+label,
+.filter-section label {
+  font-weight: 700 !important;
+  color: #0f172a !important;
+  font-size: 0.875rem !important;
+  margin-right: 6px !important;
+}
+/* Horizontal Alignment for Header Toolbar Controls */
+.header-toolbar {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 1.25rem !important; /* Space between Filter and Sort groups */
+  margin: 1rem 0 !important;
+  width: 100% !important;
+}
+
+/* Individual Label + Select Grouping */
+.filter-wrapper,
+.sort-wrapper {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important; /* Space between 'Filter:' text and dropdown */
+}
+
+/* Ensure dropdowns take natural content width */
+.select-input {
+  width: auto !important;
+  min-width: 130px;
+}
+/* ==========================================================================
+   HEADER & TOOLBAR RESPONSIVE LAYOUT
+   ========================================================================== */
+
+/* 1. Top Section (Brand Logo & Search Bar) */
+.header-main {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 1.5rem !important;
+  width: 100% !important;
+  margin-bottom: 1rem !important;
+}
+
+.brand-logo {
+  font-size: 1.5rem !important;
+  font-weight: 800 !important;
+  color: #0f172a !important;
+  letter-spacing: -0.5px;
+}
+
+/* Search Bar Wrapper */
+.search-container {
+  position: relative !important;
+  flex: 1 !important;
+  max-width: 450px !important;
+}
+
+.search-input {
+  width: 100% !important;
+  padding: 10px 40px 10px 16px !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 9999px !important;
+  background-color: #ffffff !important;
+  font-size: 0.9rem !important;
+  outline: none !important;
+  box-sizing: border-box !important;
+  transition: border-color 0.2s ease;
+}
+
+.search-input:focus {
+  border-color: #1d4ed8 !important;
+  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.12) !important;
+}
+
+.search-icon {
+  position: absolute !important;
+  right: 14px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: #94a3b8 !important;
+  pointer-events: none;
+}
+
+/* 2. Bottom Section: Controls Toolbar (Filter & Sort Straight Line) */
+.header-toolbar {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 1.5rem !important; /* Spaces out Filter and Sort */
+  margin-bottom: 1.25rem !important;
+  width: 100% !important;
+}
+
+.filter-wrapper,
+.sort-wrapper {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important; /* Space between 'Filter:' label and dropdown */
+}
+
+/* 3. Responsive Breakpoint (Mobile View Stack) */
+@media (max-width: 640px) {
+  .header-main {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.75rem !important;
+  }
+
+  .search-container {
+    max-width: 100% !important;
+  }
+
+  .header-toolbar {
+    justify-content: space-between !important;
+  }
+}
+/* Evenly Distributed & Responsive Filter Chips */
+.chip-container,
+.filter-section .chip-container {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 12px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Force buttons to fill equal available horizontal space */
+.chip-container .chip-btn,
+.chip-btn {
+  flex: 1 1 auto !important; /* Grow and shrink equally */
+  text-align: center !important;
+  white-space: nowrap !important; /* Prevents text inside pills from breaking */
+  min-width: 110px !important; /* Ensures pills stay legible on small screens */
+  padding: 10px 18px !important;
+}
+/* Evenly Distributed Chips maintaining Natural Size */
+.chip-container,
+.filter-section .chip-container {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important; /* Center-aligns pills across the row */
+  align-items: center !important;
+  gap: 12px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Keeps chips at their natural button dimensions */
+.chip-container .chip-btn,
+.chip-btn {
+  flex: 0 0 auto !important; /* Prevents stretching on single/wrapped lines */
+  width: auto !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  padding: 10px 20px !important;
+}
+/* Responsive Product Grid: Minimum 2 Cards Horizontally */
+.product-grid,
+#productGrid,
+.featured-grid {
+  display: grid !important;
+  /* Automatically fits as many cards as possible, down to 140px min width */
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)) !important;
+  gap: 12px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Adjust card inner spacing so content fits neatly in 2-column mobile layouts */
+@media (max-width: 480px) {
+  .product-card,
+  .product-grid > article {
+    padding: 0.75rem !important; /* Compact padding for smaller cards */
+  }
+
+  .product-card h3,
+  .product-card .title {
+    font-size: 0.875rem !important; /* Slightly smaller title text */
+  }
+
+  .product-card button,
+  .product-card .btn {
+    padding: 8px 10px !important;
+    font-size: 0.8rem !important;
+  }
+}
+/* Product Grid Base: Up to 5 Columns Max */
+.product-grid,
+#productGrid,
+.featured-grid {
+  display: grid !important;
+  grid-template-columns: repeat(5, 1fr) !important; /* Default 5 max columns on large screens */
+  gap: 16px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Screen Breakpoints to Preserve Card Text */
+
+/* Large Desktop / Laptops: 4 Columns */
+@media (max-width: 1280px) {
+  .product-grid, #productGrid, .featured-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+}
+
+/* Tablets / Medium Screens: 3 Columns */
+@media (max-width: 992px) {
+  .product-grid, #productGrid, .featured-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 12px !important;
+  }
+}
+
+/* Mobile Screens: 2 Columns Minimum */
+@media (max-width: 640px) {
+  .product-grid, #productGrid, .featured-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+}
+
+/* Card Text Spacing Safeguard */
+.product-card,
+.product-grid > article {
+  min-width: 0 !important; /* Prevents long non-breaking text from overflowing card containers */
+}
+/* Fully Visible Card Content Override */
+.product-card h3,
+.product-card .product-title,
+.product-card .title,
+.product-card p {
+  /* Remove line clamping and hidden overflow */
+  display: block !important;
+  overflow: visible !important;
+  white-space: normal !important;
+  -webkit-line-clamp: unset !important;
+  
+  /* Layout adjustments for readability */
+  font-size: 0.9rem !important;
+  line-height: 1.4 !important;
+  color: #0f172a !important;
+  margin: 0.5rem 0 !important;
+  word-wrap: break-word !important; /* Wraps extremely long single words */
+}
+
+/* Ensures card containers expand smoothly to accommodate longer text */
+.product-card,
+.product-grid > article {
+  height: auto !important;
+  min-height: 100% !important;
+}
+/* ==========================================================================
+   EVENLY DISTRIBUTED RESPONSIVE FOOTER
+   ========================================================================== */
+
+/* 1. Footer Section Base */
+footer,
+.site-footer,
+.footer-container {
+  width: 100% !important;
+  background-color: #0f172a !important; /* Deep navy/slate background */
+  color: #f8fafc !important;
+  padding: 2.5rem 1.5rem !important;
+  box-sizing: border-box !important;
+}
+
+/* 2. Evenly Distributed Columns Container */
+.footer-content,
+.footer-grid,
+footer > div {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  justify-content: space-between !important; /* Spreads columns end-to-end */
+  align-items: flex-start !important;
+  gap: 2rem !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+}
+
+/* 3. Footer Column Distribution Rules */
+.footer-col,
+.footer-section,
+.footer-content > div {
+  flex: 1 1 200px !important; /* Equal growth across all columns with a 200px base */
+  min-width: 180px !important;
+  box-sizing: border-box !important;
+}
+
+/* Footer Typography & Links */
+.footer-col h4,
+.footer-col h3 {
+  color: #ffffff !important;
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 1rem !important;
+}
+
+.footer-col ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.footer-col li {
+  margin-bottom: 0.5rem !important;
+}
+
+.footer-col a {
+  color: #94a3b8 !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease !important;
+}
+
+.footer-col a:hover {
+  color: #60a5fa !important; /* Ice blue highlight on hover */
+}
+
+/* Mobile Alignment: Center-align contents smoothly when wrapped */
+@media (max-width: 640px) {
+  .footer-content,
+  .footer-grid,
+  footer > div {
+    justify-content: center !important;
+    text-align: center !important;
+    gap: 1.5rem !important;
+  }
+}
+/* ==========================================================================
+   GLOBAL CTA BUTTONS - UNIFIED GREEN THEME
+   ========================================================================== */
+
+/* Target all primary CTA buttons, links styled as buttons, and search triggers */
+.btn-primary,
+.buy-now-btn,
+.product-card button,
+.product-card .btn,
+.cart-btn,
+.checkout-btn,
+.search-btn,
+a.btn-primary,
+button[type="submit"] {
+  background-color: #16a34a !important; /* Unified Emerald Green */
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  border: none !important;
+  border-radius: 9999px !important; /* Soft pill shape */
+  padding: 10px 20px !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  box-shadow: 0 2px 4px rgba(22, 163, 74, 0.2) !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+/* Unified Hover and Active Press States */
+.btn-primary:hover,
+.buy-now-btn:hover,
+.product-card button:hover,
+.product-card .btn:hover,
+.cart-btn:hover,
+.checkout-btn:hover,
+.search-btn:hover,
+a.btn-primary:hover,
+button[type="submit"]:hover {
+  background-color: #15803d !important; /* Slightly deeper green on hover */
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 8px rgba(22, 163, 74, 0.3) !important;
+}
+
+.btn-primary:active,
+.buy-now-btn:active,
+.product-card button:active {
+  transform: translateY(0) !important;
+  background-color: #166534 !important;
+}
+/* ==========================================================================
+   REMOVE OUTER BORDERS & STRETCH FULL WIDTH
+   ========================================================================== */
+
+/* 1. Reset default browser margins and paddings */
+html, 
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+/* 2. Remove rounded corners & padding from outer layout wrappers */
+.app-container,
+.main-content,
+.content-container,
+#app,
+main {
+  border-radius: 0 !important; /* Removes curved corners */
+  border: none !important; /* Removes outer border lines */
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-shadow: none !important;
+}
+
+/* 3. Ensure footer stretches completely to screen edges */
+footer,
+.site-footer,
+.footer-container {
+  border-radius: 0 !important;
+  width: 100% !important;
+  margin: 0 !important;
+}
+/* Scroll to Top Button Core Fix */
+#scrollTopBtn,
+.scroll-top-btn {
+  position: fixed !important;
+  bottom: 24px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 50% !important;
+  background-color: #16a34a !important; /* CTA Green */
+  color: #ffffff !important;
+  border: none !important;
+  font-size: 1.25rem !important;
+  cursor: pointer !important;
+  
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4) !important;
+  z-index: 999999 !important; /* Extreme priority layer */
+}
+
+/* Fallback text if FontAwesome icon breaks */
+#scrollTopBtn:empty::after,
+.scroll-top-btn:empty::after {
+  content: "↑" !important;
+  font-weight: bold;
+}
+/* Ensure Header sits above and pushes content down correctly */
+.site-header,
+header {
+  position: relative !important;
+  z-index: 100 !important; /* Elevates header above main body content */
+  width: 100% !important;
+  margin-bottom: 1.5rem !important; /* Forces spacing below header */
+}
+
+/* Remove any negative margins or absolute positioning on the Hero/Main Section */
+main,
+.hero-section,
+.services-hero,
+div[class*="hero"],
+section:first-of-type {
+  position: relative !important;
+  z-index: 1 !important;
+  margin-top: 0 !important; /* Prevents hero section from pulling upward */
+  clear: both !important;
 }
